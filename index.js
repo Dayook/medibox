@@ -4,12 +4,13 @@ const port = 5000;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser")
 const {User} = require("./model/User")
+const config = require('./config/key')
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 mongoose
   .connect(
-    "mongodb+srv://sohae:sohae123@cluster0.gl0k0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    config.mongoURI
   )
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
