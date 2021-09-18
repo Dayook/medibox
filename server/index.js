@@ -26,6 +26,15 @@ app.post('/register', (req, res) =>{
   
 })
 
+app.post('/login', (req, res)=> {
+  // 요청된 email을 데이터베이스에 있는지 찾는다.
+
+  // 요청된 메일이 db에 있다면 비밀번호가 맞는지 확인한다
+
+  // 비밀번호가 맞다면 그 유저를 위한 token 생성
+  
+})
+
 
 
 // root directory에 오면 hello world 출력
