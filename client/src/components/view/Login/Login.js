@@ -3,7 +3,7 @@ import Axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_actions";
 
-function Login() {
+function Login(props) {
   const dispatch = useDispatch();
   // 안에서 데이터 변화를 시키기 위해서는 state
   const [Email, setEmail] = useState("");
@@ -24,7 +24,7 @@ function Login() {
 
     dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
-        // props.history.push("/");
+        props.history.push("/");
       } else {
         alert("Error˝");
       }

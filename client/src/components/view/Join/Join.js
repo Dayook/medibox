@@ -65,6 +65,7 @@ function Join(props) {
     dispatch(registerUser(body)).then((response) => {
       if (response.payload.success) {
         props.history.push("/login");
+        alert("가입 완료");
       } else {
         alert("Failed to sign up");
       }

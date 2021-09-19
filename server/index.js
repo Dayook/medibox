@@ -64,18 +64,18 @@ app.post("/api/users/login", (req, res) => {
         });
 
       //비밀번호 까지 맞다면 토큰을 생성하기.
-      user.generateToken((err, user) => {
-        if (err) return res.status(400).send(err);
-
-        // 토큰을 저장한다.  어디에 ?  쿠키 , 로컳스토리지
-        res
-          .cookie("x_auth", user.token)
-          .status(200)
-          .json({ loginSuccess: true, userId: user._id });
-      });
+      // user.generateToken((err, user) => {
+      //   if (err) return res.status(400).send(err);
+      console.log("냥ㅎㅎ");
+      // 토큰을 저장한다.  어디에 ?  쿠키 , 로컳스토리지
+      res
+        // .cookie("x_auth", user.token)
+        .status(200)
+        .json({ loginSuccess: true, userId: user._id });
     });
   });
 });
+// });
 
 // role 1 어드민    role 2 특정 부서 어드민
 // role 0 -> 일반유저   role 0이 아니면  관리자
