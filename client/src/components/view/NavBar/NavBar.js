@@ -3,6 +3,7 @@ import { Button, Drawer } from "antd";
 import Icon from "@ant-design/icons";
 import RightMenu from "./Sections/RightMenu";
 import LeftMenu from "./Sections/LeftMenu";
+import logo from "../../../medikit.svg";
 import "./Sections/Navbar.css";
 
 function NavBar() {
@@ -22,7 +23,9 @@ function NavBar() {
       style={{ position: "fixed", zIndex: 5, width: "100%" }}
     >
       <div className="menu__logo">
-        <a href="/">Logo</a>
+        <a href="/">
+          <img src={logo} alt="logo" style={{ width: "100px" }}></img>
+        </a>
       </div>
       <div className="menu__container">
         <div className="menu_left">
