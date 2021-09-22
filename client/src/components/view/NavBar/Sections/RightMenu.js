@@ -6,6 +6,9 @@ import { USER_SERVER } from "../../../../Config";
 import { withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
+
 function RightMenu(props) {
   const user = useSelector((state) => state.user);
 
@@ -34,9 +37,15 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="upload">
-          <a href="/myPage">My Page</a>
-        </Menu.Item>
+        <SubMenu key="sub" title={<span>My Page</span>}>
+          {/* <MenuItemGroup title="dd"> */}
+          <Menu.Item key="myPage">
+            <a href="/myPage">나의 처방전</a>
+          </Menu.Item>
+          <Menu.Item key="myPage">
+            <a href="/myPage">나의 프로필</a>
+          </Menu.Item>
+        </SubMenu>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>Logout</a>
         </Menu.Item>
