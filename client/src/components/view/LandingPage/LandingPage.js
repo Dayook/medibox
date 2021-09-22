@@ -4,16 +4,21 @@ import axios from "axios";
 export default function LandingPage() {
   useEffect(() => {
     alert("use");
-    axios.get("/api/hello").then((response) => {
-      alert("hh");
-      console.log(response);
+    axios.get("/api/user/logout").then((response) => {
+      
+
     });
     return () => {};
   }, []);
 
+  const onClickHandler = () =>{
+    axios.get("/api/users/logout").then(response=> {
+      console.log(response.data)
+    })
+  }
   return (
     <div>
-      <h2>LandingPage 랜딩페이지</h2>
+      <h2><button onClick={onClickHandler}>logout</button></h2>
     </div>
   );
 }

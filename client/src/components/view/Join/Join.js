@@ -1,7 +1,7 @@
 // import { response } from "express";
 import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { loginUser, registerUser } from "../../../_actions/user_actions";
+import { registerUser } from "../../../_actions/user_actions";
 
 function Join(props) {
   // function password_validate(password) {
@@ -25,7 +25,7 @@ function Join(props) {
   const [Password, setPassword] = useState("");
   const [PasswordCheck, setPasswordCheck] = useState("");
   const [NickName, setNickName] = useState("");
-  const [Birth, setBrith] = useState("");
+  // const [Birth, setBrith] = useState("");
   let [passwordChecking, setpasswordChecking] = useState(false);
 
   const onEmailHandler = (event) => {
