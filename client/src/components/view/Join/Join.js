@@ -58,7 +58,6 @@ function Join(props) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
     // email, 비밀번호 검증
 
     let body = {
@@ -120,7 +119,9 @@ function Join(props) {
           {/* <label>Date of Birth</label>
           <input type="date" value={Birth} onChange={onBirthHandler} /> */}
           <br></br>
-          <Button type="primary">Join</Button>
+          <Button type="primary" onClick={onSubmitHandler}>
+            Join
+          </Button>
         </Form>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import Axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_actions";
+import { Form, Input, Button } from "antd";
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -14,9 +14,8 @@ function Login(props) {
   const onPasswordHandler = (event) => {
     setPassowrd(event.target.value);
   };
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
     let body = {
       email: Email,
       password: Password,
@@ -26,7 +25,7 @@ function Login(props) {
       if (response.payload.loginSuccess) {
         props.history.push("/");
       } else {
-        alert("Error˝");
+        alert("일치하는 회원 정보가 존재하지 않습니다˝");
       }
     });
   };
@@ -39,14 +38,22 @@ function Login(props) {
       }}
     >
       <form
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: window.innerHeight * 0.9,
+          justifyContent: "center",
+        }}
         onSubmit={onSubmitHandler}
       >
         <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
+        <Input type="email" value={Email} onChange={onEmailHandler} />
         <label> Password </label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
-        <button>Login</button>
+        <Input type="password" value={Password} onChange={onPasswordHandler} />
+        <br></br>
+        <Button type="primary" onClick={onSubmitHandler}>
+          Login
+        </Button>
       </form>
     </div>
   );

@@ -70,7 +70,7 @@ router.get("/auth", auth, (req, res) => {
   });
 });
 
-router.get("/api/users/logout", auth, (req, res) => {
+router.get("/logout", auth, (req, res) => {
   // console.log('req.user', req.user)
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err });
