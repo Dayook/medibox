@@ -46,14 +46,24 @@
   border-bottom: none;
 }
 
-.menu__container .menu_left {
+.menu_left {
   float: left;
+  width: 200px;
+}
+
+.menu_right {
+  float: right;
+  width: 250px;
+}
+/* .menu__container .menu_left {
+  float: left;
+  width: max-content;
 }
 
 .menu__container .menu_right {
   float: right;
-  width: 250px;
-}
+  width: max-content;
+} */
 
 .menu__mobile-button {
   float: right;
