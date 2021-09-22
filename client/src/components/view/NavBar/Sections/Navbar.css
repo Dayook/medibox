@@ -19,6 +19,11 @@
   padding: 17px 20px;
 }
 
+.nav__container {
+  width: 800px;
+  margin: 0 auto
+}
+
 .menu__container {
   vertical-align: middle;
   padding: 10px;
