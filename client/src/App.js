@@ -18,6 +18,7 @@ function App() {
       <Router>
         <div>
           <Switch>
+            <Route exact path="/" component={Auth(LandingPage)} />
             <Route exact path="/hook" component={Auth(Hook)} />
             <Route exact path="/login" component={Auth(Login, false)} />
             <Route exact path="/join" component={Auth(Join, false)} />
