@@ -2,6 +2,8 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_actions";
+import { Form, Input, Button } from "antd";
+import { Icon, ExclamationCircleOutlined } from "@ant-design/icons";
 
 function Join(props) {
   // function password_validate(password) {
@@ -57,6 +59,8 @@ function Join(props) {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
+    // email, 비밀번호 검증
+
     let body = {
       email: Email,
       password: Password,
@@ -73,23 +77,24 @@ function Join(props) {
   };
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <form
-          style={{ display: "flex", flexDirection: "column", width: "11rem" }}
+      <div className="x">
+        <Form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "13rem",
+            margin: "0 auto",
+            height: window.innerHeight * 0.9,
+            justifyContent: "center",
+          }}
           onSubmit={onSubmitHandler}
         >
           <label>Email</label>
-          <input type="email" value={Email} onChange={onEmailHandler} />
+          <Input type="email" value={Email} onChange={onEmailHandler} />
           <label>Nickname</label>
-          <input type="text" value={NickName} onChange={onNickNameHandler} />
+          <Input type="text" value={NickName} onChange={onNickNameHandler} />
           <label> Password </label>
-          <input
+          <Input
             type="password"
             value={Password}
             onChange={onPasswordHandler}
@@ -98,7 +103,7 @@ function Join(props) {
             {Password.length < 8 && "8자 이상으로 입력해주세요"}
           </span>
           <label> Password Check </label>
-          <input
+          <Input
             type="password"
             value={PasswordCheck}
             onChange={onPasswordCheckHandler}
@@ -107,17 +112,17 @@ function Join(props) {
             {PasswordCheck &&
               (passwordChecking
                 ? "비밀번호가 일치합니다"
-                : "비밀번호가 일치하지 않습니다")}
-          </span>
+                : " 비밀번호가 일치하지 않습니다")}
+          </span>{" "}
           {/* {passwordChecking
             ? "비밀번호가 일치합니다"
             : "비밀번호가 일치하지 않습니다"} */}
           {/* <label>Date of Birth</label>
           <input type="date" value={Birth} onChange={onBirthHandler} /> */}
-          <button>Join</button>
-        </form>
+          <br></br>
+          <Button type="primary">Join</Button>
+        </Form>
       </div>
-      );
     </div>
   );
 }
