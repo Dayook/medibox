@@ -21,7 +21,7 @@
 
 .nav__container {
   width: 800px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .menu__container {
@@ -52,7 +52,7 @@
 
 .menu__container .menu_right {
   float: right;
-  width: 230px;
+  width: 250px;
 }
 
 .menu__mobile-button {
@@ -76,6 +76,10 @@
 @media (max-width: 767px) {
   .menu__mobile-button {
     display: inline-block !important;
+  }
+
+  .nav__container {
+    width: 100%;
   }
 
   .menu_left,
