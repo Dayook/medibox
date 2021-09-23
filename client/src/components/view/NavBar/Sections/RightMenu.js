@@ -39,8 +39,8 @@ function RightMenu(props) {
       <Menu mode={props.mode}>
         <SubMenu key="sub" title={<span>My Page</span>}>
           {/* <MenuItemGroup title="dd"> */}
-          <Menu.Item key="myPage">
-            <a href="/myPage">나의 처방전</a>
+          <Menu.Item key="my-medicine">
+            <a href="/my-medicine">나의 처방전</a>
           </Menu.Item>
           <Menu.Item key="myPage">
             <a href="/myPage">나의 프로필</a>
