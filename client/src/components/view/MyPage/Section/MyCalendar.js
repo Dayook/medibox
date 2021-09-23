@@ -64,6 +64,7 @@ function MyCalendar() {
   return (
     <div>
       <Calendar
+        style={{ width: "700px", margin: "0 auto", padding: "120px 0" }}
         dateCellRender={dateCellRender}
         mothCellRender={monthCellRender}
       />
