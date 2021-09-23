@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import "./LandingPage.css";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -12,9 +13,14 @@ export default function LandingPage() {
   };
   return (
     <div>
-      <h2>
-        <button onClick={onClickHandler}>logout</button>
-      </h2>
+      <div className="main">
+        <div
+          className="copywrite"
+          style={{ padding: "100px 0px", width: "1000px", margin: "0 auto" }}
+        >
+          손 안에서 시작하는 <br></br> 의약품 관리
+        </div>
+      </div>
     </div>
   );
 }

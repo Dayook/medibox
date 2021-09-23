@@ -1,0 +1,12 @@
+@import "~antd/dist/antd.css";
+
+.main {
+  background-image: url(../../images/medic.jpg);
+  background-position: 0 -120px;
+  background-size: cover;
+  height: 60vh;
+}
+
+.mainImg {
+  height: 40vh;
+}
