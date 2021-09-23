@@ -62,6 +62,7 @@ function Join(props) {
 
     let body = {
       email: Email,
+      nickname: NickName,
       password: Password,
     };
 
@@ -81,7 +82,7 @@ function Join(props) {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "13rem",
+            width: "20rem",
             margin: "0 auto",
             height: window.innerHeight * 0.9,
             justifyContent: "center",
