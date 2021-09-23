@@ -47,13 +47,13 @@ function Login(props) {
         }}
         onSubmit={onSubmitHandler}
       >
-        <label>Email</label>
+        <label>이메일</label>
         <Input type="email" value={Email} onChange={onEmailHandler} />
-        <label> Password </label>
+        <label>비밀번호</label>
         <Input type="password" value={Password} onChange={onPasswordHandler} />
         <br></br>
         <Button type="primary" onClick={onSubmitHandler}>
-          Login
+          로그인
         </Button>
       </form>
     </div>
