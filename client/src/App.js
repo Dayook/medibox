@@ -10,6 +10,7 @@ import LandingPage from "./components/view/LandingPage/LandingPage.js";
 import NavBar from "./components/view/NavBar/NavBar";
 import Auth from "./hoc/auth";
 import MyMedicine from "./components/view/MyPage/Section/MyMedicine";
+import Counsel from "./components/view/Counsel/Counsel";
 
 function App() {
   return (
@@ -19,10 +20,16 @@ function App() {
         <div>
           <Switch>
             <Route exact path="/" component={Auth(LandingPage)} />
+            <Route exact path="/counsel" component={Auth(Counsel)} />
             <Route exact path="/login" component={Auth(Login, false)} />
             <Route exact path="/register" component={Auth(Join, false)} />
             <Route exact path="/mypage" component={Auth(MyPage, true)} />
-            <Route exact path="/my-medicine" component={Auth(MyMedicine, true)}/>
+            <Route
+              exact
+              path="/my-medicine"
+              component={Auth(MyMedicine, true)}
+            />
+
             <Route
               exact
               path="/landingPage"
