@@ -10,3 +10,33 @@
 .mainImg {
   height: 40vh;
 }
+
+.copyright {
+  padding: 180px 30px;
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 30px;
+  color: aliceblue;
+  font-weight: 200;
+}
+
+.main-btn {
+  border-radius: 10px;
+  border: none;
+  background-color: aliceblue;
+  color: steelblue;
+  font-size: medium;
+  width: 250px;
+  padding: 10px 0px;
+  margin-top: 1em;
+}
+
+.main-btn:hover {
+  cursor: pointer;
+  background-color: #1890ff;
+  color: aliceblue;
+  transition-duration: 0.5s;
+}
+
+@media (max-width: 767px) {
+}

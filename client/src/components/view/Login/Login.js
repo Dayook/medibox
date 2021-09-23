@@ -43,6 +43,7 @@ function Login(props) {
           flexDirection: "column",
           height: window.innerHeight * 0.9,
           justifyContent: "center",
+          width: "20em",
         }}
         onSubmit={onSubmitHandler}
       >

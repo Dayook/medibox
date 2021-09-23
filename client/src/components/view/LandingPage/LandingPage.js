@@ -9,16 +9,16 @@ export default function LandingPage() {
   }, []);
 
   const onClickHandler = () => {
-    axios.get("/api/users/logout").then((response) => {});
+    alert("MEDIKIT START");
   };
   return (
     <div>
       <div className="main">
-        <div
-          className="copywrite"
-          style={{ padding: "100px 0px", width: "1000px", margin: "0 auto" }}
-        >
-          손 안에서 시작하는 <br></br> 의약품 관리
+        <div className="copyright">
+          내가 아프고 외로울 때면 <br></br> 누가 날 위로해주지?<br></br>
+          <button className="main-btn" onClick={onClickHandler}>
+            메디킷 시작하기
+          </button>
         </div>
       </div>
     </div>
