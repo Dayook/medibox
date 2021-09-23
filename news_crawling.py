@@ -1,4 +1,5 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 
 url = "https://www.medicalnewstoday.com/";
@@ -43,5 +44,7 @@ if response.status_code == 200:
     # for image in images :
     #     print(image['src'])
 
+    with open("medicine_news.json","w") as json_file:
+        json.dump(data_list, json_file)
 else:
     print(response.status_code)
