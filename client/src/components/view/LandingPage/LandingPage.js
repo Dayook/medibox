@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import "./LandingPage.css";
+import "./Sections/LandingPage.css";
+import News from "./Sections/News";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -21,6 +22,7 @@ export default function LandingPage() {
           </button>
         </div>
       </div>
+      <News />
     </div>
   );
 }
