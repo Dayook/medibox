@@ -2,9 +2,11 @@
 
 .main {
   background-image: url(../../../images/medic.jpg);
-  background-position: 0 -120px;
-  background-size: cover;
+  background-position: 0 -80px;
+  background-size: 1600px;
+  position: relative;
   height: 60vh;
+  background-attachment: fixed;
 }
 
 .mainImg {
