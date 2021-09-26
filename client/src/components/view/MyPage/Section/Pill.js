@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PlusOutlined, Icon, ConsoleSqlOutlined } from "@ant-design/icons";
+import { PlusOutlined, Icon } from "@ant-design/icons";
 import { Input, Modal, AutoComplete } from "antd";
 import Axios from "axios";
 
@@ -16,22 +16,13 @@ function Pill() {
     //   setpillName(pillName.concat(pill.ITEM_NAME));
     // });
     // console.log("pillName: ", pillName);
-  }, []);
-
-  const pillNameList = pills.map((pill, index) => {
-    var pillname = pill.ITEM_NAME;
-    return <p>{pillname}</p>;
   });
 
   const [Options, setOptions] = useState([]);
-  let options = [{ value: "ㅎㅎ" }, { value: "ㅋㅋ" }];
-  const options2 = () => {
-    pills.map((pill, index) => {
-      setpillName(pillName.push({ value: pill.ITEM_NAME }));
-    });
-    return pillName;
-  };
   const [isModalVisible, setisModalVisible] = useState(false);
+  const selectedHandler = (value) => {
+    alert(value);
+  };
   const showModal = () => {
     pills.map((pill, index) => {
       setpillName(pillName.push({ value: pill.ITEM_NAME }));
@@ -39,6 +30,7 @@ function Pill() {
     setOptions(pillName);
     setisModalVisible(true);
   };
+
   const handleOk = () => {
     setisModalVisible(false);
   };
@@ -70,9 +62,16 @@ function Pill() {
             style={{ width: "200px" }}
             placeholder="try"
             options={Options}
+            onSelect={(value) => {
+              alert(value);
+            }}
+            // onChange={selectedHandler}
+            filterOption={(inputValue, option) =>
+              option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
+              -1
+            }
           ></AutoComplete>
           <Input type="text"></Input>
-          {pillNameList}
         </p>
       </Modal>
     </div>
