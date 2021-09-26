@@ -3,8 +3,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const config = require("./config/key");
-const { auth } = require("./middleware/auth");
-const { User } = require("./model/User");
 
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,8 +21,9 @@ mongoose
   .catch((err) => console.log(err));
 
 // app.get("/", (req, res) => res.send("Hello World!~~ "));
-// app.get("/api/hello", (req, res) => res.send("Hello World!~~ !!!"));
-app.use("/api/users", require("./routes/users"))
+app.get("/api/hello", (req, res) => res.send("Hello World!~~ !!!"));
+app.use("/api/users", require("./routes/users"));
+app.use("/api/medicines", require("./routes/medicines"));
 
 const port = 5000;
 

@@ -31,8 +31,7 @@ function News() {
 
   return (
     <div className="news">
-      <h1>뉴스뉴스 what's news</h1>
-      <hr />
+      <h1>Latest news</h1>
       <div
         className="container"
         style={{ display: "flex", width: "1100px", flexWrap: "wrap" }}

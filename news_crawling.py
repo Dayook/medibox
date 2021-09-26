@@ -2,6 +2,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
+
 url = "https://www.medicalnewstoday.com/";
 
 response = requests.get(url)

@@ -27,6 +27,8 @@
 .menu__container {
   vertical-align: middle;
   padding: 10px;
+  font-weight: 500;
+  font-size: large;
 }
 
 .menu__container .ant-menu-item {
