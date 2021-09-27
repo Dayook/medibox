@@ -6,16 +6,22 @@ const logSchema = mongoose.Schema({
     ref: "User",
   },
 
-  medicine_code: {
-    type: int,
+  ITEM_SEQ: {
+    type: Number,
     ref: "Medicine",
   },
 
-  start_date: {
+  QUANTITY: {
+    type: Number,
+  },
+  START_DATE: {
     type: Date,
   },
 
-  end_date: {
+  END_DATE: {
     type: Date,
   },
 });
+
+const Log = mongoose.model("log", logSchema);
+module.exports = { Log };

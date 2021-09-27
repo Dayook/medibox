@@ -4,14 +4,14 @@ import { Input, Modal, AutoComplete, TimePicker, Button } from "antd";
 import Axios from "axios";
 import PillInfo from "./PillInfo";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import { response } from "express";
 
 function Pill() {
   const user = useSelector((state) => state.user);
   const [pillName, setpillName] = useState([]);
   const [pills, setpills] = useState([]);
   const [Selected, setSelected] = useState("");
+  const [Options, setOptions] = useState([]);
+  const [isModalVisible, setisModalVisible] = useState(false);
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
       if (response.data.success) {
@@ -23,16 +23,25 @@ function Pill() {
     // });
     // console.log("pillName: ", pillName);
   });
-  const [Options, setOptions] = useState([]);
-  const [isModalVisible, setisModalVisible] = useState(false);
-  const submitHandler = () => {
-    Axios.post("/api/medicines/log").then((response) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const variables = {
+      user: user.userData._id,
+      ITEM_SEQ: pills[Selected].ITEM_SEQ,
+      QUANTITY: document.getElementById("quantity").value,
+      START_DATE: document.getElementById("start_date").value,
+      END_DATE: document.getElementById("end_date").value,
+    };
+
+    Axios.post("/api/medicines/log", variables).then((response) => {
       if (response.data.success) {
-        alert("success!");
+        alert("등록하였습니다");
+        setisModalVisible(false);
       } else {
-        alert("fail");
+        alert("failed");
       }
     });
+    console.log(variables);
   };
   const showModal = () => {
     pills.map((pill, index) => {
@@ -72,12 +81,12 @@ function Pill() {
           <Button key="back" onClick={handleCancel}>
             취소
           </Button>,
-          <Button key="submit" type="primary" onClick={handleOk}>
+          <Button key="submit" type="primary" onClick={handleSubmit}>
             등록
           </Button>,
         ]}
       >
-        <form onSubmit={submitHandler}>
+        <form onSubmit={handleSubmit}>
           <AutoComplete
             style={{ width: "200px" }}
             placeholder="try"
@@ -100,9 +109,10 @@ function Pill() {
             />
           )}
           startdate
-          <Input type="date"></Input>
+          <Input type="date" id="start_date"></Input>
           enddate
-          <Input type="date"></Input>
+          <Input type="date" id="end_date"></Input>
+          수량 <Input type="number" id="quantity"></Input>
         </form>
       </Modal>
     </div>
