@@ -11,6 +11,14 @@ const logSchema = mongoose.Schema({
     ref: "Medicine",
   },
 
+  ITEM_NAME: {
+    type: String,
+    ref: "Medicine",
+  },
+
+  IMG_SRC: {
+    type:String
+  },
   QUANTITY: {
     type: Number,
   },

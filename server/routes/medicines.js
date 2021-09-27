@@ -10,8 +10,18 @@ router.get("/getMedicine", (req, res) => {
   });
 });
 
+router.post("/deleteLog", (req, res) => {
+  Log.deleteOne({ _id: req.body.id }).exec((err, doc) => {
+    if (err) {
+      return res.json({ success: false, err });
+    } else {
+      res.status(200).json({ success: true });
+    }
+  });
+});
+
 router.post("/myLog", (req, res) => {
-  console.log(req.body.user);
+  console.log("user:", req.body.user);
   Log.find({ user: req.body.user }).exec((err, myLog) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, myLog: myLog });

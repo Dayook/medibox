@@ -7,14 +7,10 @@ import { useSelector } from "react-redux";
 
 function Pill(props) {
   const user = useSelector((state) => state.user);
-  const variable = {
-    user: localStorage.getItem("userId"),
-  };
   const [pillName, setpillName] = useState([]);
   const [pills, setpills] = useState([]);
   const [Selected, setSelected] = useState("");
   const [Options, setOptions] = useState([]);
-  const [MyLog, setMyLog] = useState([]);
   const [isModalVisible, setisModalVisible] = useState(false);
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
@@ -22,26 +18,17 @@ function Pill(props) {
         setpills(response.data.medicines);
       }
     });
-    Axios.post("/api/medicines/myLog", variable).then((response) => {
-      if (response.data.success) {
-        alert("success");
-        console.log(response.data);
-        console.log(response.data.myLog);
-        setMyLog(response.data.myLog);
-      } else {
-        alert("fail");
-      }
-    });
-    // pills.map((pill, index) => {
-    //   setpillName(pillName.concat(pill.ITEM_NAME));
-    // });
-    // console.log("pillName: ", pillName);
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     const logVariables = {
       user: user.userData._id,
       ITEM_SEQ: pills[Selected].ITEM_SEQ,
+      ITEM_NAME: pills[Selected].ITEM_NAME,
+      IMG_SRC:
+        "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
+        pills[Selected].INSERT_FILE.substr(-20, 13) +
+        "01.jpg",
       QUANTITY: document.getElementById("quantity").value,
       START_DATE: document.getElementById("start_date").value,
       END_DATE: document.getElementById("end_date").value,
@@ -50,6 +37,7 @@ function Pill(props) {
     Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
         alert("등록하였습니다");
+        props.setChanged(!props.Changed);
         setisModalVisible(false);
       } else {
         alert("failed");

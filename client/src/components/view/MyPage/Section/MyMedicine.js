@@ -1,6 +1,6 @@
 import React from "react";
 import MyCalendar from "./MyCalendar";
-import MyLog from "./MyLog";
+import MyLog from "./MyLog/MyLog";
 
 function MyMedicine() {
   return (
