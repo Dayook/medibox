@@ -12,6 +12,7 @@ function Pill(props) {
   const [Selected, setSelected] = useState("");
   const [Options, setOptions] = useState([]);
   const [isModalVisible, setisModalVisible] = useState(false);
+  const [IsLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
       if (response.data.success) {
@@ -45,10 +46,14 @@ function Pill(props) {
     });
   };
   const showModal = () => {
-    pills.map((pill, index) => {
-      setpillName(pillName.push({ value: pill.ITEM_NAME, index: index }));
-    });
-    setOptions(pillName);
+    if (!IsLoaded) {
+      pills.map((pill, index) => {
+        setpillName(pillName.push({ value: pill.ITEM_NAME, index: index }));
+      });
+      setOptions(pillName);
+      setIsLoaded(true);
+    }
+
     setisModalVisible(true);
     console.log(pillName);
   };

@@ -41,8 +41,13 @@ function MyLog() {
             justifyContent: "center",
           }}
         >
-          {log.ITEM_SEQ}
+          {log.ITEM_NAME}
           <br></br>
+          <img
+            src={log.IMG_SRC}
+            alt="pill"
+            style={{ width: "-webkit-fill-available", crop: "50px" }}
+          />
           {log.QUANTITY}개
           <button
             className="delete"
@@ -50,7 +55,6 @@ function MyLog() {
               Axios.post("/api/medicines/deleteLog", pillVariable).then(
                 (response) => {
                   if (response.data.success) {
-                    alert("성공");
                     setChanged(!Changed);
                   } else {
                     alert("실패");

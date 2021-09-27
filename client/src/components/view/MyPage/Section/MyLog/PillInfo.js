@@ -15,7 +15,7 @@ function PillInfo(props) {
         <img
           src={img_src}
           style={{ width: "-webkit-fill-available" }}
-          alt="medicine_image"
+          alt="medicine"
         />
         보관방법: {props.storage_method}
       </div>
