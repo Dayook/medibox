@@ -12,13 +12,12 @@ function PillInfo(props) {
       <div>
         {" "}
         {props.item_name} <br></br>
-        {props.insert_file}
         <img
           src={img_src}
           style={{ width: "-webkit-fill-available" }}
           alt="medicine_image"
         />
-        {props.storage_method}
+        보관방법: {props.storage_method}
       </div>
     );
   }
