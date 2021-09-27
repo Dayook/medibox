@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
 import Pill from "./Pill";
 import Axios from "axios";
+import "./MyLog.css";
 
 function MyLog() {
   const variable = {
@@ -30,25 +31,27 @@ function MyLog() {
     if (log.user) {
       return (
         <div
-          style={{
-            width: "180px",
-            height: "180px",
-            display: "flex",
-            border: "1px solid #dedede",
-            borderRadius: "10px",
-            color: "#454545",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          className="medicineBox"
+          // style={{
+          //   width: "180px",
+          //   height: "180px",
+          //   display: "flex",
+          //   border: "1px solid #dedede",
+          //   borderRadius: "10px",
+          //   color: "#454545",
+          //   alignItems: "center",
+          //   justifyContent: "center",
+          //   flexWrap: "wrap",
+          // }}
         >
-          {log.ITEM_NAME}
+          <span className="itemName">{log.ITEM_NAME}</span>
           <br></br>
           <img
             src={log.IMG_SRC}
             alt="pill"
             style={{ width: "-webkit-fill-available", crop: "50px" }}
           />
-          {log.QUANTITY}개
+          <span className="quantity">{log.QUANTITY}개</span>
           <button
             className="delete"
             onClick={() => {
@@ -93,7 +96,7 @@ function MyLog() {
       >
         <h4>나의 약상자</h4>
         <br />
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           {/* <Pill /> */}
           {renderPills}
           <AddPill Changed={Changed} setChanged={setChanged} />

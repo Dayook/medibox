@@ -65,18 +65,7 @@ function Pill(props) {
     setisModalVisible(false);
   };
   return (
-    <div
-      style={{
-        width: "180px",
-        height: "180px",
-        display: "flex",
-        border: "1px solid #dedede",
-        borderRadius: "10px",
-        color: "#454545",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="medicineBox">
       <PlusOutlined style={{ fontSize: "3rem" }} onClick={showModal} />
       <Modal
         title="hi"
