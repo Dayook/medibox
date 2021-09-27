@@ -24,6 +24,7 @@ function Login(props) {
     dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
         props.history.push("/");
+        window.localStorage.setItem("userId", response.payload.userId);
       } else {
         alert("일치하는 회원 정보가 존재하지 않습니다˝");
       }

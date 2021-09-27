@@ -5,12 +5,16 @@ import Axios from "axios";
 import PillInfo from "./PillInfo";
 import { useSelector } from "react-redux";
 
-function Pill() {
+function Pill(props) {
   const user = useSelector((state) => state.user);
+  const variable = {
+    user: localStorage.getItem("userId"),
+  };
   const [pillName, setpillName] = useState([]);
   const [pills, setpills] = useState([]);
   const [Selected, setSelected] = useState("");
   const [Options, setOptions] = useState([]);
+  const [MyLog, setMyLog] = useState([]);
   const [isModalVisible, setisModalVisible] = useState(false);
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
@@ -18,14 +22,24 @@ function Pill() {
         setpills(response.data.medicines);
       }
     });
+    Axios.post("/api/medicines/myLog", variable).then((response) => {
+      if (response.data.success) {
+        alert("success");
+        console.log(response.data);
+        console.log(response.data.myLog);
+        setMyLog(response.data.myLog);
+      } else {
+        alert("fail");
+      }
+    });
     // pills.map((pill, index) => {
     //   setpillName(pillName.concat(pill.ITEM_NAME));
     // });
     // console.log("pillName: ", pillName);
-  });
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const variables = {
+    const logVariables = {
       user: user.userData._id,
       ITEM_SEQ: pills[Selected].ITEM_SEQ,
       QUANTITY: document.getElementById("quantity").value,
@@ -33,7 +47,7 @@ function Pill() {
       END_DATE: document.getElementById("end_date").value,
     };
 
-    Axios.post("/api/medicines/log", variables).then((response) => {
+    Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
         alert("등록하였습니다");
         setisModalVisible(false);
@@ -41,7 +55,6 @@ function Pill() {
         alert("failed");
       }
     });
-    console.log(variables);
   };
   const showModal = () => {
     pills.map((pill, index) => {

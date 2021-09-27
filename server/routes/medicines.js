@@ -10,6 +10,14 @@ router.get("/getMedicine", (req, res) => {
   });
 });
 
+router.post("/myLog", (req, res) => {
+  console.log(req.body.user);
+  Log.find({ user: req.body.user }).exec((err, myLog) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, myLog: myLog });
+  });
+});
+
 router.post("/log", (req, res) => {
   const log = new Log(req.body);
   log.save((err, doc) => {
