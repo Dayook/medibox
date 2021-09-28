@@ -4,46 +4,32 @@ import Pill from "./Pill";
 import Axios from "axios";
 import "./MyLog.css";
 
-function MyLog() {
+function MyLog(props) {
   const variable = {
     user: localStorage.getItem("userId"),
   };
-  let [Changed, setChanged] = useState(false);
   const [MyLog, setMyLog] = useState([]);
 
   document.getElementsByClassName("delete").onClick = function () {
     alert("hi");
   };
-  useEffect(() => {
-    Axios.post("/api/medicines/myLog", variable).then((response) => {
-      if (response.data.success) {
-        setMyLog(response.data.myLog);
-      } else {
-        alert("fail to load Log data");
-      }
-    });
-  }, [Changed]);
+  // useEffect(() => {
+  //   Axios.post("/api/medicines/myLog", variable).then((response) => {
+  //     if (response.data.success) {
+  //       setMyLog(response.data.myLog);
+  //     } else {
+  //       alert("fail to load Log data");
+  //     }
+  //   });
+  // }, [Changed]);
 
-  const renderPills = MyLog.map((log, index) => {
+  const renderPills = props.MyLogInfo.map((log, index) => {
     const pillVariable = {
       id: log._id,
     };
     if (log.user) {
       return (
-        <div
-          className="medicineBox"
-          // style={{
-          //   width: "180px",
-          //   height: "180px",
-          //   display: "flex",
-          //   border: "1px solid #dedede",
-          //   borderRadius: "10px",
-          //   color: "#454545",
-          //   alignItems: "center",
-          //   justifyContent: "center",
-          //   flexWrap: "wrap",
-          // }}
-        >
+        <div className="medicineBox">
           <span className="itemName">{log.ITEM_NAME}</span>
           <br></br>
           <img
@@ -58,7 +44,7 @@ function MyLog() {
               Axios.post("/api/medicines/deleteLog", pillVariable).then(
                 (response) => {
                   if (response.data.success) {
-                    setChanged(!Changed);
+                    props.setChanged(!props.Changed);
                   } else {
                     alert("실패");
                   }
@@ -108,7 +94,7 @@ function MyLog() {
         >
           {/* <Pill /> */}
           {renderPills}
-          <AddPill Changed={Changed} setChanged={setChanged} />
+          <AddPill Changed={props.Changed} setChanged={props.setChanged} />
         </div>
       </div>
     </div>

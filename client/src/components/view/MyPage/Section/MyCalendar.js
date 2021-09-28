@@ -1,73 +1,38 @@
 import { Calendar, Badge } from "antd";
-import React from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import React, { useEffect, useState } from "react";
+import Axios from "axios"
+import "./MyCalendar.css";
+import axios from "axios";
 
 function MyCalendar() {
-  function getListData(value) {
-    let listData;
-    switch (value.date()) {
-      case 8:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." },
-        ];
-        break;
-      case 10:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." },
-          { type: "error", content: "This is error event." },
-        ];
-        break;
-      case 15:
-        listData = [
-          { type: "warning", content: "This is warning event" },
-          { type: "success", content: "This is very long usual event。。...." },
-          { type: "error", content: "This is error event 1." },
-          { type: "error", content: "This is error event 2." },
-          { type: "error", content: "This is error event 3." },
-          { type: "error", content: "This is error event 4." },
-        ];
-        break;
-      default:
-    }
-    return listData || [];
+  useEffect(() => {
+    Axios.post("/api/")
+  }, [])
+
+  function handleDateClick() {
+    alert("hey");
   }
-  function dateCellRender(value) {
-    const listData = getListData(value);
+  function renderEventContent() {
     return (
-      <ul className="events">
-        {listData.map((item) => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
-        ))}
-      </ul>
+      <>
+        <b>냥</b>
+        <i>냥냥</i>
+      </>
     );
   }
-
-  function getMonthData(value) {
-    if (value.month() === 8) {
-      return 1394;
-    }
-  }
-
-  function monthCellRender(value) {
-    const num = getMonthData(value);
-    return num ? (
-      <div className="notes-month">
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null;
-  }
-
   return (
-    <div>
-      <Calendar
-        style={{ width: "700px", margin: "0 auto", padding: "120px 0" }}
-        dateCellRender={dateCellRender}
-        mothCellRender={monthCellRender}
-      />
+    <div className="myCalendar" style={{ width: "800px", margin: "0 auto" }}>
+      <FullCalendar
+        plugins={[dayGridPlugin, interactionPlugin]}
+        initialView="dayGridMonth"
+        dateClick={handleDateClick}
+        eventContent={renderEventContent}
+        events={[{ title: "hi", date: "2021-09-21" }]}
+        style={{ height: "800px" }}
+      ></FullCalendar>
     </div>
   );
 }

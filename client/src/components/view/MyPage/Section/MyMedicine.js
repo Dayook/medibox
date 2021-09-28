@@ -1,8 +1,24 @@
-import React from "react";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import MyCalendar from "./MyCalendar";
 import MyLog from "./MyLog/MyLog";
 
 function MyMedicine() {
+  const variable = {
+    user: localStorage.getItem("userId"),
+  };
+  let [Changed, setChanged] = useState(false);
+  const [MyLogInfo, setMyLogInfo] = useState([]);
+  useEffect(() => {
+    Axios.post("/api/medicines/myLog", variable).then((response) => {
+      if (response.data.success) {
+        setMyLogInfo(response.data.myLog);
+      } else {
+        alert("fail to load Log data");
+      }
+    });
+  }, [Changed]);
+
   return (
     <div style={{ backgroundColor: "aliceblue" }}>
       <div
@@ -12,10 +28,13 @@ function MyMedicine() {
           margin: "0 auto",
         }}
       >
-        <MyLog style={{ padding: " 100px" }} />
-        <MyCalendar
-          style={{ padding: "50px 0px", width: "768px" }}
-        ></MyCalendar>
+        <MyLog
+          MyLogInfo={MyLogInfo}
+          setChanged={setChanged}
+          Changed={Changed}
+          style={{ padding: " 100px" }}
+        />
+        <MyCalendar style={{ padding: "100px 0px" }}></MyCalendar>
       </div>
     </div>
   );
