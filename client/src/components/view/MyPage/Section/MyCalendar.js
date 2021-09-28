@@ -1,16 +1,29 @@
-import { Calendar, Badge } from "antd";
+import pill from "../../../../pill.svg";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import React, { useEffect, useState } from "react";
-import Axios from "axios"
+import Axios from "axios";
 import "./MyCalendar.css";
-import axios from "axios";
 
-function MyCalendar() {
-  useEffect(() => {
-    Axios.post("/api/")
-  }, [])
+function MyCalendar(props) {
+  const [Hi, setHi] = useState([]);
+  const [LogData, setLogData] = useState([]);
+  const [IsLoaded, setIsLoaded] = useState(false);
+  // const LogDate = [{ date: "2021-09-28" }, { date: "2021-09-30" }];
+  // useEffect(() => {
+  //   console.log("in calendar:", props.MyLogInfo);
+  // }, []);
+  // async function show
+
+  let dateMap = [];
+
+  const renderDate = () => {
+    props.MyLogInfo.map((log, index) => {
+      dateMap.push({ date: log.START_DATE });
+      console.log(dateMap);
+    });
+  };
 
   function handleDateClick() {
     alert("hey");
@@ -18,8 +31,7 @@ function MyCalendar() {
   function renderEventContent() {
     return (
       <>
-        <b>냥</b>
-        <i>냥냥</i>
+        <img src={pill} alt="pill" width="20px"></img>
       </>
     );
   }
@@ -28,11 +40,11 @@ function MyCalendar() {
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
-        dateClick={handleDateClick}
+        dateClick
         eventContent={renderEventContent}
-        events={[{ title: "hi", date: "2021-09-21" }]}
-        style={{ height: "800px" }}
+        events={dateMap}
       ></FullCalendar>
+      {renderDate()}
     </div>
   );
 }

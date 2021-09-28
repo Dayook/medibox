@@ -8,21 +8,6 @@ function MyLog(props) {
   const variable = {
     user: localStorage.getItem("userId"),
   };
-  const [MyLog, setMyLog] = useState([]);
-
-  document.getElementsByClassName("delete").onClick = function () {
-    alert("hi");
-  };
-  // useEffect(() => {
-  //   Axios.post("/api/medicines/myLog", variable).then((response) => {
-  //     if (response.data.success) {
-  //       setMyLog(response.data.myLog);
-  //     } else {
-  //       alert("fail to load Log data");
-  //     }
-  //   });
-  // }, [Changed]);
-
   const renderPills = props.MyLogInfo.map((log, index) => {
     const pillVariable = {
       id: log._id,
@@ -92,7 +77,6 @@ function MyLog(props) {
             padding: "0 10px",
           }}
         >
-          {/* <Pill /> */}
           {renderPills}
           <AddPill Changed={props.Changed} setChanged={props.setChanged} />
         </div>

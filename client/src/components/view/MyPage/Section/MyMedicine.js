@@ -9,6 +9,7 @@ function MyMedicine() {
   };
   let [Changed, setChanged] = useState(false);
   const [MyLogInfo, setMyLogInfo] = useState([]);
+
   useEffect(() => {
     Axios.post("/api/medicines/myLog", variable).then((response) => {
       if (response.data.success) {
@@ -34,7 +35,10 @@ function MyMedicine() {
           Changed={Changed}
           style={{ padding: " 100px" }}
         />
-        <MyCalendar style={{ padding: "100px 0px" }}></MyCalendar>
+        <MyCalendar
+          MyLogInfo={MyLogInfo}
+          style={{ padding: "100px 0px" }}
+        ></MyCalendar>
       </div>
     </div>
   );
