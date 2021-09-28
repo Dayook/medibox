@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
 import axios from "axios";
 import { USER_SERVER } from "../../../../Config";
 import { withRouter } from "react-router-dom";
@@ -30,7 +30,9 @@ function RightMenu(props) {
           <a href="/login">로그인</a>
         </Menu.Item>
         <Menu.Item key="app">
+          {/* <div style={{ border: "1px solid black", borderRadius: "8px" }}> */}
           <a href="/register">회원가입</a>
+          {/* </div> */}
         </Menu.Item>
       </Menu>
     );
