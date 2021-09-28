@@ -83,20 +83,29 @@ function MyLog() {
         style={{
           width: "700px",
           borderRadius: "10px",
-          border: "1px solid rgba( 255, 255, 255, 0.18 )",
+          border: "1.8px solid #2e2e2e",
           margin: "0px auto",
           padding: "30px",
-          background: "rgba( 255, 255, 255, 0.25 )",
-          boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+          background: "rgba( 255, 255, 255, 0.85 )",
+          // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
           backdropFilter: "blur( 4px )",
 
           // -webkit-backdrop-filter: blur( 4px );
           // border-radius: 10px;
         }}
       >
-        <h4>나의 약상자</h4>
+        <center>
+          <h2>나의 처방전</h2>
+        </center>
         <br />
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            padding: "0 10px",
+          }}
+        >
           {/* <Pill /> */}
           {renderPills}
           <AddPill Changed={Changed} setChanged={setChanged} />
