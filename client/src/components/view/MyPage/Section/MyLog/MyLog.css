@@ -1,6 +1,6 @@
 .medicineBox {
-  width: 195px;
-  height: 195px;
+  width: 220px;
+  height: 220px;
   display: flex;
   border: 1.6px solid whitesmoke;
   border-radius: 10px;
@@ -17,4 +17,8 @@
 
 .itemName {
   margin-top: 0.5em;
+}
+.delete {
+  border: none;
+  float: right;
 }

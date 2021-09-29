@@ -68,7 +68,7 @@ function Pill(props) {
     <div className="medicineBox">
       <PlusOutlined style={{ fontSize: "3rem" }} onClick={showModal} />
       <Modal
-        title="hi"
+        title="먹는 약 등록"
         visible={isModalVisible}
         // onOk={handleOk}
         // onCancel={handleCancel}
@@ -83,7 +83,7 @@ function Pill(props) {
       >
         <form onSubmit={handleSubmit}>
           <AutoComplete
-            style={{ width: "200px" }}
+            style={{ width: "300px" }}
             placeholder="try"
             options={Options}
             onSelect={(value, option) => {
@@ -95,19 +95,21 @@ function Pill(props) {
               -1
             }
           ></AutoComplete>
+          <br></br>
           {pills[Selected] && (
             <PillInfo
               className="selected"
-              item_name={pills[Selected].ITEM_NAME}
+              item_name={pills[Selected].MATERIAL_NAME}
               insert_file={pills[Selected].INSERT_FILE}
               storage_method={pills[Selected].STORAGE_METHOD}
             />
           )}
-          startdate
+          시작일
           <Input type="date" id="start_date"></Input>
-          enddate
+          종료일
           <Input type="date" id="end_date"></Input>
-          수량 <Input type="number" id="quantity"></Input>
+          하루동안 먹는 개수
+          <Input type="number" id="quantity"></Input>
         </form>
       </Modal>
     </div>

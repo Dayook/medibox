@@ -52,7 +52,7 @@ function MyLog(props) {
     >
       <div
         style={{
-          width: "700px",
+          width: "800px",
           borderRadius: "10px",
           border: "1.8px solid #2e2e2e",
           margin: "0px auto",

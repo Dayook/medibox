@@ -30,13 +30,16 @@ function MyCalendar(props) {
   }
   function renderEventContent() {
     return (
-      <>
-        <img src={pill} alt="pill" width="20px"></img>
-      </>
+      <div style={{ margin: "0 auto" }}>
+        <img src={pill} alt="pill" width="25px"></img>
+      </div>
     );
   }
   return (
-    <div className="myCalendar" style={{ width: "800px", margin: "0 auto" }}>
+    <div
+      className="myCalendar"
+      style={{ width: "800px", margin: "0px auto", paddingBottom: "100px" }}
+    >
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
