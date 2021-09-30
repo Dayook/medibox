@@ -114,7 +114,7 @@ function Pill(props) {
   const { RangePicker } = DatePicker;
   const placeHolder = ["시작일", "종료일"];
   return (
-    <div className="medicineBox">
+    <div className="medicineItem">
       <PlusOutlined style={{ fontSize: "3rem" }} onClick={showModal} />
       <Modal
         title="먹는 약 등록"

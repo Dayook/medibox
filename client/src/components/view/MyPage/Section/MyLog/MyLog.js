@@ -28,7 +28,7 @@ function MyLog(props) {
       Date.parse(log.START_DATE) - 46400000 <= Date.parse(today)
     ) {
       return (
-        <div className="medicineBox">
+        <div className="medicineItem">
           <span className="itemName">{log.ITEM_NAME}</span>
           <br></br>
           <img
@@ -70,6 +70,7 @@ function MyLog(props) {
       }}
     >
       <div
+        className="basicBox"
         style={{
           width: "800px",
           borderRadius: "10px",
@@ -79,7 +80,6 @@ function MyLog(props) {
           background: "rgba( 255, 255, 255, 0.85 )",
           // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
           backdropFilter: "blur( 4px )",
-
           // -webkit-backdrop-filter: blur( 4px );
           // border-radius: 10px;
         }}

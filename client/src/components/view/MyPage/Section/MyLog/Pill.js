@@ -2,7 +2,7 @@ import React from "react";
 
 function Pill() {
   return (
-    <div className="medicineBox">
+    <div className="medicineItem">
       {/* <Icon type="plus" style={{ fontSize: "3rem" }} /> */}
     </div>
   );
