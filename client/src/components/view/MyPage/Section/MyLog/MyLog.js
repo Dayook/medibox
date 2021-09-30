@@ -5,6 +5,12 @@ import Axios from "axios";
 import "./MyLog.css";
 
 function MyLog(props) {
+  const [today, setToday] = useState(new Date());
+  var year = today.getFullYear();
+  var month = ("0" + (today.getMonth() + 1)).slice(-2);
+  var day = ("0" + today.getDate()).slice(-2);
+
+  var dateString = year + "-" + month + "-" + day;
   const variable = {
     user: localStorage.getItem("userId"),
   };
@@ -12,7 +18,15 @@ function MyLog(props) {
     const pillVariable = {
       id: log._id,
     };
-    if (log.user) {
+    const handleClick = () => {
+      alert("yuppp");
+    };
+    // alert(Date.parse(log.START_DATE - ) + "today" + Date.parse(today));
+    if (
+      log.user &&
+      Date.parse(log.END_DATE) >= Date.parse(today) &&
+      Date.parse(log.START_DATE) - 46400000 <= Date.parse(today)
+    ) {
       return (
         <div className="medicineBox">
           <span className="itemName">{log.ITEM_NAME}</span>
@@ -20,7 +34,12 @@ function MyLog(props) {
           <img
             src={log.IMG_SRC}
             alt="pill"
-            style={{ width: "-webkit-fill-available", crop: "50px" }}
+            style={{
+              width: "-webkit-fill-available",
+              crop: "50px",
+              cursor: "pointer",
+            }}
+            onClick={handleClick}
           />
           <span className="quantity">{log.QUANTITY}개</span>
           <button
@@ -66,6 +85,7 @@ function MyLog(props) {
         }}
       >
         <center>
+          {dateString}
           <h2>나의 처방전</h2>
         </center>
         <br />
@@ -73,8 +93,9 @@ function MyLog(props) {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-between",
             padding: "0 10px",
+            margin: "0 5px",
+            marginLeft: "10px",
           }}
         >
           {renderPills}

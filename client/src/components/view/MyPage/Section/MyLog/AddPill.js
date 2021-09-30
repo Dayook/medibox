@@ -44,6 +44,9 @@ function Pill(props) {
       if (response.data.success) {
         alert("등록하였습니다");
         props.setChanged(!props.Changed);
+        // 입력칸 초기화
+        setSelected("");
+        document.getElementById("quantity").value = "";
         setisModalVisible(false);
       } else {
         alert("failed");
@@ -79,6 +82,7 @@ function Pill(props) {
       ITEM_NAME: pills[Selected].ITEM_NAME,
     };
 
+    // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
     Axios.post("/api/medicines/checkCaution", checkVariables).then(
       (response) => {
         if (response.data.success) {
@@ -126,48 +130,50 @@ function Pill(props) {
           </Button>,
         ]}
       >
-        <form onSubmit={handleSubmit}>
-          <AutoComplete
-            style={{ width: "300px" }}
-            placeholder="이름 검색"
-            options={Options}
-            onSelect={(value, option) => {
-              setSelected(option.index);
-            }}
-            // filterOption={(inputValue, option) =>
-            //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
-            //   -1
-            // }
-          ></AutoComplete>
-          <br></br>
-          {pills[Selected] && (
-            <PillInfo
-              className="selected"
-              item_name={pills[Selected].MATERIAL_NAME}
-              insert_file={pills[Selected].INSERT_FILE}
-              storage_method={pills[Selected].STORAGE_METHOD}
+        <center>
+          <form onSubmit={handleSubmit}>
+            <AutoComplete
+              style={{ width: "300px" }}
+              placeholder="이름 검색"
+              options={Options}
+              onSelect={(value, option) => {
+                setSelected(option.index);
+              }}
+              // filterOption={(inputValue, option) =>
+              //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
+              //   -1
+              // }
+            ></AutoComplete>
+            <br></br>
+            {pills[Selected] && (
+              <PillInfo
+                className="selected"
+                item_name={pills[Selected].MATERIAL_NAME}
+                insert_file={pills[Selected].INSERT_FILE}
+                storage_method={pills[Selected].STORAGE_METHOD}
+              />
+            )}
+            복용 기간
+            <br />
+            <RangePicker
+              className="dateRange"
+              placeholder={placeHolder}
+              onChange={handleRange}
             />
-          )}
-          복용 기간
-          <br />
-          <RangePicker
-            className="dateRange"
-            placeholder={placeHolder}
-            onChange={handleRange}
-          />
-          <br />
-          복용량(하루에 먹는 개수)
-          <br />
-          <Input
-            type="number"
-            id="quantity"
-            style={{ width: "262px" }}
-            min="0"
-          ></Input>
-        </form>
-        <div id="banAlert" style={{ color: "red" }}>
-          {AlertDiv} xx
-        </div>
+            <br />
+            복용량(하루에 먹는 개수)
+            <br />
+            <Input
+              type="number"
+              id="quantity"
+              style={{ width: "262px" }}
+              min="0"
+            ></Input>
+          </form>
+          <div id="banAlert" style={{ color: "red" }}>
+            {AlertDiv}
+          </div>
+        </center>
       </Modal>
     </div>
   );

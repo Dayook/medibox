@@ -50,7 +50,7 @@ function MyCalendar(props) {
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
-        dateClick
+        dateClick={handleDateClick}
         eventContent={renderEventContent}
         events={dateMap}
       ></FullCalendar>
