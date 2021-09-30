@@ -78,7 +78,11 @@ function MyLog(props) {
           }}
         >
           {renderPills}
-          <AddPill Changed={props.Changed} setChanged={props.setChanged} />
+          <AddPill
+            Changed={props.Changed}
+            setChanged={props.setChanged}
+            MyLogInfo={props.MyLogInfo}
+          />
         </div>
       </div>
     </div>

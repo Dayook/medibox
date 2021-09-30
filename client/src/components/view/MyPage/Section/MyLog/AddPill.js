@@ -72,6 +72,36 @@ function Pill(props) {
   const handleRange = (value) => {
     setStartDate(value[0].format("YYYY-MM-DD"));
     setEndDate(value[1].format("YYYY-MM-DD"));
+    const checkVariables = {
+      START_DATE: StartDate,
+      END_DATE: EndDate,
+      ITEM_NAME: pills[Selected].ITEM_NAME,
+    };
+
+    Axios.post("/api/medicines/checkCaution", checkVariables).then(
+      (response) => {
+        if (response.data.success) {
+          console.log("정보:", response.data.added);
+          const added = response.data.added;
+          var bannedItem = [];
+          added.map((add, index) => {
+            console.log(add.MIXTURE_ITEM_SEQ);
+            bannedItem.push(add.MIXTURE_ITEM_SEQ);
+          });
+          const myLog = props.MyLogInfo;
+          myLog.map((log, index) => {
+            // 1. myInfo log와 기간이 겹치는지 확인
+            if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
+              if (bannedItem.includes(log.ITEM_SEQ)) {
+                alert("안됨");
+              }
+            }
+          });
+        } else {
+          alert("failed");
+        }
+      }
+    );
   };
 
   const { RangePicker } = DatePicker;
@@ -101,10 +131,10 @@ function Pill(props) {
             onSelect={(value, option) => {
               setSelected(option.index);
             }}
-            filterOption={(inputValue, option) =>
-              option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
-              -1
-            }
+            // filterOption={(inputValue, option) =>
+            //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
+            //   -1
+            // }
           ></AutoComplete>
           <br></br>
           {pills[Selected] && (

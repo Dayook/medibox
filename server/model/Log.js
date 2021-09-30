@@ -17,7 +17,7 @@ const logSchema = mongoose.Schema({
   },
 
   IMG_SRC: {
-    type:String
+    type: String,
   },
   QUANTITY: {
     type: Number,
@@ -28,6 +28,10 @@ const logSchema = mongoose.Schema({
 
   END_DATE: {
     type: Date,
+  },
+
+  CAUTION: {
+    type: String,
   },
 });
 

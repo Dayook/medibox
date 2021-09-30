@@ -1,10 +1,13 @@
 import React from "react";
 
 function PillInfo(props) {
-  const img_src =
-    "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
-    props.insert_file.substr(-20, 13) +
-    "01.jpg";
+  var img_src = "";
+  if (props.insert_file) {
+    img_src =
+      "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
+      props.insert_file.substr(-20, 13) +
+      "01.jpg";
+  }
   if (props.ITEM_NAME === "") {
     return <div>ㅎㅎ</div>;
   } else {
