@@ -16,6 +16,7 @@ function Pill(props) {
   const [Range, setRange] = useState([]);
   const [StartDate, setStartDate] = useState();
   const [EndDate, setEndDate] = useState();
+  let [AlertDiv, setAlertDiv] = useState("");
 
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
@@ -93,7 +94,9 @@ function Pill(props) {
             // 1. myInfo log와 기간이 겹치는지 확인
             if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
               if (bannedItem.includes(log.ITEM_SEQ)) {
-                alert("안됨");
+                setAlertDiv(
+                  "주의: " + log.ITEM_NAME + "과 함께 먹으면 안되는 약입니다."
+                );
               }
             }
           });
@@ -153,10 +156,18 @@ function Pill(props) {
             onChange={handleRange}
           />
           <br />
-          하루동안 먹는 개수
+          복용량(하루에 먹는 개수)
           <br />
-          <Input type="number" id="quantity" style={{ width: "262px" }}></Input>
+          <Input
+            type="number"
+            id="quantity"
+            style={{ width: "262px" }}
+            min="0"
+          ></Input>
         </form>
+        <div id="banAlert" style={{ color: "red" }}>
+          {AlertDiv} xx
+        </div>
       </Modal>
     </div>
   );
