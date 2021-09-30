@@ -17,10 +17,17 @@ function MyCalendar(props) {
   // async function show
 
   let dateMap = [];
+  let dateSet;
 
   const renderDate = () => {
     props.MyLogInfo.map((log, index) => {
-      dateMap.push({ date: log.START_DATE });
+      let startDate = new Date(log.START_DATE);
+      let endDate = new Date(log.END_DATE);
+      let dDate = startDate.setDate(startDate.getDate());
+      while (startDate <= endDate) {
+        dateMap.push({ date: dDate });
+        dDate = startDate.setDate(startDate.getDate() + 1);
+      }
       console.log(dateMap);
     });
   };
@@ -31,7 +38,7 @@ function MyCalendar(props) {
   function renderEventContent() {
     return (
       <div style={{ margin: "0 auto" }}>
-        <img src={pill} alt="pill" width="25px"></img>
+        <img src={pill} alt="pill" width="20px"></img>
       </div>
     );
   }

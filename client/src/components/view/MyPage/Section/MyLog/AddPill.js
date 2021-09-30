@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PlusOutlined, Icon } from "@ant-design/icons";
-import { Input, Modal, AutoComplete, TimePicker, Button } from "antd";
+import { Input, Modal, AutoComplete, Button, DatePicker } from "antd";
 import Axios from "axios";
 import PillInfo from "./PillInfo";
 import { useSelector } from "react-redux";
@@ -13,6 +13,10 @@ function Pill(props) {
   const [Options, setOptions] = useState([]);
   const [isModalVisible, setisModalVisible] = useState(false);
   const [IsLoaded, setIsLoaded] = useState(false);
+  const [Range, setRange] = useState([]);
+  const [StartDate, setStartDate] = useState();
+  const [EndDate, setEndDate] = useState();
+
   useEffect(() => {
     Axios.get("/api/medicines/getMedicine").then((response) => {
       if (response.data.success) {
@@ -31,10 +35,10 @@ function Pill(props) {
         pills[Selected].INSERT_FILE.substr(-20, 13) +
         "01.jpg",
       QUANTITY: document.getElementById("quantity").value,
-      START_DATE: document.getElementById("start_date").value,
-      END_DATE: document.getElementById("end_date").value,
+      START_DATE: StartDate,
+      END_DATE: EndDate,
     };
-
+    alert(EndDate);
     Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
         alert("등록하였습니다");
@@ -57,13 +61,21 @@ function Pill(props) {
     setisModalVisible(true);
     console.log(pillName);
   };
-
   const handleOk = () => {
     setisModalVisible(false);
   };
   const handleCancel = () => {
+    console.log(Range);
     setisModalVisible(false);
   };
+
+  const handleRange = (value) => {
+    setStartDate(value[0].format("YYYY-MM-DD"));
+    setEndDate(value[1].format("YYYY-MM-DD"));
+  };
+
+  const { RangePicker } = DatePicker;
+  const placeHolder = ["시작일", "종료일"];
   return (
     <div className="medicineBox">
       <PlusOutlined style={{ fontSize: "3rem" }} onClick={showModal} />
@@ -84,12 +96,11 @@ function Pill(props) {
         <form onSubmit={handleSubmit}>
           <AutoComplete
             style={{ width: "300px" }}
-            placeholder="try"
+            placeholder="이름 검색"
             options={Options}
             onSelect={(value, option) => {
               setSelected(option.index);
             }}
-            // onChange={selectedHandler}
             filterOption={(inputValue, option) =>
               option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
               -1
@@ -104,12 +115,17 @@ function Pill(props) {
               storage_method={pills[Selected].STORAGE_METHOD}
             />
           )}
-          시작일
-          <Input type="date" id="start_date"></Input>
-          종료일
-          <Input type="date" id="end_date"></Input>
+          복용 기간
+          <br />
+          <RangePicker
+            className="dateRange"
+            placeholder={placeHolder}
+            onChange={handleRange}
+          />
+          <br />
           하루동안 먹는 개수
-          <Input type="number" id="quantity"></Input>
+          <br />
+          <Input type="number" id="quantity" style={{ width: "262px" }}></Input>
         </form>
       </Modal>
     </div>
