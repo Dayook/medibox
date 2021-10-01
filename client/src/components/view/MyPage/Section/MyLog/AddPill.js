@@ -39,7 +39,6 @@ function Pill(props) {
       START_DATE: StartDate,
       END_DATE: EndDate,
     };
-    alert(EndDate);
     Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
         alert("등록하였습니다");
@@ -71,6 +70,7 @@ function Pill(props) {
   const handleCancel = () => {
     console.log(Range);
     setisModalVisible(false);
+    // 입력칸 초기화
   };
 
   const handleRange = (value) => {
