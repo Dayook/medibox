@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
-import Pill from "./Pill";
 import Axios from "axios";
 import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./PillInfo";
@@ -117,7 +116,7 @@ function MyLog(props) {
         padding: "100px 0",
       }}
     >
-      <div className="basicBox">
+      <div className="basicBox" id="medicineBox">
         <center>
           <CaretLeftOutlined /> {dateString}
           <CaretRightOutlined />
@@ -135,6 +134,7 @@ function MyLog(props) {
         >
           {renderPills}
           <AddPill
+            setToday={props.setToday}
             Changed={props.Changed}
             setChanged={props.setChanged}
             MyLogInfo={props.MyLogInfo}

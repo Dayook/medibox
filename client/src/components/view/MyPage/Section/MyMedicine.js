@@ -40,6 +40,7 @@ function MyMedicine() {
           Changed={Changed}
           style={{ padding: " 100px" }}
           today={today}
+          setToday={setToday}
         />
         <MyCalendar
           MyLogInfo={MyLogInfo}

@@ -46,6 +46,8 @@ function Pill(props) {
         // 입력칸 초기화
         setSelected("");
         document.getElementById("quantity").value = "";
+        props.setToday(new Date(StartDate));
+        // props.setToday(Date(StartDate));
         setisModalVisible(false);
       } else {
         alert("failed");
