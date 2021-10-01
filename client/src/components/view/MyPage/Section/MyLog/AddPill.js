@@ -29,12 +29,7 @@ function Pill(props) {
     e.preventDefault();
     const logVariables = {
       user: user.userData._id,
-      ITEM_SEQ: pills[Selected].ITEM_SEQ,
-      ITEM_NAME: pills[Selected].ITEM_NAME,
-      IMG_SRC:
-        "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
-        pills[Selected].INSERT_FILE.substr(-20, 13) +
-        "01.jpg",
+      medicineId: pills[Selected]._id,
       QUANTITY: document.getElementById("quantity").value,
       START_DATE: StartDate,
       END_DATE: EndDate,

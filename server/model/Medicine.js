@@ -25,6 +25,6 @@ const medicineSchema = mongoose.Schema({
   CHANGE_DATE: { type: Date },
 });
 
-const medicine = mongoose.model("medicine", medicineSchema);
+const Medicine = mongoose.model("Medicine", medicineSchema);
 
-module.exports = { medicine };
+module.exports = { Medicine };

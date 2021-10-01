@@ -5,14 +5,8 @@ const logSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-
-  ITEM_SEQ: {
-    type: Number,
-    ref: "Medicine",
-  },
-
-  ITEM_NAME: {
-    type: String,
+  medicineId: {
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Medicine",
   },
 

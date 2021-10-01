@@ -7,18 +7,7 @@ import Axios from "axios";
 import "./MyCalendar.css";
 
 function MyCalendar(props) {
-  const [Hi, setHi] = useState([]);
-  const [LogData, setLogData] = useState([]);
-  const [IsLoaded, setIsLoaded] = useState(false);
-  // const LogDate = [{ date: "2021-09-28" }, { date: "2021-09-30" }];
-  // useEffect(() => {
-  //   console.log("in calendar:", props.MyLogInfo);
-  // }, []);
-  // async function show
-
   let dateMap = [];
-  let dateSet;
-
   const renderDate = () => {
     props.MyLogInfo.map((log, index) => {
       let startDate = new Date(log.START_DATE);

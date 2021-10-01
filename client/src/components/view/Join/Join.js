@@ -3,7 +3,6 @@ import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_actions";
 import { Form, Input, Button } from "antd";
-import { Icon, ExclamationCircleOutlined } from "@ant-design/icons";
 
 function Join(props) {
   // function password_validate(password) {

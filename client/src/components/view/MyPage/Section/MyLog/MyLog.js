@@ -19,6 +19,7 @@ function MyLog(props) {
     user: localStorage.getItem("userId"),
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
+    console.log(log);
     const pillVariable = {
       id: log._id,
     };
@@ -72,7 +73,7 @@ function MyLog(props) {
             X
           </button>
           <Modal
-            title="먹는 약 등록"
+            title="먹는 약 정보"
             visible={isModalVisible}
             // onOk={handleOk}
             // onCancel={handleCancel}
@@ -90,9 +91,9 @@ function MyLog(props) {
                 <br></br>
                 <PillInfo
                   className="selected"
-                  item_name={log.MATERIAL_NAME}
-                  insert_file={log.INSERT_FILE}
-                  storage_method={log.STORAGE_METHOD}
+                  item_name={log.medicineId.MATERIAL_NAME}
+                  insert_file={log.medicineId.INSERT_FILE}
+                  storage_method={log.medicineId.STORAGE_METHOD}
                 />
                 복용 기간
                 <br />
