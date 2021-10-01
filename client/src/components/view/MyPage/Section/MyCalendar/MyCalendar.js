@@ -1,4 +1,4 @@
-import pill from "../../../../pill.svg";
+import pill from "../../../../../pill.svg";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -32,8 +32,9 @@ function MyCalendar(props) {
     });
   };
 
-  function handleDateClick() {
-    alert("hey");
+  function handleDateClick(info) {
+    alert("클릭 시 myLog => 해당 날짜로 이동하게 만들 것");
+    props.setToday(info.date);
   }
   function renderEventContent() {
     return (
@@ -53,6 +54,7 @@ function MyCalendar(props) {
         dateClick={handleDateClick}
         eventContent={renderEventContent}
         events={dateMap}
+        eventClick={handleDateClick}
       ></FullCalendar>
       {renderDate()}
     </div>

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
 import Pill from "./Pill";
 import Axios from "axios";
+import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./PillInfo";
 import { Button, Modal } from "antd";
 import "./MyLog.css";
 
 function MyLog(props) {
-  const [today, setToday] = useState(new Date());
+  const today = props.today;
   const [isModalVisible, setisModalVisible] = useState(false);
   let [AlertDiv, setAlertDiv] = useState("");
   var year = today.getFullYear();
@@ -118,7 +119,8 @@ function MyLog(props) {
     >
       <div className="basicBox">
         <center>
-          {dateString}
+          <CaretLeftOutlined /> {dateString}
+          <CaretRightOutlined />
           <h2>나의 처방전</h2>
         </center>
         <br />

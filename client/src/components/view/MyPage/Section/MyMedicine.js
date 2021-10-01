@@ -1,9 +1,14 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import MyCalendar from "./MyCalendar";
+import MyCalendar from "./MyCalendar/MyCalendar";
 import MyLog from "./MyLog/MyLog";
 
 function MyMedicine() {
+  const [today, setToday] = useState(new Date());
+  var year = today.getFullYear();
+  var month = ("0" + (today.getMonth() + 1)).slice(-2);
+  var day = ("0" + today.getDate()).slice(-2);
+
   const variable = {
     user: localStorage.getItem("userId"),
   };
@@ -34,10 +39,12 @@ function MyMedicine() {
           setChanged={setChanged}
           Changed={Changed}
           style={{ padding: " 100px" }}
+          today={today}
         />
         <MyCalendar
           MyLogInfo={MyLogInfo}
           style={{ padding: "100px 0px" }}
+          setToday={setToday}
         ></MyCalendar>
       </div>
     </div>

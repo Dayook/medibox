@@ -161,13 +161,14 @@ function Pill(props) {
               onChange={handleRange}
             />
             <br />
-            복용량(하루에 먹는 개수)
+            복용량
             <br />
             <Input
               type="number"
               id="quantity"
               style={{ width: "262px" }}
               min="0"
+              placeholder="하루에 먹는 개수 입력해주세요"
             ></Input>
           </form>
           <div id="banAlert" style={{ color: "red" }}>
