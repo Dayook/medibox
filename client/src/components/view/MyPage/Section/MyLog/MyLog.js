@@ -13,7 +13,6 @@ function MyLog(props) {
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
-
   var dateString = year + "-" + month + "-" + day;
   const variable = {
     user: localStorage.getItem("userId"),
@@ -119,8 +118,21 @@ function MyLog(props) {
     >
       <div className="basicBox" id="medicineBox">
         <center>
-          <CaretLeftOutlined /> {dateString}
-          <CaretRightOutlined />
+          <CaretLeftOutlined
+            onClick={() => {
+              props.setToday(
+                new Date(today.setDate(props.today.getDate() - 1))
+              );
+            }}
+          />{" "}
+          {dateString}
+          <CaretRightOutlined
+            onClick={() => {
+              props.setToday(
+                new Date(today.setDate(props.today.getDate() + 1))
+              );
+            }}
+          />
           <h2>나의 처방전</h2>
         </center>
         <br />
