@@ -13,6 +13,7 @@ import MyMedicine from "./components/view/MyPage/Section/MyMedicine";
 import Counsel from "./components/view/Counsel/Counsel";
 import Medicine from "./components/view/Medicine/Medicine";
 import Footer from "./components/view/Footer/Footer";
+import ColorPicker from "./components/ColorPicker";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
             <Route exact path="/login" component={Auth(Login, false)} />
             <Route exact path="/register" component={Auth(Join, false)} />
             <Route exact path="/mypage" component={Auth(MyPage, true)} />
-            <Route exact path="/medicine" component={Auth(Medicine)} />
+            <Route exact path="/medicine" component={Auth(Medicine, true)} />
+            <Route exact path="/colorpicker" component={Auth(ColorPicker)} />
             <Route
               exact
               path="/my-medicine"
