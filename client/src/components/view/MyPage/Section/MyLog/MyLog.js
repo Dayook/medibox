@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
 import Pill from "./Pill";
 import Axios from "axios";
+import PillInfo from "./PillInfo";
+import { Button, Modal } from "antd";
 import "./MyLog.css";
 
 function MyLog(props) {
   const [today, setToday] = useState(new Date());
+  const [isModalVisible, setisModalVisible] = useState(false);
+  let [AlertDiv, setAlertDiv] = useState("");
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
@@ -19,7 +23,15 @@ function MyLog(props) {
       id: log._id,
     };
     const handleClick = () => {
-      alert("yuppp");
+      setisModalVisible(true);
+    };
+
+    const handleOk = () => {
+      setisModalVisible(false);
+    };
+    const handleCancel = () => {
+      console.log(Range);
+      setisModalVisible(false);
     };
     // alert(Date.parse(log.START_DATE - ) + "today" + Date.parse(today));
     if (
@@ -41,6 +53,7 @@ function MyLog(props) {
             }}
             onClick={handleClick}
           />
+
           <span className="quantity">{log.QUANTITY}개</span>
           <button
             className="delete"
@@ -58,6 +71,40 @@ function MyLog(props) {
           >
             X
           </button>
+          <Modal
+            title="먹는 약 등록"
+            visible={isModalVisible}
+            // onOk={handleOk}
+            // onCancel={handleCancel}
+            footer={[
+              <Button key="back" onClick={handleCancel}>
+                취소
+              </Button>,
+              <Button key="confirm" type="primary" onClick={handleOk}>
+                확인
+              </Button>,
+            ]}
+          >
+            <center>
+              <div>
+                <br></br>
+                <PillInfo
+                  className="selected"
+                  item_name={log.MATERIAL_NAME}
+                  insert_file={log.INSERT_FILE}
+                  storage_method={log.STORAGE_METHOD}
+                />
+                복용 기간
+                <br />
+                <br />
+                복용량(하루에 먹는 개수)
+                <br />
+              </div>
+              <div id="banAlert" style={{ color: "red" }}>
+                {AlertDiv}
+              </div>
+            </center>
+          </Modal>
         </div>
       );
     }
@@ -69,21 +116,7 @@ function MyLog(props) {
         padding: "100px 0",
       }}
     >
-      <div
-        className="basicBox"
-        style={{
-          width: "800px",
-          borderRadius: "10px",
-          border: "1.8px solid #2e2e2e",
-          margin: "0px auto",
-          padding: "30px",
-          background: "rgba( 255, 255, 255, 0.85 )",
-          // boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-          backdropFilter: "blur( 4px )",
-          // -webkit-backdrop-filter: blur( 4px );
-          // border-radius: 10px;
-        }}
-      >
+      <div className="basicBox">
         <center>
           {dateString}
           <h2>나의 처방전</h2>
