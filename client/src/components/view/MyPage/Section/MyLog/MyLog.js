@@ -4,6 +4,7 @@ import Axios from "axios";
 import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./PillInfo";
 import { Button, Modal } from "antd";
+import moment from "moment";
 import "./MyLog.css";
 
 function MyLog(props) {
@@ -18,9 +19,6 @@ function MyLog(props) {
     user: localStorage.getItem("userId"),
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
-    console.log("renderPills" + log);
-    // console.log(log.medicineId.COLOR);
-    console.log(log.medicineId);
     const pillVariable = {
       id: log._id,
     };
@@ -98,8 +96,11 @@ function MyLog(props) {
                 />
                 복용 기간
                 <br />
+                {moment(log.START_DATE).format("YYYY-MM-DD")} ~{" "}
+                {moment(log.END_DATE).format("YYYY-MM-DD")}
                 <br />
                 복용량(하루에 먹는 개수)
+                {log.QUANTITY}
                 <br />
               </div>
               <div id="banAlert" style={{ color: "red" }}>

@@ -57,7 +57,6 @@ function MyCalendar(props) {
             backgroundColor: info.backgroundColor,
           }}
         ></div>
-        <img src={pill} alt="pill" width="20px"></img>
       </div>
     );
   }

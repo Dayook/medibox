@@ -75,8 +75,8 @@ function Pill(props) {
   };
 
   const handleRange = (value) => {
-    setStartDate(value[0].format("YYYY-MM-DD"));
-    setEndDate(value[1].format("YYYY-MM-DD"));
+    setStartDate(value[0]);
+    setEndDate(value[1]);
     const checkVariables = {
       START_DATE: StartDate,
       END_DATE: EndDate,
