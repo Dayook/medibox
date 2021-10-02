@@ -141,10 +141,10 @@ function Pill(props) {
               onSelect={(value, option) => {
                 setSelected(option.index);
               }}
-              // filterOption={(inputValue, option) =>
-              //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
-              //   -1
-              // }
+              filterOption={(inputValue, option) =>
+                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
+                -1
+              }
             ></AutoComplete>
             <br></br>
             {pills[Selected] && (
