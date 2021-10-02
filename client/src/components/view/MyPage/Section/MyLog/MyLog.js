@@ -58,15 +58,17 @@ function MyLog(props) {
           <button
             className="delete"
             onClick={() => {
-              Axios.post("/api/medicines/deleteLog", pillVariable).then(
-                (response) => {
-                  if (response.data.success) {
-                    props.setChanged(!props.Changed);
-                  } else {
-                    alert("실패");
+              if (window.confirm("정말 삭제하시겠습니까?")) {
+                Axios.post("/api/medicines/deleteLog", pillVariable).then(
+                  (response) => {
+                    if (response.data.success) {
+                      props.setChanged(!props.Changed);
+                    } else {
+                      alert("실패");
+                    }
                   }
-                }
-              );
+                );
+              }
             }}
           >
             X
