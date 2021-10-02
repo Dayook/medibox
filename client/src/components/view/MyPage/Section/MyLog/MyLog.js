@@ -33,11 +33,11 @@ function MyLog(props) {
       console.log(Range);
       setisModalVisible(false);
     };
-    // alert(Date.parse(log.START_DATE - ) + "today" + Date.parse(today));
+    // alert(Date.parse(log.START_DATE));
     if (
       log.user &&
       Date.parse(log.END_DATE) >= Date.parse(today) &&
-      Date.parse(log.START_DATE) - 46400000 <= Date.parse(today)
+      Date.parse(log.START_DATE) - 60 * 60 * 24 * 1000 <= Date.parse(today)
     ) {
       return (
         <div className="medicineItem">
@@ -90,7 +90,7 @@ function MyLog(props) {
                 <br></br>
                 <PillInfo
                   className="selected"
-                  item_name={log.medicineId.MATERIAL_NAME}
+                  item_name={log.medicineId.ITEM_NAME}
                   insert_file={log.medicineId.INSERT_FILE}
                   storage_method={log.medicineId.STORAGE_METHOD}
                 />

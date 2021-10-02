@@ -75,8 +75,9 @@ function Pill(props) {
   };
 
   const handleRange = (value) => {
-    setStartDate(value[0]);
-    setEndDate(value[1]);
+    // format 필수 - 지울 경우 분 표시 되어 달력에 2일씩 들어가게됨
+    setStartDate(value[0].format("YYYY-MM-DD"));
+    setEndDate(value[1].format("YYYY-MM-DD"));
     const checkVariables = {
       START_DATE: StartDate,
       END_DATE: EndDate,
