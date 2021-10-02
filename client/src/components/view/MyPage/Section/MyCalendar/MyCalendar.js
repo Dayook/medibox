@@ -52,9 +52,11 @@ function MyCalendar(props) {
       <div style={{ margin: "0 auto" }}>
         <div
           style={{
-            width: "20px",
-            height: "20px",
+            width: "25px",
+            height: "25px",
             backgroundColor: info.backgroundColor,
+            borderRadius: 50,
+            boxShadow: "0 1px 2px 0 rgba(31,31,31,0.15)",
           }}
         ></div>
       </div>
