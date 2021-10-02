@@ -31,6 +31,10 @@ function Pill(props) {
       user: user.userData._id,
       medicineId: pills[Selected]._id,
       QUANTITY: document.getElementById("quantity").value,
+      IMG_SRC:
+        "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
+        pills[Selected].INSERT_FILE.substr(-20, 13) +
+        "01.jpg",
       START_DATE: StartDate,
       END_DATE: EndDate,
     };

@@ -18,7 +18,9 @@ function MyLog(props) {
     user: localStorage.getItem("userId"),
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
-    console.log(log);
+    console.log("renderPills" + log);
+    // console.log(log.medicineId.COLOR);
+    console.log(log.medicineId);
     const pillVariable = {
       id: log._id,
     };
@@ -41,7 +43,7 @@ function MyLog(props) {
     ) {
       return (
         <div className="medicineItem">
-          <span className="itemName">{log.ITEM_NAME}</span>
+          <span className="itemName">{log.medicineId.ITEM_NAME}</span>
           <br></br>
           <img
             src={log.IMG_SRC}

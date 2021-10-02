@@ -8,28 +8,55 @@ import "./MyCalendar.css";
 
 function MyCalendar(props) {
   let dateMap = [];
-  const renderDate = () => {
-    props.MyLogInfo.map((log, index) => {
-      let startDate = new Date(log.START_DATE);
-      let endDate = new Date(log.END_DATE);
-      let dDate = startDate.setDate(startDate.getDate());
-      while (startDate <= endDate) {
-        dateMap.push({ date: dDate });
-        dDate = startDate.setDate(startDate.getDate() + 1);
-      }
-      console.log(dateMap);
-    });
-  };
+  // const renderDate = () => {
+  //   props.MyLogInfo.map((log, index) => {
+  //     let startDate = new Date(log.START_DATE);
+  //     let endDate = new Date(log.END_DATE);
+  //     let dDate = startDate.setDate(startDate.getDate());
+  //     const info = log.medicineId;
+  //     console.log(log);
+  //     console.log(info);
+  //     while (startDate <= endDate) {
+  //       dateMap.push({ date: dDate });
+  //       dDate = startDate.setDate(startDate.getDate() + 1);
+  //     }
+  //     console.log(dateMap);
+  //   });
+  // };
 
+  const renderDate = props.MyLogInfo.map((log, index) => {
+    let startDate = new Date(log.START_DATE);
+    let endDate = new Date(log.END_DATE);
+    let dDate = startDate.setDate(startDate.getDate());
+    console.log(log);
+    // 왜 이렇게 해줘야 하지?????
+    let color;
+    if (log.medicineId) {
+      color = log.medicineId.COLOR;
+    }
+    while (startDate <= endDate) {
+      dateMap.push({ date: dDate, color: color });
+      // endDate 될때까지 하루 더하기
+      dDate = startDate.setDate(startDate.getDate() + 1);
+    }
+    console.log(dateMap);
+  });
   function handleDateClick(info) {
     props.setToday(info.date);
   }
   function handleEventClick(info) {
     props.setToday(info.event.start);
   }
-  function renderEventContent() {
+  function renderEventContent(info) {
     return (
       <div style={{ margin: "0 auto" }}>
+        <div
+          style={{
+            width: "20px",
+            height: "20px",
+            backgroundColor: info.backgroundColor,
+          }}
+        ></div>
         <img src={pill} alt="pill" width="20px"></img>
       </div>
     );
@@ -47,7 +74,7 @@ function MyCalendar(props) {
         events={dateMap}
         eventClick={handleEventClick}
       ></FullCalendar>
-      {renderDate()}
+      {renderDate}
     </div>
   );
 }
