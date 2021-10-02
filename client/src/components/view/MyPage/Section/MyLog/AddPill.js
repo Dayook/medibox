@@ -76,15 +76,18 @@ function Pill(props) {
 
   const handleRange = (value) => {
     // format 필수 - 지울 경우 분 표시 되어 달력에 2일씩 들어가게됨
-    setStartDate(value[0].format("YYYY-MM-DD"));
-    setEndDate(value[1].format("YYYY-MM-DD"));
+    if (value) {
+      setStartDate(value[0].format("YYYY-MM-DD"));
+      setEndDate(value[1].format("YYYY-MM-DD"));
+    }
+
+    // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
     const checkVariables = {
       START_DATE: StartDate,
       END_DATE: EndDate,
       ITEM_NAME: pills[Selected].ITEM_NAME,
     };
 
-    // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
     Axios.post("/api/medicines/checkCaution", checkVariables).then(
       (response) => {
         if (response.data.success) {
