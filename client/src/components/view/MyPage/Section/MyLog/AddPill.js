@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PlusOutlined, Icon } from "@ant-design/icons";
-import { Input, Modal, AutoComplete, Button, DatePicker } from "antd";
+import { Modal, AutoComplete, Button, DatePicker, InputNumber } from "antd";
 import Axios from "axios";
 import PillInfo from "./PillInfo";
 import { useSelector } from "react-redux";
@@ -16,6 +16,8 @@ function Pill(props) {
   const [Range, setRange] = useState([]);
   const [StartDate, setStartDate] = useState();
   const [EndDate, setEndDate] = useState();
+  const [SearchValue, setSearchValue] = useState("");
+  const [quantity, setQuantity] = useState();
   let [AlertDiv, setAlertDiv] = useState("");
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function Pill(props) {
     const logVariables = {
       user: user.userData._id,
       medicineId: pills[Selected]._id,
-      QUANTITY: document.getElementById("quantity").value,
+      QUANTITY: quantity,
       IMG_SRC:
         "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
         pills[Selected].INSERT_FILE.substr(-20, 13) +
@@ -42,11 +44,12 @@ function Pill(props) {
       if (response.data.success) {
         alert("등록하였습니다");
         props.setChanged(!props.Changed);
+        props.setToday(new Date(StartDate));
         // 입력칸 초기화
         setSelected("");
-        document.getElementById("quantity").value = "";
-        props.setToday(new Date(StartDate));
-        // props.setToday(Date(StartDate));
+        setSearchValue("");
+        setQuantity(0);
+        // document.getElementById("quantity").value = 0;
         setisModalVisible(false);
       } else {
         alert("failed");
@@ -138,11 +141,17 @@ function Pill(props) {
         <center>
           <form onSubmit={handleSubmit}>
             <AutoComplete
-              style={{ width: "300px" }}
+              style={{ width: "260px" }}
               placeholder="이름 검색"
               options={Options}
               onSelect={(value, option) => {
+                setSearchValue(option.ITEMN_NAME);
                 setSelected(option.index);
+              }}
+              allowClear="true"
+              value={SearchValue}
+              onChange={(value) => {
+                setSearchValue(value);
               }}
               filterOption={(inputValue, option) =>
                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
@@ -153,7 +162,7 @@ function Pill(props) {
             {pills[Selected] && (
               <PillInfo
                 className="selected"
-                item_name={pills[Selected].MATERIAL_NAME}
+                material_name={pills[Selected].MATERIAL_NAME}
                 insert_file={pills[Selected].INSERT_FILE}
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
@@ -168,13 +177,20 @@ function Pill(props) {
             <br />
             복용량
             <br />
-            <Input
+            <InputNumber
               type="number"
               id="quantity"
+              value={quantity}
               style={{ width: "262px" }}
               min="0"
+              onChange={(number) => {
+                setQuantity(number);
+              }}
+              onStep={(number) => {
+                setQuantity(number);
+              }}
               placeholder="하루에 먹는 개수 입력해주세요"
-            ></Input>
+            ></InputNumber>
           </form>
           <div id="banAlert" style={{ color: "red" }}>
             {AlertDiv}
