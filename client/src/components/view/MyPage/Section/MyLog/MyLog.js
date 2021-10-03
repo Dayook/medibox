@@ -3,7 +3,7 @@ import AddPill from "./AddPill";
 import Axios from "axios";
 import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./PillInfo";
-import { Button, Modal } from "antd";
+import { Button, InputNumber, Modal, DatePicker } from "antd";
 import moment from "moment";
 import "./MyLog.css";
 
@@ -15,6 +15,7 @@ function MyLog(props) {
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
   var dateString = year + "-" + month + "-" + day;
+  const { RangePicker } = DatePicker;
   const variable = {
     user: localStorage.getItem("userId"),
   };
@@ -98,11 +99,14 @@ function MyLog(props) {
                 />
                 복용 기간
                 <br />
-                
+                <RangePicker
+                  value={[moment(log.START_DATE), moment(log.END_DATE)]}
+                />
                 {moment(log.START_DATE).format("YYYY-MM-DD")} ~{" "}
                 {moment(log.END_DATE).format("YYYY-MM-DD")}
                 <br />
                 복용량(하루에 먹는 개수)
+                <InputNumber value={log.QUANTITY} />
                 {log.QUANTITY}
                 <br />
               </div>
