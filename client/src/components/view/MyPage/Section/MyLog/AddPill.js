@@ -4,6 +4,7 @@ import { Modal, AutoComplete, Button, DatePicker, InputNumber } from "antd";
 import Axios from "axios";
 import PillInfo from "./PillInfo";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
 function Pill(props) {
   const user = useSelector((state) => state.user);
@@ -13,8 +14,8 @@ function Pill(props) {
   const [Options, setOptions] = useState([]);
   const [isModalVisible, setisModalVisible] = useState(false);
   const [IsLoaded, setIsLoaded] = useState(false);
-  const [Range, setRange] = useState([]);
-  const [StartDate, setStartDate] = useState();
+  // const [Range, setRange] = useState([]);
+  const [StartDate, setStartDate] = useState([]);
   const [EndDate, setEndDate] = useState();
   const [SearchValue, setSearchValue] = useState("");
   const [quantity, setQuantity] = useState();
@@ -48,8 +49,10 @@ function Pill(props) {
         // 입력칸 초기화
         setSelected("");
         setSearchValue("");
-        setQuantity(0);
-        // document.getElementById("quantity").value = 0;
+        setQuantity("");
+        // setStartDate(null);
+        // setEndDate(null);
+        // 모달창 끄기
         setisModalVisible(false);
       } else {
         alert("failed");
@@ -72,7 +75,11 @@ function Pill(props) {
     setisModalVisible(false);
   };
   const handleCancel = () => {
-    console.log(Range);
+    // 입력창 초기화;
+    setSelected("");
+    setSearchValue("");
+    setQuantity("");
+    // 입력창 초기화;
     setisModalVisible(false);
     // 입력칸 초기화
   };
@@ -173,6 +180,7 @@ function Pill(props) {
               className="dateRange"
               placeholder={placeHolder}
               onChange={handleRange}
+              // value={[moment(StartDate), moment(EndDate)]}
             />
             <br />
             복용량
