@@ -50,6 +50,7 @@ function Pill(props) {
         setSelected("");
         setSearchValue("");
         setQuantity("");
+        setAlertDiv("");
         // setStartDate(null);
         // setEndDate(null);
         // 모달창 끄기
@@ -79,9 +80,8 @@ function Pill(props) {
     setSelected("");
     setSearchValue("");
     setQuantity("");
-    // 입력창 초기화;
+    setAlertDiv("");
     setisModalVisible(false);
-    // 입력칸 초기화
   };
 
   const handleRange = (value) => {
@@ -96,12 +96,14 @@ function Pill(props) {
       START_DATE: StartDate,
       END_DATE: EndDate,
       ITEM_NAME: pills[Selected].ITEM_NAME,
+      ITEM_SEQ: pills[Selected].ITEM_SEQ,
     };
 
     Axios.post("/api/medicines/checkCaution", checkVariables).then(
       (response) => {
         if (response.data.success) {
           console.log("정보:", response.data.added);
+          // 추가된 약의 병용금기약 데이터를 불러온다
           const added = response.data.added;
           var bannedItem = [];
           added.map((add, index) => {
@@ -110,11 +112,14 @@ function Pill(props) {
           });
           const myLog = props.MyLogInfo;
           myLog.map((log, index) => {
+            console.log(bannedItem);
             // 1. myInfo log와 기간이 겹치는지 확인
             if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
-              if (bannedItem.includes(log.ITEM_SEQ)) {
+              if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
                 setAlertDiv(
-                  "주의: " + log.ITEM_NAME + "과 함께 먹으면 안되는 약입니다."
+                  "주의: " +
+                    log.medicineId.ITEM_NAME +
+                    "과 함께 먹으면 안되는 약입니다."
                 );
               }
             }

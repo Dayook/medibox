@@ -122,6 +122,68 @@
         },
         "CANCEL_NAME": "정상",
         "CHANGE_DATE": "20210122"
+      },
+       {
+        "ITEM_SEQ": "201306167",
+        "ITEM_NAME": "크래리스정250밀리그램(클래리트로마이신)",
+        "ENTP_NAME": "코오롱제약(주)",
+        "ITEM_PERMIT_DATE": "20130313",
+        "ETC_OTC_CODE": "전문의약품",
+        "CLASS_NO": "[619]기타의 항생물질제제(복합항생물질제제를 포함)",
+        "CHART": "황색의 장방형 필름코팅정",
+        "BAR_CODE": "8806703036337",
+        "MATERIAL_NAME": "클래리트로마이신,,250,밀리그램,KP,역가",
+        "EE_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201306167/EE",
+        "UD_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201306167/UD",
+        "NB_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201306167/NB",
+        "INSERT_FILE": "http://www.health.kr/images/insert_pdf/IN_2013031400001_01.pdf",
+        "STORAGE_METHOD": "기밀용기, 실온(1~30℃)보관",
+        "VALID_TERM": "제조일로부터 24개월",
+        "REEXAM_TARGET": {
+          "-self-closing": "true"
+        },
+        "REEXAM_DATE": {
+          "-self-closing": "true"
+        },
+        "PACK_UNIT": "30정/병, 100정/병",
+        "EDI_CODE": "670303630",
+        "CANCEL_DATE": {
+          "-self-closing": "true"
+        },
+        "CANCEL_NAME": "정상",
+        "CHANGE_DATE": "20191010"
+      },
+      {
+        "ITEM_SEQ": "201603563",
+        "ITEM_NAME": "크래리스정500밀리그램(클래리트로마이신)",
+        "ENTP_NAME": "코오롱제약(주)",
+        "ITEM_PERMIT_DATE": "20160617",
+        "ETC_OTC_CODE": "전문의약품",
+        "CLASS_NO": "[619]기타의 항생물질제제(복합항생물질제제를 포함)",
+        "CHART": "황색의 장방형 필름코팅정",
+        "BAR_CODE": "8806703047326",
+        "MATERIAL_NAME": "클래리트로마이신,,500,밀리그램,KP,역가",
+        "EE_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201603563/EE",
+        "UD_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201603563/UD",
+        "NB_DOC_ID": "https://nedrug.mfds.go.kr/pbp/cmn/pdfViewer/201603563/NB",
+        "INSERT_FILE": {
+          "-self-closing": "true"
+        },
+        "STORAGE_METHOD": "차광기밀용기, 15-30℃보관",
+        "VALID_TERM": "제조일로부터 24개월",
+        "REEXAM_TARGET": {
+          "-self-closing": "true"
+        },
+        "REEXAM_DATE": {
+          "-self-closing": "true"
+        },
+        "PACK_UNIT": "30정, 100정",
+        "EDI_CODE": "670304730",
+        "CANCEL_DATE": {
+          "-self-closing": "true"
+        },
+        "CANCEL_NAME": "정상",
+        "CHANGE_DATE": "20191010"
       }
     ]
   }
