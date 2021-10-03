@@ -38,19 +38,19 @@ function RightMenu(props) {
     );
   } else {
     return (
-      <Menu mode={props.mode}>
+      <Menu style={{ float: "right" }} mode={props.mode}>
         <SubMenu key="sub" title={<span>마이 페이지</span>}>
           {/* <MenuItemGroup title="dd"> */}
-          <Menu.Item key="my-medicine">
+          {/* <Menu.Item key="my-medicine">
             <a href="/my-medicine">나의 처방전</a>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key="myPage">
             <a href="/myPage">나의 프로필</a>
           </Menu.Item>
+          <Menu.Item key="logout">
+            <a onClick={logoutHandler}>로그아웃</a>
+          </Menu.Item>
         </SubMenu>
-        <Menu.Item key="logout">
-          <a onClick={logoutHandler}>로그아웃</a>
-        </Menu.Item>
       </Menu>
     );
   }

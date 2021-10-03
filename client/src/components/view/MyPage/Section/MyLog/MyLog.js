@@ -98,6 +98,7 @@ function MyLog(props) {
                 />
                 복용 기간
                 <br />
+                
                 {moment(log.START_DATE).format("YYYY-MM-DD")} ~{" "}
                 {moment(log.END_DATE).format("YYYY-MM-DD")}
                 <br />
