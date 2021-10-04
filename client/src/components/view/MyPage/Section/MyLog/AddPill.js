@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PlusOutlined, Icon } from "@ant-design/icons";
 import { Modal, AutoComplete, Button, DatePicker, InputNumber } from "antd";
 import Axios from "axios";
-import PillInfo from "./PillInfo";
+import PillInfo from "./Info/PillInfo";
 import { useSelector } from "react-redux";
 import moment from "moment";
 

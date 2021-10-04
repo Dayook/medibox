@@ -22,9 +22,8 @@ function PillInfo(props) {
   } else {
     return (
       <div>
-        {" "}
         {materialName}
-        {props.item_name}
+        <span style={{ fontSize: "larger" }}>{props.item_name}</span>
         <img
           src={img_src}
           style={{ width: "-webkit-fill-available" }}

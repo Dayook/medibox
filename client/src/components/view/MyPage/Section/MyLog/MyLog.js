@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
 import Axios from "axios";
 import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
-import PillInfo from "./PillInfo";
+import PillInfo from "./Info/PillInfo";
 import { Button, Modal } from "antd";
 import moment from "moment";
 import "./MyLog.css";
-import LogInfo from "./LogInfo";
+import LogInfo from "./Info/LogInfo";
 
 function MyLog(props) {
   const today = props.today;
@@ -161,7 +161,6 @@ function MyLog(props) {
         >
           <center>
             <div>
-              <br></br>
               <PillInfo
                 className="selected"
                 item_name={props.MyLogInfo[modalIndex].medicineId.ITEM_NAME}
