@@ -36,6 +36,7 @@ router.post("/myLog", (req, res) => {
   console.log("user:", req.body.user);
   Log.find({ user: req.body.user })
     .populate("medicineId")
+    .populate("cautionWith")
     .exec((err, myLog) => {
       if (err) return res.status(400).send(err);
       return res.status(200).json({ success: true, myLog: myLog });

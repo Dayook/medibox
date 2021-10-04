@@ -26,9 +26,9 @@ const logSchema = mongoose.Schema({
 
   cautionWith: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Medicine",
+    ref: "Log",
   },
 });
 
-const Log = mongoose.model("log", logSchema);
+const Log = mongoose.model("Log", logSchema);
 module.exports = { Log };
