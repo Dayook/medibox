@@ -45,11 +45,19 @@ router.post("/myLog", (req, res) => {
 
 router.post("/log", (req, res) => {
   const log = new Log(req.body);
+
   log.save((err, doc) => {
     if (err) {
       return res.json({ success: false, err });
     } else {
-      return res.json({ success: true });
+      console.log(log.cautionWith);
+      Log.findOneAndUpdate(
+        { _id: log.cautionWith },
+        { cautionWith: log._id }
+      ).exec((err, updated) => {
+        if (err) return res.status(400).send(err);
+        return res.status(200).json({ success: true });
+      });
     }
   });
 });

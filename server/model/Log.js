@@ -25,6 +25,7 @@ const logSchema = mongoose.Schema({
   },
 
   cautionWith: {
+    // type: String,
     type: mongoose.Schema.Types.ObjectId,
     ref: "Log",
   },

@@ -23,6 +23,9 @@ function MyLog(props) {
     const pillVariable = {
       id: log._id,
     };
+    if (log.cautionWith) {
+    }
+
     const handleClick = () => {
       setisModalVisible(true);
     };
@@ -54,8 +57,8 @@ function MyLog(props) {
             }}
             onClick={handleClick}
           />
-
           <span className="quantity">{log.QUANTITY}개</span>
+          {log.cautionWith && "hi"}
           <button
             className="delete"
             onClick={() => {
