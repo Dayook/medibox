@@ -19,9 +19,11 @@ function Pill(props) {
   const [EndDate, setEndDate] = useState();
   const [SearchValue, setSearchValue] = useState("");
   const [quantity, setQuantity] = useState();
+  const [caution, setCaution] = useState();
   let [AlertDiv, setAlertDiv] = useState("");
 
   useEffect(() => {
+    console.log("render");
     Axios.get("/api/medicines/getMedicine").then((response) => {
       if (response.data.success) {
         setpills(response.data.medicines);
@@ -48,19 +50,25 @@ function Pill(props) {
               bannedItem.push(add.MIXTURE_ITEM_SEQ);
             });
             const myLog = props.MyLogInfo;
-            myLog.map((log, index) => {
+            myLog.some((log, index) => {
               console.log(bannedItem);
               // 1. myInfo log와 기간이 겹치는지 확인
-              if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
-                if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
-                  setAlertDiv(
-                    "주의: " +
-                      log.medicineId.ITEM_NAME +
-                      "과 함께 먹으면 안되는 약입니다."
-                  );
-                }
+              if (
+                log.START_DATE <= EndDate &&
+                !(log.END_DATE < StartDate) &&
+                bannedItem.includes(log.medicineId.ITEM_SEQ)
+              ) {
+                // if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
+                setAlertDiv(
+                  "주의: " +
+                    log.medicineId.ITEM_NAME +
+                    "과 함께 먹으면 안되는 약입니다."
+                );
+                setCaution(log.medicineId.ITEM_SEQ);
+                return true;
               } else {
                 setAlertDiv("");
+                return false;
               }
             });
           } else {
@@ -69,7 +77,7 @@ function Pill(props) {
         }
       );
     }
-  }, [Selected, StartDate, EndDate]);
+  }, [Selected, StartDate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const logVariables = {
