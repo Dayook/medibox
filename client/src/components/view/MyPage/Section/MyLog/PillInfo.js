@@ -3,11 +3,11 @@ import React from "react";
 function PillInfo(props) {
   var img_src = "";
   var materialName;
-  if (props.insert_file) {
+  if (props.drug_cd) {
     img_src =
       "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
-      props.insert_file.substr(-20, 13) +
-      "01.jpg";
+      props.drug_cd +
+      ".jpg";
   }
   if (props.material_name) {
     materialName = (
@@ -24,7 +24,7 @@ function PillInfo(props) {
       <div>
         {" "}
         {materialName}
-        {props.item_name} 
+        {props.item_name}
         <img
           src={img_src}
           style={{ width: "-webkit-fill-available" }}

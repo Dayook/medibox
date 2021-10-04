@@ -23,6 +23,7 @@ router.post("/deleteLog", (req, res) => {
 
 router.post("/checkCaution", (req, res) => {
   console.log(req.body.ITEM_NAME);
+  console.log(itemSeq);
   medicineMixture
     .find({ ITEM_NAME: req.body.ITEM_NAME })
     // .findOne({ ITEM_SEQ: req.body.ITEM_SEQ })

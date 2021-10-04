@@ -36,8 +36,8 @@ function Pill(props) {
       QUANTITY: quantity,
       IMG_SRC:
         "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
-        pills[Selected].INSERT_FILE.substr(-20, 13) +
-        "01.jpg",
+        pills[Selected].DRUG_CD +
+        ".jpg",
       START_DATE: StartDate,
       END_DATE: EndDate,
     };
@@ -70,7 +70,7 @@ function Pill(props) {
     }
 
     setisModalVisible(true);
-    console.log(pillName);
+    console.log(pills);
   };
   const handleOk = () => {
     setisModalVisible(false);
@@ -175,7 +175,7 @@ function Pill(props) {
               <PillInfo
                 className="selected"
                 material_name={pills[Selected].MATERIAL_NAME}
-                insert_file={pills[Selected].INSERT_FILE}
+                drug_cd={pills[Selected].DRUG_CD}
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
             )}

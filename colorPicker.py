@@ -10,6 +10,8 @@ with open('./medicineInfo.json', 'r', encoding='UTF-8') as f:
 for data in json_data :
     if data['INSERT_FILE']:
         url = "https://www.pharm.or.kr:442/images/sb_photo/big3/" + data['INSERT_FILE'][-20:-7] + "01.jpg"
+        data['DRUG_CD'] = data['INSERT_FILE'][-20:-7] + "01"
+        data['COLOR'] = ""
         response = requests.get(url)
         if response.status_code == 200:
             im = Image.open(BytesIO(response.content))

@@ -94,7 +94,7 @@ function MyLog(props) {
                 <PillInfo
                   className="selected"
                   item_name={log.medicineId.ITEM_NAME}
-                  insert_file={log.medicineId.INSERT_FILE}
+                  drug_cd={log.medicineId.DRUG_CD}
                   storage_method={log.medicineId.STORAGE_METHOD}
                 />
                 복용 기간
