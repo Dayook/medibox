@@ -44,7 +44,7 @@ function MyMedicine() {
         />
         <MyCalendar
           MyLogInfo={MyLogInfo}
-          style={{ padding: "100px 0px" }}
+          style={{ padding: "100px 0px", height: "900px" }}
           setToday={setToday}
         ></MyCalendar>
       </div>

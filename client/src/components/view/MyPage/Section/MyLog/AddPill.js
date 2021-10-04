@@ -104,7 +104,6 @@ function Pill(props) {
           log.END_DATE >= StartDate
         ) {
           alert("해당 날짜에 이미 등록돼있는 약입니다.");
-          // function 종료시켜버려야함
           return true;
         }
       })

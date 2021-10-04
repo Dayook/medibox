@@ -3,39 +3,49 @@ import AddPill from "./AddPill";
 import Axios from "axios";
 import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./PillInfo";
-import { Button, InputNumber, Modal, DatePicker } from "antd";
+import { Button, Modal } from "antd";
 import moment from "moment";
 import "./MyLog.css";
+import LogInfo from "./LogInfo";
 
 function MyLog(props) {
   const today = props.today;
+  const [isModifyVisible, setisModifyVisible] = useState(false);
+  const [range, setRange] = useState([]);
+  const [quantity, setQuantity] = useState();
+  const [modalIndex, setModalIndex] = useState(0);
   const [isModalVisible, setisModalVisible] = useState(false);
-  let [AlertDiv, setAlertDiv] = useState("");
+
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
   var dateString = year + "-" + month + "-" + day;
-  const { RangePicker } = DatePicker;
   const variable = {
     user: localStorage.getItem("userId"),
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
+    // setRange([moment(log.START_DATE), moment(log.END_DATE)])
+    // setQuantity(log.quantity)
     const pillVariable = {
       id: log._id,
     };
     if (log.cautionWith) {
     }
+    const modifySubmit = () => {
+      alert("얍");
+    };
 
     const handleClick = () => {
+      setModalIndex(index);
       setisModalVisible(true);
     };
 
     const handleOk = () => {
       setisModalVisible(false);
+      setisModifyVisible(false);
     };
-    const handleCancel = () => {
-      console.log(Range);
-      setisModalVisible(false);
+    const handleModify = () => {
+      setisModifyVisible(true);
     };
     // alert(Date.parse(log.START_DATE));
     if (
@@ -77,47 +87,6 @@ function MyLog(props) {
           >
             X
           </button>
-          <Modal
-            title="먹는 약 정보"
-            visible={isModalVisible}
-            // onOk={handleOk}
-            // onCancel={handleCancel}
-            footer={[
-              <Button key="back" onClick={handleCancel}>
-                취소
-              </Button>,
-              <Button key="confirm" type="primary" onClick={handleOk}>
-                확인
-              </Button>,
-            ]}
-          >
-            <center>
-              <div>
-                <br></br>
-                <PillInfo
-                  className="selected"
-                  item_name={log.medicineId.ITEM_NAME}
-                  drug_cd={log.medicineId.DRUG_CD}
-                  storage_method={log.medicineId.STORAGE_METHOD}
-                />
-                복용 기간
-                <br />
-                <RangePicker
-                  value={[moment(log.START_DATE), moment(log.END_DATE)]}
-                />
-                {moment(log.START_DATE).format("YYYY-MM-DD")} ~{" "}
-                {moment(log.END_DATE).format("YYYY-MM-DD")}
-                <br />
-                복용량(하루에 먹는 개수)
-                <InputNumber value={log.QUANTITY} />
-                {log.QUANTITY}
-                <br />
-              </div>
-              <div id="banAlert" style={{ color: "red" }}>
-                {AlertDiv}
-              </div>
-            </center>
-          </Modal>
         </div>
       );
     }
@@ -167,6 +136,53 @@ function MyLog(props) {
           />
         </div>
       </div>
+      {props.MyLogInfo[0] && (
+        <Modal
+          title="먹는 약 정보"
+          visible={isModalVisible}
+          // onOk={handleOk}
+          // onCancel={handleCancel}
+          footer={null}
+          // footer={[
+          // <Button key="modify" onClick={modifySubmit}>
+          //   수정완료
+          // </Button>,
+          // <Button key="back" onClick={handleModify}>
+          //   수정하기
+          // </Button>,
+          // <Button key="confirm" type="primary" onClick={handleOk}>
+          //   닫기
+          // </Button>,
+          // ]}
+        >
+          <center>
+            <div>
+              <br></br>
+              <PillInfo
+                className="selected"
+                item_name={props.MyLogInfo[modalIndex].medicineId.ITEM_NAME}
+                drug_cd={props.MyLogInfo[modalIndex].medicineId.DRUG_CD}
+                storage_method={
+                  props.MyLogInfo[modalIndex].medicineId.STORAGE_METHOD
+                }
+              />
+              <LogInfo
+                range={[
+                  moment(props.MyLogInfo[modalIndex].START_DATE),
+                  moment(props.MyLogInfo[modalIndex].END_DATE),
+                ]}
+                // setRange={setRange}
+                quantity={props.MyLogInfo[modalIndex].QUANTITY}
+                setQuantity={setQuantity}
+                isModalVisible={isModalVisible}
+                setisModalVisible={setisModalVisible}
+                // isModifyVisible={isModifyVisible}
+              />
+            </div>
+            <div id="banAlert" style={{ color: "red" }}></div>
+          </center>
+        </Modal>
+      )}
     </div>
   );
 }
