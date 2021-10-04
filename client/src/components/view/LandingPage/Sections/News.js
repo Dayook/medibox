@@ -17,7 +17,7 @@ function News() {
         <Col lg={8} md={8} xs={24}>
           <Card
             hoberable
-            style={{ width: "310px", height: "400px", borderRadius: "10px" }}
+            style={{ width: "230px", height: "400px", borderRadius: "10px" }}
             cover={<img alt="news" src={article.img} overflow="hidden" />}
           >
             <Meta title={article.title}></Meta>
@@ -34,7 +34,7 @@ function News() {
       <h1>Latest news</h1>
       <div
         className="container"
-        style={{ display: "flex", width: "1100px", flexWrap: "wrap" }}
+        style={{ display: "flex", width: "860px", flexWrap: "wrap" }}
       >
         {renderNews}
         {/* <NewsCard

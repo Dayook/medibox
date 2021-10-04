@@ -62,7 +62,7 @@ function Pill(props) {
                 setAlertDiv(
                   "주의: " +
                     log.medicineId.ITEM_NAME +
-                    "과 함께 먹으면 안되는 약입니다."
+                    "과 함께 먹을 시 부작용이 있을 수 있습니다."
                 );
                 setCautionWith(log._id);
                 return true;
@@ -233,7 +233,7 @@ function Pill(props) {
               onStep={(number) => {
                 setQuantity(number);
               }}
-              placeholder="하루에 먹는 개수 입력해주세요"
+              placeholder="하루에 먹는 개수를 입력해주세요"
             ></InputNumber>
           </form>
           <div id="banAlert" style={{ color: "red" }}>

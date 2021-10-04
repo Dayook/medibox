@@ -100,22 +100,25 @@ function MyLog(props) {
     >
       <div className="basicBox" id="medicineBox">
         <center>
-          <CaretLeftOutlined
-            onClick={() => {
-              props.setToday(
-                new Date(today.setDate(props.today.getDate() - 1))
-              );
-            }}
-          />{" "}
-          {dateString}
-          <CaretRightOutlined
-            onClick={() => {
-              props.setToday(
-                new Date(today.setDate(props.today.getDate() + 1))
-              );
-            }}
-          />
-          <h2>나의 처방전</h2>
+          <h2 style={{ marginBottom: "0" }}>나의 처방전</h2>
+          <div className="dateDiv" style={{ fontSize: "large" }}>
+            <CaretLeftOutlined
+              onClick={() => {
+                props.setToday(
+                  new Date(today.setDate(props.today.getDate() - 1))
+                );
+              }}
+            />
+            {""}
+            {dateString}
+            <CaretRightOutlined
+              onClick={() => {
+                props.setToday(
+                  new Date(today.setDate(props.today.getDate() + 1))
+                );
+              }}
+            />
+          </div>
         </center>
         <br />
         <div
@@ -135,6 +138,7 @@ function MyLog(props) {
             MyLogInfo={props.MyLogInfo}
           />
         </div>
+        한국 약학정보원
       </div>
       {props.MyLogInfo[0] && (
         <Modal
