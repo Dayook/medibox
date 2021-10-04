@@ -43,6 +43,22 @@ router.post("/myLog", (req, res) => {
     });
 });
 
+router.post("/logUpdate", (req, res) => {
+  Log.findOneAndUpdate(
+    { _id: req.body._id },
+    {
+      $set: {
+        START_DATE: req.body.START_DATE,
+        END_DATE: req.body.END_DATE,
+        QUANTITY: req.body.QUANTITY,
+      },
+    }
+  ).exec((err, updated) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true });
+  });
+});
+
 router.post("/log", (req, res) => {
   const log = new Log(req.body);
 

@@ -1,22 +1,45 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { Button, InputNumber, Modal, DatePicker } from "antd";
+import Axios from "axios";
 const { RangePicker } = DatePicker;
 function LogInfo(props) {
   const [isModifyVisible, setisModifyVisible] = useState(false);
+  const [quantity, setQuantity] = useState(props.quantity);
+  const [range, setRange] = useState(props.range);
+  const handleRange = (value) => {
+    setRange(value);
+  };
+  const handleModify = () => {
+    setisModifyVisible(true);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const variable = {
+      _id: props.logId,
+      START_DATE: range[0],
+      END_DATE: range[1],
+      QUANTITY: quantity,
+    };
+
+    Axios.post("/api/medicines/logUpdate", variable).then((response) => {
+      if (response.data.success) {
+        alert("수정하였습니다");
+        props.setChanged(!props.Changed);
+        setisModifyVisible(false);
+        props.setisModalVisible(false);
+      } else {
+        alert("실패");
+      }
+    });
+    console.log(variable);
+  };
   const handleOk = () => {
     props.setisModalVisible(false);
     setisModifyVisible(false);
   };
-  const handleModify = () => {
-    setisModifyVisible(true);
-    alert("NO");
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
-  if (isModifyVisible) {
+  if (!isModifyVisible) {
     return (
       <div>
         {moment(props.range[0]).format("YYYY-MM-DD")} ~{" "}
@@ -24,6 +47,7 @@ function LogInfo(props) {
         <br />
         복용량(하루에 먹는 개수) {props.quantity}
         <br />
+        <hr />
         <Button key="back" onClick={handleModify}>
           수정하기
         </Button>
@@ -36,17 +60,25 @@ function LogInfo(props) {
     return (
       <div>
         복용 기간
-        <RangePicker value={props.range} />
+        <RangePicker value={range} onChange={handleRange} />
         <br />
         복용량(하루에 먹는 개수)
-        <InputNumber value={props.quantity} />
+        <InputNumber
+          value={quantity}
+          onChange={(number) => {
+            setQuantity(number);
+          }}
+          onStep={(number) => {
+            setQuantity(number);
+          }}
+        />
+        <hr />
         <Button key="modify" onClick={handleSubmit}>
           수정완료
         </Button>
         <Button key="confirm" type="primary" onClick={handleOk}>
           닫기
         </Button>
-        ,
       </div>
     );
   }

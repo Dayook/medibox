@@ -172,10 +172,13 @@ function MyLog(props) {
                   moment(props.MyLogInfo[modalIndex].END_DATE),
                 ]}
                 // setRange={setRange}
+                Changed={props.Changed}
+                setChanged={props.setChanged}
                 quantity={props.MyLogInfo[modalIndex].QUANTITY}
                 setQuantity={setQuantity}
                 isModalVisible={isModalVisible}
                 setisModalVisible={setisModalVisible}
+                logId={props.MyLogInfo[modalIndex]._id}
                 // isModifyVisible={isModifyVisible}
               />
             </div>
