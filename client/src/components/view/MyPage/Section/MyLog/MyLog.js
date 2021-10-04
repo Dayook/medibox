@@ -7,6 +7,7 @@ import { Button, Modal } from "antd";
 import moment from "moment";
 import "./MyLog.css";
 import LogInfo from "./Info/LogInfo";
+import AlertInfo from "./Info/AlertInfo";
 
 function MyLog(props) {
   const today = props.today;
@@ -68,7 +69,6 @@ function MyLog(props) {
             onClick={handleClick}
           />
           <span className="quantity">{log.QUANTITY}개</span>
-          {log.cautionWith && "hi"}
           <button
             className="delete"
             onClick={() => {
@@ -87,6 +87,7 @@ function MyLog(props) {
           >
             X
           </button>
+          {log.cautionWith && <AlertInfo />}
         </div>
       );
     }
