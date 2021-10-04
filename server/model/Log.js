@@ -24,8 +24,9 @@ const logSchema = mongoose.Schema({
     type: Date,
   },
 
-  CAUTION: {
-    type: String,
+  cautionWith: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Medicine",
   },
 });
 

@@ -19,7 +19,7 @@ function Pill(props) {
   const [EndDate, setEndDate] = useState();
   const [SearchValue, setSearchValue] = useState("");
   const [quantity, setQuantity] = useState();
-  const [caution, setCaution] = useState();
+  const [cautionWith, setCautionWith] = useState();
   let [AlertDiv, setAlertDiv] = useState("");
 
   useEffect(() => {
@@ -64,10 +64,11 @@ function Pill(props) {
                     log.medicineId.ITEM_NAME +
                     "과 함께 먹으면 안되는 약입니다."
                 );
-                setCaution(log.medicineId.ITEM_SEQ);
+                setCautionWith(log._id);
                 return true;
               } else {
                 setAlertDiv("");
+                setCautionWith();
                 return false;
               }
             });
@@ -90,6 +91,7 @@ function Pill(props) {
         ".jpg",
       START_DATE: StartDate,
       END_DATE: EndDate,
+      cautionWith: cautionWith,
     };
     Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
