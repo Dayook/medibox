@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { Button, InputNumber, Modal, DatePicker } from "antd";
+import { Button, InputNumber, DatePicker, Divider } from "antd";
 import Axios from "axios";
 const { RangePicker } = DatePicker;
 function LogInfo(props) {
@@ -47,7 +47,7 @@ function LogInfo(props) {
         <br />
         복용량(하루에 먹는 개수) {props.quantity}
         <br />
-        <hr />
+        <Divider />
         <Button key="back" onClick={handleModify}>
           수정하기
         </Button>
@@ -72,7 +72,7 @@ function LogInfo(props) {
             setQuantity(number);
           }}
         />
-        <hr />
+        <Divider />
         <Button key="modify" onClick={handleSubmit}>
           수정완료
         </Button>
