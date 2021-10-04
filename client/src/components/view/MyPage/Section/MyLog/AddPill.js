@@ -27,7 +27,49 @@ function Pill(props) {
         setpills(response.data.medicines);
       }
     });
-  }, []);
+    if (Selected && StartDate && EndDate) {
+      // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
+      const checkVariables = {
+        START_DATE: StartDate,
+        END_DATE: EndDate,
+        ITEM_NAME: pills[Selected].ITEM_NAME,
+        ITEM_SEQ: pills[Selected].ITEM_SEQ,
+      };
+
+      Axios.post("/api/medicines/checkCaution", checkVariables).then(
+        (response) => {
+          if (response.data.success) {
+            console.log("정보:", response.data.added);
+            // 추가된 약의 병용금기약 데이터를 불러온다
+            const added = response.data.added;
+            var bannedItem = [];
+            added.map((add, index) => {
+              console.log(add.MIXTURE_ITEM_SEQ);
+              bannedItem.push(add.MIXTURE_ITEM_SEQ);
+            });
+            const myLog = props.MyLogInfo;
+            myLog.map((log, index) => {
+              console.log(bannedItem);
+              // 1. myInfo log와 기간이 겹치는지 확인
+              if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
+                if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
+                  setAlertDiv(
+                    "주의: " +
+                      log.medicineId.ITEM_NAME +
+                      "과 함께 먹으면 안되는 약입니다."
+                  );
+                }
+              } else {
+                setAlertDiv("");
+              }
+            });
+          } else {
+            alert("failed");
+          }
+        }
+      );
+    }
+  }, [Selected, StartDate, EndDate]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const logVariables = {
@@ -90,45 +132,44 @@ function Pill(props) {
       setStartDate(value[0].format("YYYY-MM-DD"));
       setEndDate(value[1].format("YYYY-MM-DD"));
     }
+    // // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
+    // const checkVariables = {
+    //   START_DATE: StartDate,
+    //   END_DATE: EndDate,
+    //   ITEM_NAME: pills[Selected].ITEM_NAME,
+    //   ITEM_SEQ: pills[Selected].ITEM_SEQ,
+    // };
 
-    // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
-    const checkVariables = {
-      START_DATE: StartDate,
-      END_DATE: EndDate,
-      ITEM_NAME: pills[Selected].ITEM_NAME,
-      ITEM_SEQ: pills[Selected].ITEM_SEQ,
-    };
-
-    Axios.post("/api/medicines/checkCaution", checkVariables).then(
-      (response) => {
-        if (response.data.success) {
-          console.log("정보:", response.data.added);
-          // 추가된 약의 병용금기약 데이터를 불러온다
-          const added = response.data.added;
-          var bannedItem = [];
-          added.map((add, index) => {
-            console.log(add.MIXTURE_ITEM_SEQ);
-            bannedItem.push(add.MIXTURE_ITEM_SEQ);
-          });
-          const myLog = props.MyLogInfo;
-          myLog.map((log, index) => {
-            console.log(bannedItem);
-            // 1. myInfo log와 기간이 겹치는지 확인
-            if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
-              if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
-                setAlertDiv(
-                  "주의: " +
-                    log.medicineId.ITEM_NAME +
-                    "과 함께 먹으면 안되는 약입니다."
-                );
-              }
-            }
-          });
-        } else {
-          alert("failed");
-        }
-      }
-    );
+    // Axios.post("/api/medicines/checkCaution", checkVariables).then(
+    //   (response) => {
+    //     if (response.data.success) {
+    //       console.log("정보:", response.data.added);
+    //       // 추가된 약의 병용금기약 데이터를 불러온다
+    //       const added = response.data.added;
+    //       var bannedItem = [];
+    //       added.map((add, index) => {
+    //         console.log(add.MIXTURE_ITEM_SEQ);
+    //         bannedItem.push(add.MIXTURE_ITEM_SEQ);
+    //       });
+    //       const myLog = props.MyLogInfo;
+    //       myLog.map((log, index) => {
+    //         console.log(bannedItem);
+    //         // 1. myInfo log와 기간이 겹치는지 확인
+    //         if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
+    //           if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
+    //             setAlertDiv(
+    //               "주의: " +
+    //                 log.medicineId.ITEM_NAME +
+    //                 "과 함께 먹으면 안되는 약입니다."
+    //             );
+    //           }
+    //         }
+    //       });
+    //     } else {
+    //       alert("failed");
+    //     }
+    //   }
+    // );
   };
 
   const { RangePicker } = DatePicker;
@@ -157,7 +198,7 @@ function Pill(props) {
               placeholder="이름 검색"
               options={Options}
               onSelect={(value, option) => {
-                setSearchValue(option.ITEMN_NAME);
+                setSearchValue(option.ITEM_NAME);
                 setSelected(option.index);
               }}
               allowClear="true"
