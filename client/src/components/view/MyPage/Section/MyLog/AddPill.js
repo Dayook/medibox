@@ -95,37 +95,41 @@ function Pill(props) {
     };
 
     const myLog = props.MyLogInfo;
-    myLog.some((log, index) => {
-      console.log("log medicineId" + log.medicineId._id);
-      console.log("log!!:" + logVariables.medicineId);
-      // 1. myInfo log와 기간이 겹치는지 확인
-      if (
-        log.medicineId._id === logVariables.medicineId &&
-        log.START_DATE <= EndDate &&
-        log.END_DATE >= StartDate
-      ) {
-        alert("중복입니다");
-      }
-    });
+    if (
+      !myLog.some((log, index) => {
+        // 1. myInfo log와 기간이 겹치는지 확인
+        if (
+          log.medicineId._id === logVariables.medicineId &&
+          log.START_DATE <= EndDate &&
+          log.END_DATE >= StartDate
+        ) {
+          alert("해당 날짜에 이미 등록돼있는 약입니다.");
+          // function 종료시켜버려야함
+          return true;
+        }
+      })
+    ) {
+      Axios.post("/api/medicines/log", logVariables).then((response) => {
+        if (response.data.success) {
+          alert("등록하였습니다");
+          props.setChanged(!props.Changed);
+          props.setToday(new Date(StartDate));
+          // 입력칸 초기화
+          setSelected("");
+          setSearchValue("");
+          setQuantity("");
+          setAlertDiv("");
+          // setStartDate(null);
+          // setEndDate(null);
+          // 모달창 끄기
+          setisModalVisible(false);
+        } else {
+          alert("failed");
+        }
+      });
+    }
 
-    Axios.post("/api/medicines/log", logVariables).then((response) => {
-      if (response.data.success) {
-        alert("등록하였습니다");
-        props.setChanged(!props.Changed);
-        props.setToday(new Date(StartDate));
-        // 입력칸 초기화
-        setSelected("");
-        setSearchValue("");
-        setQuantity("");
-        setAlertDiv("");
-        // setStartDate(null);
-        // setEndDate(null);
-        // 모달창 끄기
-        setisModalVisible(false);
-      } else {
-        alert("failed");
-      }
-    });
+    // functino 종료
   };
   const showModal = () => {
     if (!IsLoaded) {
