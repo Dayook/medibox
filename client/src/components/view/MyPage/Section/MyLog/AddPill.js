@@ -55,7 +55,7 @@ function Pill(props) {
               // 1. myInfo log와 기간이 겹치는지 확인
               if (
                 log.START_DATE <= EndDate &&
-                !(log.END_DATE < StartDate) &&
+                log.END_DATE >= StartDate &&
                 bannedItem.includes(log.medicineId.ITEM_SEQ)
               ) {
                 // if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
@@ -93,6 +93,21 @@ function Pill(props) {
       END_DATE: EndDate,
       cautionWith: cautionWith,
     };
+
+    const myLog = props.MyLogInfo;
+    myLog.some((log, index) => {
+      console.log("log medicineId" + log.medicineId._id);
+      console.log("log!!:" + logVariables.medicineId);
+      // 1. myInfo log와 기간이 겹치는지 확인
+      if (
+        log.medicineId._id === logVariables.medicineId &&
+        log.START_DATE <= EndDate &&
+        log.END_DATE >= StartDate
+      ) {
+        alert("중복입니다");
+      }
+    });
+
     Axios.post("/api/medicines/log", logVariables).then((response) => {
       if (response.data.success) {
         alert("등록하였습니다");
@@ -142,44 +157,6 @@ function Pill(props) {
       setStartDate(value[0].format("YYYY-MM-DD"));
       setEndDate(value[1].format("YYYY-MM-DD"));
     }
-    // // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
-    // const checkVariables = {
-    //   START_DATE: StartDate,
-    //   END_DATE: EndDate,
-    //   ITEM_NAME: pills[Selected].ITEM_NAME,
-    //   ITEM_SEQ: pills[Selected].ITEM_SEQ,
-    // };
-
-    // Axios.post("/api/medicines/checkCaution", checkVariables).then(
-    //   (response) => {
-    //     if (response.data.success) {
-    //       console.log("정보:", response.data.added);
-    //       // 추가된 약의 병용금기약 데이터를 불러온다
-    //       const added = response.data.added;
-    //       var bannedItem = [];
-    //       added.map((add, index) => {
-    //         console.log(add.MIXTURE_ITEM_SEQ);
-    //         bannedItem.push(add.MIXTURE_ITEM_SEQ);
-    //       });
-    //       const myLog = props.MyLogInfo;
-    //       myLog.map((log, index) => {
-    //         console.log(bannedItem);
-    //         // 1. myInfo log와 기간이 겹치는지 확인
-    //         if (!(log.START_DATE > EndDate) && !(log.END_DATE < StartDate)) {
-    //           if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
-    //             setAlertDiv(
-    //               "주의: " +
-    //                 log.medicineId.ITEM_NAME +
-    //                 "과 함께 먹으면 안되는 약입니다."
-    //             );
-    //           }
-    //         }
-    //       });
-    //     } else {
-    //       alert("failed");
-    //     }
-    //   }
-    // );
   };
 
   const { RangePicker } = DatePicker;
