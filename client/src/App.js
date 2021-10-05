@@ -9,7 +9,7 @@ import LandingPage from "./components/view/LandingPage/LandingPage.js";
 
 import NavBar from "./components/view/NavBar/NavBar";
 import Auth from "./hoc/auth";
-import MyMedicine from "./components/view/MyPage/Section/MyMedicine";
+import MyMedicine from "./components/view/Medicine/Section/MyMedicine";
 import Counsel from "./components/view/Counsel/Counsel";
 import Medicine from "./components/view/Medicine/Medicine";
 import Footer from "./components/view/Footer/Footer";
