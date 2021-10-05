@@ -1,10 +1,14 @@
 import React from "react";
 import { Icon, ExclamationCircleOutlined } from "@ant-design/icons";
 
-function AlertInfo() {
+function AlertInfo(props) {
+  const cautionLog = props.cautionLog;
+  console.log(cautionLog);
   return (
     <div style={{ color: "#E94545", fontSize: "x-large", float: "right" }}>
-      <ExclamationCircleOutlined />
+      <ExclamationCircleOutlined /> {cautionLog.cautionWith}
+      <br></br>
+      {cautionLog._id}
     </div>
   );
 }

@@ -87,7 +87,7 @@ function MyLog(props) {
           >
             X
           </button>
-          {log.cautionWith && <AlertInfo />}
+          {log.cautionWith && <AlertInfo cautionLog={log.cautionWith} />}
         </div>
       );
     }
