@@ -20,6 +20,7 @@ function Pill(props) {
   const [SearchValue, setSearchValue] = useState("");
   const [quantity, setQuantity] = useState();
   const [cautionWith, setCautionWith] = useState();
+  const [mixtureId, setMixtureId] = useState();
   let [AlertDiv, setAlertDiv] = useState("");
 
   useEffect(() => {
@@ -52,11 +53,12 @@ function Pill(props) {
             const myLog = props.MyLogInfo;
             myLog.some((log, index) => {
               console.log(bannedItem);
+              const bannedIndex = bannedItem.indexOf(log.medicineId.ITEM_SEQ);
               // 1. myInfo log와 기간이 겹치는지 확인
               if (
+                bannedIndex !== -1 &&
                 log.START_DATE <= EndDate &&
-                log.END_DATE >= StartDate &&
-                bannedItem.includes(log.medicineId.ITEM_SEQ)
+                log.END_DATE >= StartDate
               ) {
                 // if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
                 setAlertDiv(
@@ -64,11 +66,15 @@ function Pill(props) {
                     log.medicineId.ITEM_NAME +
                     "과 함께 먹을 시 부작용이 있을 수 있습니다."
                 );
+                alert(bannedIndex);
+                console.log(added[bannedIndex]._id);
                 setCautionWith(log._id);
+                setMixtureId(added[bannedIndex]._id);
                 return true;
               } else {
                 setAlertDiv("");
                 setCautionWith();
+                setMixtureId();
                 return false;
               }
             });
@@ -92,6 +98,7 @@ function Pill(props) {
       START_DATE: StartDate,
       END_DATE: EndDate,
       cautionWith: cautionWith,
+      mixtureId: mixtureId,
     };
 
     const myLog = props.MyLogInfo;

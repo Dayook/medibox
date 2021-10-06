@@ -37,6 +37,7 @@ router.post("/myLog", (req, res) => {
   Log.find({ user: req.body.user })
     .populate("medicineId")
     .populate("cautionWith")
+    .populate("mixtureId")
     .exec((err, myLog) => {
       if (err) return res.status(400).send(err);
       return res.status(200).json({ success: true, myLog: myLog });
@@ -69,13 +70,17 @@ router.post("/log", (req, res) => {
       console.log(log.cautionWith);
       Log.findOneAndUpdate(
         { _id: log.cautionWith },
-        { cautionWith: log._id }
+        { $set: { cautionWith: log._id, mixtureId: log.mixtureId } }
       ).exec((err, updated) => {
         if (err) return res.status(400).send(err);
         return res.status(200).json({ success: true });
       });
     }
   });
+});
+
+router.post("/getCaution", (req, res) => {
+  // const medicine = Medicine.find({ _id: req.body.medicineId }).exec();
 });
 
 module.exports = router;

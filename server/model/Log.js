@@ -29,6 +29,11 @@ const logSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Log",
   },
+
+  mixtureId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "medicineMixture",
+  },
 });
 
 const Log = mongoose.model("Log", logSchema);

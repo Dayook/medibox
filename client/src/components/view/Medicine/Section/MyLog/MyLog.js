@@ -30,8 +30,7 @@ function MyLog(props) {
     const pillVariable = {
       id: log._id,
     };
-    if (log.cautionWith) {
-    }
+    
     const modifySubmit = () => {
       alert("얍");
     };
