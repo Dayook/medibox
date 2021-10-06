@@ -30,7 +30,7 @@ function MyLog(props) {
     const pillVariable = {
       id: log._id,
     };
-    
+
     const modifySubmit = () => {
       alert("얍");
     };
@@ -86,7 +86,7 @@ function MyLog(props) {
           >
             X
           </button>
-          {log.cautionWith && <AlertInfo cautionLog={log.cautionWith} />}
+          {log.mixtureId && <AlertInfo mixtureInfo={log.mixtureId} />}
         </div>
       );
     }
@@ -182,6 +182,7 @@ function MyLog(props) {
                 isModalVisible={isModalVisible}
                 setisModalVisible={setisModalVisible}
                 logId={props.MyLogInfo[modalIndex]._id}
+                mixtureInfo={props.MyLogInfo[modalIndex].mixtureId}
                 // isModifyVisible={isModifyVisible}
               />
             </div>

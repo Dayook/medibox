@@ -3,26 +3,17 @@ import { Icon, ExclamationCircleOutlined } from "@ant-design/icons";
 import Axios from "axios";
 
 function AlertInfo(props) {
-  const cautionLog = props.cautionLog;
-  const variables = {
-    medicineId: cautionLog._id,
-    cautionWith: cautionLog.cautionWith,
-  };
-
-  Axios.post("/api/medicines/getCaution",variables).then((response) => {
-    if (response.data.success) {
-      alert("성공");
-    } else {
-      alert("실패");
-    }
-  });
-
-  console.log(cautionLog);
+  const mixtureInfo = props.mixtureInfo;
+  console.log(mixtureInfo);
+  // console.log(cautionLog);
   return (
     <div style={{ color: "#E94545", fontSize: "x-large", float: "right" }}>
-      <ExclamationCircleOutlined /> {cautionLog.cautionWith}
-      <br></br>
-      {cautionLog._id}
+      <ExclamationCircleOutlined />
+      <span style={{ fontSize: "small" }}>
+        {mixtureInfo.TYPE_NAME}주의
+        {mixtureInfo.ITEM_NAME}과 {mixtureInfo.MIXTURE_ITEM_NAME}을 함께 복용 시
+        {mixtureInfo.PROHBT_CONTENT}이 있을 수 있습니다.
+      </span>
     </div>
   );
 }
