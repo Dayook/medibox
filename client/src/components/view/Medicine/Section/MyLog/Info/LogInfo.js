@@ -47,9 +47,13 @@ function LogInfo(props) {
         <br />
         복용량(하루에 먹는 개수) {props.quantity}
         <br />
-        {props.mixtureInfo.ITEM_NAME}과 {props.mixtureInfo.MIXTURE_ITEM_NAME}을
-        함께 복용할 시<br />
-        {props.mixtureInfo.PROHBT_CONTENT}이 있을 수 있습니다.
+        {props.mixureInfo && (
+          <div>
+            {props.mixtureInfo.ITEM_NAME}과{" "}
+            {props.mixtureInfo.MIXTURE_ITEM_NAME}을 함께 복용할 시<br />
+            {props.mixtureInfo.PROHBT_CONTENT}이 있을 수 있습니다.
+          </div>
+        )}
         <Divider />
         <Button key="back" onClick={handleModify}>
           수정하기
