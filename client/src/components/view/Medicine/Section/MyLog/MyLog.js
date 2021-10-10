@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddPill from "./AddPill";
 import Axios from "axios";
-import { CaretLeftOutlined, CaretRightOutlined, Icon } from "@ant-design/icons";
+import { CaretLeftOutlined, CaretRightOutlined, ExclamationCircleOutlined, Icon } from "@ant-design/icons";
 import PillInfo from "./Info/PillInfo";
 import { Button, Modal } from "antd";
 import moment from "moment";
@@ -73,7 +73,11 @@ function MyLog(props) {
           <button
             className="delete"
             onClick={() => {
-              if (window.confirm("정말 삭제하시겠습니까?")) {
+              if (
+                window.confirm(
+                  "다른 날짜의 복용 정보까지 모두 삭제됩니다.\n정말 삭제하시겠습니까?"
+                )
+              ) {
                 Axios.post("/api/medicines/deleteLog", pillVariable).then(
                   (response) => {
                     if (response.data.success) {
@@ -89,7 +93,7 @@ function MyLog(props) {
             X
           </button>
           {/* 경고문구 넣는자리 */}
-          {/* {log.mixtureId && } */}
+          {log.mixtureId &&  <ExclamationCircleOutlined />}
         </div>
       );
     }
