@@ -1,0 +1,38 @@
+.usePurpose {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  /* boxShadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+  backdrop-filter: blur(4px);
+  border: 1px solid #d5d5d5;
+  font-size: large;
+  border-radius: 10px;
+}
+
+#personal,
+#family,
+#institute {
+  display: none;
+}
+
+label > input:checked + div {
+  border: 2px solid darkblue;
+}
+
+.userPurpose:hover {
+  cursor: pointer;
+}
+
+.usePurpose:nth-child(3n-1) {
+  margin: 0 10px;
+}
+.purposeExplain {
+  border: 1px solid #700b0b;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.purpose {
+  margin: 0 auto;
+  display: table;
+}
