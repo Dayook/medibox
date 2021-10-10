@@ -25,6 +25,8 @@ function MyLog(props) {
     user: localStorage.getItem("userId"),
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
+    console.log(index, "log정보");
+    console.log(log);
     // setRange([moment(log.START_DATE), moment(log.END_DATE)])
     // setQuantity(log.quantity)
     const pillVariable = {
@@ -86,7 +88,8 @@ function MyLog(props) {
           >
             X
           </button>
-          {log.mixtureId && <AlertInfo mixtureInfo={log.mixtureId} />}
+          {/* 경고문구 넣는자리 */}
+          {/* {log.mixtureId && } */}
         </div>
       );
     }

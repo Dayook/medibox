@@ -1,4 +1,5 @@
 import React from "react";
+import AlertInfo from "./AlertInfo";
 
 function PillInfo(props) {
   var img_src = "";
@@ -30,6 +31,7 @@ function PillInfo(props) {
           alt="medicine"
         />
         보관방법: {props.storage_method}
+        {props.mixtureId && <AlertInfo mixtureInfo={props.mixtureId} />}
       </div>
     );
   }
