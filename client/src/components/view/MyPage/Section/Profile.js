@@ -10,19 +10,15 @@ function Profile(props) {
         <div
           className="basicBox"
           style={{
-            width: "900px",
+            width: "950px",
             margin: "0 auto",
             padding: "100px 0",
           }}
         >
           <div></div>
           <br></br>
-          ㅇㅇ<p></p>
-          ㅇㅇ ㅇㅇㅇㅇ<p></p>
-          ㅇㅇ ㅇㅇㅇㅇ<p></p>
-          ㅇㅇ ㅇㅇㅇㅇ<p></p>
-          ㅇㅇ ㅇㅇㅇㅇ<p></p>
-          ㅇㅇ ㅇㅇ
+          {user.email}
+          {user.nickname}
         </div>
       </div>
     );

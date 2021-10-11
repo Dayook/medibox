@@ -24,12 +24,11 @@ function MyPage() {
   return (
     <div style={{ backgroundColor: "aliceblue", padding: "100px" }}>
       <Profile UserInfo={userInfo} />
-      {subscription && (
-        <Subscription
-          Subscription={subscription}
-          setSubscription={setSubscription}
-        />
-      )}
+
+      <Subscription
+        Subscription={subscription}
+        setSubscription={setSubscription}
+      />
     </div>
   );
 }

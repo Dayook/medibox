@@ -4,12 +4,8 @@ import Payment from "./Payment";
 import Axios from "axios";
 
 function Subscription(props) {
-  const [purpose, setPurpose] = useState();
+  const [purpose, setPurpose] = useState(0);
   const [price, setPrice] = useState(0);
-
-  useEffect(() => {
-    setPurpose(props.Subscription);
-  }, []);
 
   // const choosePurpose = (value) => {
   //   alert(value);

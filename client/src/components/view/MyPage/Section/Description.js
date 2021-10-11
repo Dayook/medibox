@@ -5,6 +5,7 @@ function Description(props) {
   if (props.purpose === 0) {
     return (
       <div>
+        {props.purpose === subscription && "현재 사용하고있는 요금제입니다"}
         하이
         <p />
         <br />
