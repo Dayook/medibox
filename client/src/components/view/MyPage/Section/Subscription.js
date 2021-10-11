@@ -3,32 +3,14 @@ import Description from "./Description";
 import Payment from "./Payment";
 import Axios from "axios";
 
-function Subscription() {
-  const [Subscription, setSubscription] = useState(0);
-  // useEffect(() => {
-  //   const variable = {
-  //     user: localStorage.getItem("userId"),
-  //   };
-  //   Axios.post("/api/users/subscription", variable).then((response) => {
-  //     if (response.data.success) {
-  //       setSubscription(response.data.subscription.subscription);
-  //       // setPurpose(response.data.subscription.subscription);
-  //       // if (purpose === 0) {
-  //       //   document.getElementById("personal").checked = true;
-  //       // } else if (purpose === 1) {
-  //       //   document.getElementById("family").checked = true;
-  //       // } else if (purpose === 2) {
-  //       //   document.getElementById("institute").checked = true;
-  //       // }
-  //       // document.getElementById("institute").checked = true;
-  //       // setPurpose(response.data.subscription.subscription);
-  //     } else {
-  //       alert("실패");
-  //     }
-  //   });
-  // });
+function Subscription(props) {
   const [purpose, setPurpose] = useState();
   const [price, setPrice] = useState(0);
+
+  useEffect(() => {
+    setPurpose(props.Subscription);
+  }, []);
+
   // const choosePurpose = (value) => {
   //   alert(value);
   //   if (value === "0") {
@@ -105,7 +87,7 @@ function Subscription() {
           border: "1px solid #d2d2d2",
         }}
       >
-        <Description purpose={purpose} subscription={Subscription} />
+        <Description purpose={purpose} subscription={props.Subscription} />
       </div>
       <div className="basicBox" style={{ width: "900px" }}>
         {" "}

@@ -88,11 +88,11 @@ function Join(props) {
           }}
           onSubmit={onSubmitHandler}
         >
-          <label>Email</label>
+          <label>이메일(e-mail)</label>
           <Input type="email" value={Email} onChange={onEmailHandler} />
-          <label>Nickname</label>
+          <label>별명</label>
           <Input type="text" value={NickName} onChange={onNickNameHandler} />
-          <label> Password </label>
+          <label>비밀번호</label>
           <Input
             type="password"
             value={Password}
@@ -101,7 +101,7 @@ function Join(props) {
           <span style={{ fontSize: "0.8em" }}>
             {Password.length < 8 && "8자 이상으로 입력해주세요"}
           </span>
-          <label> Password Check </label>
+          <label>비밀번호 확인</label>
           <Input
             type="password"
             value={PasswordCheck}
@@ -120,7 +120,7 @@ function Join(props) {
           <input type="date" value={Birth} onChange={onBirthHandler} /> */}
           <br></br>
           <Button type="primary" onClick={onSubmitHandler}>
-            Join
+            가입
           </Button>
         </Form>
       </div>

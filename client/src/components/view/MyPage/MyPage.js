@@ -5,14 +5,16 @@ import CheckableTag from "antd/lib/tag/CheckableTag";
 import Profile from "./Section/Profile";
 import Subscription from "./Section/Subscription";
 function MyPage() {
-  const [SubscriptionInfo, setSubscriptionInfo] = useState(0);
+  const [subscription, setSubscription] = useState();
+  const [userInfo, setUserInfo] = useState();
   useEffect(() => {
     const variable = {
       user: localStorage.getItem("userId"),
     };
     Axios.post("/api/users/subscription", variable).then((response) => {
       if (response.data.success) {
-        setSubscriptionInfo(response.data.user.subscription);
+        setSubscription(response.data.user.subscription);
+        setUserInfo(response.data.user);
       } else {
         alert("실패");
       }
@@ -21,8 +23,13 @@ function MyPage() {
 
   return (
     <div style={{ backgroundColor: "aliceblue", padding: "100px" }}>
-      {/* <Profile /> */}
-      <Subscription />
+      <Profile UserInfo={userInfo} />
+      {subscription && (
+        <Subscription
+          Subscription={subscription}
+          setSubscription={setSubscription}
+        />
+      )}
     </div>
   );
 }
