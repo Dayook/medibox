@@ -24,6 +24,7 @@ mongoose
 app.get("/api/hello", (req, res) => res.send("Hello World!~~ !!!"));
 app.use("/api/users", require("./routes/users"));
 app.use("/api/medicines", require("./routes/medicines"));
+app.use("/api/payment", require("./routes/payments"));
 
 const port = 5000;
 

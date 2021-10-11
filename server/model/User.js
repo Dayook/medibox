@@ -21,6 +21,10 @@ const userSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+  subscription: {
+    type: Number,
+    default: 0,
+  },
   image: String,
   token: String,
   tokenExp: Number,

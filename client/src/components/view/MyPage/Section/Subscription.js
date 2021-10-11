@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Description from "./Description";
+import Payment from "./Payment";
 
 function Subscription() {
   const [purpose, setPurpose] = useState();
@@ -9,7 +10,6 @@ function Subscription() {
   //   if (value === "0") {
   //   }
   // };
-
   return (
     <div>
       <span
@@ -92,7 +92,7 @@ function Subscription() {
           <div>카카오페이</div>
 
           <div>{price}원 결제</div>
-          <div>결제하기</div>
+          <Payment />
         </div>
       </div>
     </div>
