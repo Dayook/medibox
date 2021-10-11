@@ -16,6 +16,13 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.post("/subscription", (req, res) => {
+  User.findOne({ _id: req.body.user }, (err, user) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, user: user });
+  });
+});
+
 router.post("/login", (req, res) => {
   // console.log('ping')
   //요청된 이메일을 데이터베이스에서 있는지 찾는다.

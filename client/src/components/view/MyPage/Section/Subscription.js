@@ -1,8 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Description from "./Description";
 import Payment from "./Payment";
+import Axios from "axios";
 
 function Subscription() {
+  const [Subscription, setSubscription] = useState(0);
+  // useEffect(() => {
+  //   const variable = {
+  //     user: localStorage.getItem("userId"),
+  //   };
+  //   Axios.post("/api/users/subscription", variable).then((response) => {
+  //     if (response.data.success) {
+  //       setSubscription(response.data.subscription.subscription);
+  //       // setPurpose(response.data.subscription.subscription);
+  //       // if (purpose === 0) {
+  //       //   document.getElementById("personal").checked = true;
+  //       // } else if (purpose === 1) {
+  //       //   document.getElementById("family").checked = true;
+  //       // } else if (purpose === 2) {
+  //       //   document.getElementById("institute").checked = true;
+  //       // }
+  //       // document.getElementById("institute").checked = true;
+  //       // setPurpose(response.data.subscription.subscription);
+  //     } else {
+  //       alert("실패");
+  //     }
+  //   });
+  // });
   const [purpose, setPurpose] = useState();
   const [price, setPrice] = useState(0);
   // const choosePurpose = (value) => {
@@ -29,7 +53,7 @@ function Subscription() {
             id="personal"
             name="purpose"
             onClick={() => {
-              setPurpose("personal");
+              setPurpose(0);
             }}
           />
           <div className="usePurpose">
@@ -46,8 +70,8 @@ function Subscription() {
             id="family"
             name="purpose"
             onClick={() => {
-              setPurpose("family");
-              setPrice(50);
+              setPurpose(1);
+              setPrice(100);
             }}
           />
           <div className="usePurpose">
@@ -64,8 +88,8 @@ function Subscription() {
             name="purpose"
             id="institute"
             onClick={() => {
-              setPurpose("institute");
-              setPrice(60);
+              setPurpose(2);
+              setPrice(200);
             }}
           />
           <div className="usePurpose">
@@ -81,7 +105,7 @@ function Subscription() {
           border: "1px solid #d2d2d2",
         }}
       >
-        <Description purpose={purpose} />
+        <Description purpose={purpose} subscription={Subscription} />
       </div>
       <div className="basicBox" style={{ width: "900px" }}>
         {" "}
@@ -92,7 +116,7 @@ function Subscription() {
           <div>카카오페이</div>
 
           <div>{price}원 결제</div>
-          <Payment />
+          <Payment price={price} purpose={purpose} />
         </div>
       </div>
     </div>
