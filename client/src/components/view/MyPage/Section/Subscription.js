@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Description from "./Description";
 
 function Subscription() {
   const [purpose, setPurpose] = useState();
+  const [price, setPrice] = useState(0);
   // const choosePurpose = (value) => {
   //   alert(value);
   //   if (value === "0") {
@@ -45,6 +47,7 @@ function Subscription() {
             name="purpose"
             onClick={() => {
               setPurpose("family");
+              setPrice(50);
             }}
           />
           <div className="usePurpose">
@@ -62,6 +65,7 @@ function Subscription() {
             id="institute"
             onClick={() => {
               setPurpose("institute");
+              setPrice(60);
             }}
           />
           <div className="usePurpose">
@@ -77,14 +81,19 @@ function Subscription() {
           border: "1px solid #d2d2d2",
         }}
       >
-        개인 사용에 적합한 모델
-        <div>
-          1인의 의약품 복용과 상담내역을 관리할 수 있습니다. (상담료 별도)
-        </div>
+        <Description purpose={purpose} />
       </div>
       <div className="basicBox" style={{ width: "900px" }}>
         {" "}
-        gg
+        결제하기
+        <div className="payInfo">
+          <div>신용카드</div>
+          <div>계좌이체</div>
+          <div>카카오페이</div>
+
+          <div>{price}원 결제</div>
+          <div>결제하기</div>
+        </div>
       </div>
     </div>
   );
