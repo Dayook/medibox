@@ -87,6 +87,10 @@ function Pill(props) {
   }, [Selected, StartDate]);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!quantity || !Selected || !StartDate || !EndDate) {
+      alert("모든 값을 입력해주세요.");
+      return false;
+    }
     const logVariables = {
       user: user.userData._id,
       medicineId: pills[Selected]._id,
@@ -233,7 +237,7 @@ function Pill(props) {
               id="quantity"
               value={quantity}
               style={{ width: "262px" }}
-              min="0"
+              min="1"
               onChange={(number) => {
                 setQuantity(number);
               }}

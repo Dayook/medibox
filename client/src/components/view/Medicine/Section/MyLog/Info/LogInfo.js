@@ -78,7 +78,7 @@ function LogInfo(props) {
           onStep={(number) => {
             setQuantity(number);
           }}
-          min="0"
+          min="1"
         />
         <Divider />
         <Button key="modify" onClick={handleSubmit}>
