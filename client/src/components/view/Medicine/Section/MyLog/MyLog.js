@@ -172,32 +172,35 @@ function MyLog(props) {
           // ]}
         >
           <center>
-            <div>
-              <PillInfo
-                className="selected"
-                item_name={props.MyLogInfo[modalIndex].medicineId.ITEM_NAME}
-                drug_cd={props.MyLogInfo[modalIndex].medicineId.DRUG_CD}
-                storage_method={
-                  props.MyLogInfo[modalIndex].medicineId.STORAGE_METHOD
-                }
-              />
-              <LogInfo
-                range={[
-                  moment(props.MyLogInfo[modalIndex].START_DATE),
-                  moment(props.MyLogInfo[modalIndex].END_DATE),
-                ]}
-                // setRange={setRange}
-                Changed={props.Changed}
-                setChanged={props.setChanged}
-                quantity={props.MyLogInfo[modalIndex].QUANTITY}
-                setQuantity={setQuantity}
-                isModalVisible={isModalVisible}
-                setisModalVisible={setisModalVisible}
-                logId={props.MyLogInfo[modalIndex]._id}
-                mixtureInfo={props.MyLogInfo[modalIndex].mixtureId}
-                // isModifyVisible={isModifyVisible}
-              />
-            </div>
+            {props.MyLogInfo[modalIndex] && (
+              <div>
+                <PillInfo
+                  className="selected"
+                  item_name={props.MyLogInfo[modalIndex].medicineId.ITEM_NAME}
+                  drug_cd={props.MyLogInfo[modalIndex].medicineId.DRUG_CD}
+                  storage_method={
+                    props.MyLogInfo[modalIndex].medicineId.STORAGE_METHOD
+                  }
+                />
+                <LogInfo
+                  range={[
+                    moment(props.MyLogInfo[modalIndex].START_DATE),
+                    moment(props.MyLogInfo[modalIndex].END_DATE),
+                  ]}
+                  // setRange={setRange}
+                  Changed={props.Changed}
+                  setChanged={props.setChanged}
+                  quantity={props.MyLogInfo[modalIndex].QUANTITY}
+                  setQuantity={setQuantity}
+                  isModalVisible={isModalVisible}
+                  setisModalVisible={setisModalVisible}
+                  logId={props.MyLogInfo[modalIndex]._id}
+                  mixtureInfo={props.MyLogInfo[modalIndex].mixtureId}
+                  // isModifyVisible={isModifyVisible}
+                />
+              </div>
+            )}
+
             <div id="banAlert" style={{ color: "red" }}></div>
           </center>
         </Modal>
