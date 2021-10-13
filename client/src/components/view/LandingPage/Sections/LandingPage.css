@@ -9,7 +9,30 @@
   height: 100vh;
   background-attachment: fixed;
 }
+.subImage {
+  border-radius: 10%;
+  box-shadow: 0 0 30px #4787db;
+}
+.second-section {
+  background-color: #f7f7f7;
+  background-size: 1600px;
+  position: relative;
+  height: 100vh;
+}
 
+.sectionContainer {
+  width: 1100px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.sectionLeft {
+  width: 50%;
+}
+
+.sectionRight {
+  width: 50%;
+}
 .mainImg {
   height: 40vh;
 }
