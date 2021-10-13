@@ -50,7 +50,6 @@ function LogInfo(props) {
         <br />
         {props.mixtureInfo && (
           <div>
-            호이.
             <AlertInfo mixtureInfo={props.mixtureInfo} />
           </div>
         )}

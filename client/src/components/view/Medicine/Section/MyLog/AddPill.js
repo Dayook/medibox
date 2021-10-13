@@ -5,6 +5,7 @@ import Axios from "axios";
 import PillInfo from "./Info/PillInfo";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import AlertInfo from "./Info/AlertInfo";
 
 function Pill(props) {
   const user = useSelector((state) => state.user);
@@ -21,7 +22,7 @@ function Pill(props) {
   const [quantity, setQuantity] = useState();
   const [cautionWith, setCautionWith] = useState();
   const [mixtureId, setMixtureId] = useState();
-  let [AlertDiv, setAlertDiv] = useState("");
+  let [AlertDiv, setAlertDiv] = useState();
 
   useEffect(() => {
     console.log("render");
@@ -61,12 +62,7 @@ function Pill(props) {
                 log.END_DATE >= StartDate
               ) {
                 // if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
-                setAlertDiv(
-                  "주의: " +
-                    log.medicineId.ITEM_NAME +
-                    "과 함께 먹을 시 부작용이 있을 수 있습니다."
-                );
-                alert(bannedIndex);
+                setAlertDiv(log.medicineId.ITEM_NAME);
                 console.log(added[bannedIndex]._id);
                 setCautionWith(log._id);
                 setMixtureId(added[bannedIndex]._id);
@@ -216,7 +212,6 @@ function Pill(props) {
             {pills[Selected] && (
               <PillInfo
                 className="selected"
-                material_name={pills[Selected].MATERIAL_NAME}
                 drug_cd={pills[Selected].DRUG_CD}
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
@@ -247,9 +242,7 @@ function Pill(props) {
               placeholder="하루에 먹는 개수를 입력해주세요"
             ></InputNumber>
           </form>
-          <div id="banAlert" style={{ color: "red" }}>
-            {AlertDiv}
-          </div>
+          <div id="banAlert">{AlertDiv && <AlertInfo alert={AlertDiv} />}</div>
         </center>
       </Modal>
     </div>
