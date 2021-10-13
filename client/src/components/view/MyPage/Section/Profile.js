@@ -12,13 +12,13 @@ function Profile(props) {
           style={{
             width: "950px",
             margin: "0 auto",
-            padding: "100px 0",
+            padding: "100px 50px",
           }}
         >
           <div></div>
           <br></br>
-          {user.email}
-          {user.nickname}
+          <div>{user.email}</div>
+          <div style={{ fontSize: "larger" }}>{user.nickname}</div>
         </div>
       </div>
     );

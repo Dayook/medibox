@@ -1,16 +1,24 @@
 @import "~antd/dist/antd.css";
 
 .main {
-  background-image: url(../../../images/medic.jpg);
+  background-color: aliceblue;
+  /* background-image: url(../../../images/medic.jpg); */
   background-position: 0 -80px;
   background-size: 1600px;
   position: relative;
-  height: 60vh;
+  height: 100vh;
   background-attachment: fixed;
 }
 
 .mainImg {
   height: 40vh;
+}
+
+.mockup {
+  position: absolute;
+  height: 70vh;
+  right: 30vh;
+  bottom: 0.2vh;
 }
 
 .copyright {
