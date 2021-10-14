@@ -5,6 +5,7 @@ import News from "./Sections/News";
 import mockup from "../../images/phone-mockup.png";
 import main1 from "../../images/main1.png";
 import main2 from "../../images/main2.png";
+import main3 from "../../images/main3.png";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -19,10 +20,22 @@ export default function LandingPage() {
     <div>
       <div className="main">
         <div className="copyright">
-          내가 아프고 외로울 때면 <br></br> 누가 날 위로해주지?<br></br>
-          <button className="main-btn" onClick={onClickHandler}>
+          내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
+          <div
+            style={{
+              fontSize: "30px",
+              fontWeight: "300",
+              lineHeight: "1.5em",
+              marginTop: "10px",
+            }}
+          >
+            손쉽게 약사와 상담하고
+            <br />
+            복용중인 약을 관리해보세요
+          </div>
+          {/* <button className="main-btn" onClick={onClickHandler}>
             메디킷 시작하기
-          </button>
+          </button> */}
           <img className="mockup" src={mockup} alt="mockup"></img>
         </div>
       </div>
@@ -32,28 +45,71 @@ export default function LandingPage() {
             <img
               src={main1}
               className="subImage"
-              height="300px"
+              height="320px"
+              // position="absolute"
+              style={{ position: "absolute", left: "30vh", top: "16vh" }}
               alt="register-pill"
             ></img>
 
             <img
               src={main2}
               className="subImage"
-              height="300px"
-              style={{ zIndex: "-2" }}
+              height="320px"
+              style={{
+                position: "absolute",
+                left: "50vh",
+                top: "30vh",
+                zIndex: "3",
+              }}
               alt="alert-pill"
             ></img>
           </div>
-          <div className="sectionRight" style={{ display: "block" }}>
-            <div style={{ fontSize: "40px" }}>
-              01. <br />
+          <div className="sectionRight">
+            <div style={{ fontSize: "40px", margin: "0 0 0 60px" }}>
+              <span className="accent">01. </span>
+              <br />
               병원에서 기록하지 않는
               <br />
               <span style={{ fontWeight: "600" }}>비처방약까지 꼼꼼하게</span>
-              <div>
+              <div className="subText">
+                <br />
                 복용 시 주의사항을
                 <br />
-                의학 전문 데이터에 기반하여 알려드려요
+                <span style={{ fontWeight: "550" }}>
+                  의학 전문 데이터에 기반하여 알려드려요
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="second-section" style={{ backgroundColor: "aliceblue" }}>
+        <div className="sectionContainer">
+          <div className="sectionLeft">
+            <img
+              src={main3}
+              className="subImage"
+              height="350px"
+              // position="absolute"
+              style={{ position: "absolute", left: "35vh" }}
+              alt="register-pill"
+            ></img>
+          </div>
+          <div className="sectionRight" style={{ display: "block" }}>
+            <div style={{ fontSize: "40px", margin: "0 0 0 60px" }}>
+              <span className="accent">02. </span>
+              <br />
+              어떤 약을 얼만큼?
+              <br />
+              <span style={{ fontWeight: "600" }}>의약품 달력으로</span>
+              <br />한 눈에 알 수 있도록
+              <div className="subText">
+                <br />
+                복용 시 주의사항을
+                <br />
+                <span style={{ fontWeight: "550" }}>
+                  의학 전문 데이터에 기반하여 알려드려요
+                </span>
               </div>
             </div>
           </div>

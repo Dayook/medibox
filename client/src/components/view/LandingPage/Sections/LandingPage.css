@@ -1,7 +1,7 @@
 @import "~antd/dist/antd.css";
 
 .main {
-  background-color: aliceblue;
+  background-color: #7fccff;
   /* background-image: url(../../../images/medic.jpg); */
   background-position: 0 -80px;
   background-size: 1600px;
@@ -11,13 +11,19 @@
 }
 .subImage {
   border-radius: 10%;
-  box-shadow: 0 0 30px #4787db;
+  box-shadow: 0 0 30px #188fff94;
 }
 .second-section {
-  background-color: #f7f7f7;
+  background-color: #fcfcfc;
   background-size: 1600px;
   position: relative;
   height: 100vh;
+  padding: 20vh;
+}
+
+.subText {
+  font-weight: 400;
+  font-size: 23px;
 }
 
 .sectionContainer {
@@ -28,10 +34,17 @@
 
 .sectionLeft {
   width: 50%;
+  padding: 0 20vw;
 }
 
 .sectionRight {
   width: 50%;
+}
+
+.accent {
+  color: #1890ff;
+  font-weight: 600;
+  font-size: 1.2em;
 }
 .mainImg {
   height: 40vh;
@@ -39,18 +52,18 @@
 
 .mockup {
   position: absolute;
-  height: 70vh;
-  right: 30vh;
-  bottom: 0.2vh;
+  height: 72vh;
+  right: 32vh;
+  bottom: 0vh;
+  z-index: 2;
 }
 
 .copyright {
-  padding: 180px 30px;
-  width: 860px;
-  margin: 0 auto;
-  font-size: 30px;
-  color: aliceblue;
-  font-weight: 200;
+  padding: 260px 80px 16vh 16vw;
+  font-size: 65px;
+  font-weight: 500;
+  line-height: 1.5em;
+  letter-spacing: -0.002em;
 }
 
 .main-btn {

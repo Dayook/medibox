@@ -38,12 +38,8 @@ function RightMenu(props) {
     );
   } else {
     return (
-      <Menu style={{ float: "right" }} mode={props.mode}>
+      <Menu style={{ float: "right" }} mode="horizontal">
         <SubMenu key="sub" title={<span>마이 페이지</span>}>
-          {/* <MenuItemGroup title="dd"> */}
-          {/* <Menu.Item key="my-medicine">
-            <a href="/my-medicine">나의 처방전</a>
-          </Menu.Item> */}
           <Menu.Item key="myPage">
             <a href="/myPage">나의 프로필</a>
           </Menu.Item>

@@ -51,7 +51,7 @@ function NavBar() {
             visible={visible}
           >
             <LeftMenu mode="inline" />
-            <RightMenu mode="inline" />
+            <RightMenu />
           </Drawer>
         </div>
       </div>
