@@ -78,14 +78,13 @@ function Subscription(props) {
       <div
         className="basicBox"
         style={{
-          width: "900px",
           margin: "10px auto",
           border: "1px solid #d2d2d2",
         }}
       >
         <Description purpose={purpose} subscription={props.Subscription} />
       </div>
-      <div className="basicBox" style={{ width: "900px" }}>
+      <div className="basicBox">
         {" "}
         결제하기
         <div className="payInfo">

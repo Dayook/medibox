@@ -27,7 +27,7 @@ label > input:checked + div {
 }
 .purposeExplain {
   border: 1px solid #700b0b;
-  width: 1000px;
+  width: 65vw;
   margin: 0 auto;
   padding: 100px 0;
 }

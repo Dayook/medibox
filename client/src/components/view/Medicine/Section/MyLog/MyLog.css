@@ -34,12 +34,12 @@
 
 .basicBox {
   width: 65vw;
-  border-radius: 10px;
+  border-radius: 20px;
   /* border: 1.8px solid #2e2e2e; */
   margin: 0px;
   padding: 30px;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 5px 15px 0 rgba(168, 168, 168, 0.27);
+  box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
   backdrop-filter: blur(4px);
 }
 
