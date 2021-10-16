@@ -65,7 +65,7 @@ function MyCalendar(props) {
   return (
     <div
       className="myCalendar"
-      style={{ width: "65vw", margin: "0px auto", paddingBottom: "100px" }}
+      style={{ width: "65vw", margin: "0px auto", padding: "100px 0" }}
     >
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}

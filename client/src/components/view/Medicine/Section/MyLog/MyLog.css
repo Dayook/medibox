@@ -38,8 +38,8 @@
   /* border: 1.8px solid #2e2e2e; */
   margin: 0px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 8px 32px 0 rgba(206, 206, 206, 0.27);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 15px 0 rgba(168, 168, 168, 0.27);
   backdrop-filter: blur(4px);
 }
 
@@ -59,9 +59,9 @@
   font-weight: 200;
 }
 .explain {
-  font-size: smaller;
-  color: #a0a0a0;
-  font-weight: 100;
+  font-size: small;
+  color: #4b4b4b;
+  font-weight: 200;
 }
 
 .dateDiv {
