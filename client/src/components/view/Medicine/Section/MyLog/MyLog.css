@@ -1,13 +1,14 @@
 .medicineItem {
-  width: 220px;
-  height: 220px;
+  width: 18vw;
+  height: 18vw;
   display: flex;
-  border: 1.6px solid whitesmoke;
+  /* border: 1.6px solid whitesmoke; */
   border-radius: 10px;
   color: #454545;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
   margin-bottom: 20px;
 }
 
@@ -17,26 +18,56 @@
 
 .itemName {
   margin-top: 0.5em;
+  font-size: large;
+}
+
+.quantity {
+  font-size: medium;
 }
 .delete {
   border: none;
+  color: #acacac;
   float: right;
+  border-radius: 10px;
+  font-size: small;
 }
 
 .basicBox {
-  width: 800px;
+  width: 65vw;
   border-radius: 10px;
-  border: 1.8px solid #2e2e2e;
-  margin: 0px auto;
+  /* border: 1.8px solid #2e2e2e; */
+  margin: 0px;
   padding: 30px;
   background: rgba(255, 255, 255, 0.85);
-  /* boxShadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+  box-shadow: 0 8px 32px 0 rgba(206, 206, 206, 0.27);
   backdrop-filter: blur(4px);
+}
+
+.banner {
+  background-color: #3ea2ff;
+  border-radius: 20px;
+  padding: 50px;
+}
+.banner > .first {
+  color: white;
+  font-size: 40px;
+  line-height: 120%;
+}
+
+.banner > .first > .sub {
+  font-size: 20px;
+  font-weight: 200;
+}
+.explain {
+  font-size: smaller;
+  color: #a0a0a0;
+  font-weight: 100;
 }
 
 .dateDiv {
   font-size: large;
   font-weight: 300;
+  margin: 30px;
 }
 @media screen {
 }

@@ -105,10 +105,8 @@ export default function LandingPage() {
               <br />한 눈에 알 수 있도록
               <div className="subText">
                 <br />
-                복용 시 주의사항을
-                <br />
                 <span style={{ fontWeight: "550" }}>
-                  의학 전문 데이터에 기반하여 알려드려요
+                  
                 </span>
               </div>
             </div>

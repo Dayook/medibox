@@ -8,7 +8,7 @@ import {
   Icon,
 } from "@ant-design/icons";
 import PillInfo from "./Info/PillInfo";
-import { Button, Modal } from "antd";
+import { Button, Divider, Modal } from "antd";
 import moment from "moment";
 import "./MyLog.css";
 import LogInfo from "./Info/LogInfo";
@@ -75,28 +75,30 @@ function MyLog(props) {
             onClick={handleClick}
           />
           <span className="quantity">{log.QUANTITY}개</span>
-          <button
-            className="delete"
-            onClick={() => {
-              if (
-                window.confirm(
-                  "다른 날짜의 복용 정보까지 모두 삭제됩니다.\n정말 삭제하시겠습니까?"
-                )
-              ) {
-                Axios.post("/api/medicines/deleteLog", pillVariable).then(
-                  (response) => {
-                    if (response.data.success) {
-                      props.setChanged(!props.Changed);
-                    } else {
-                      alert("실패");
+          <div>
+            <button
+              className="delete"
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "다른 날짜의 복용 정보까지 모두 삭제됩니다.\n정말 삭제하시겠습니까?"
+                  )
+                ) {
+                  Axios.post("/api/medicines/deleteLog", pillVariable).then(
+                    (response) => {
+                      if (response.data.success) {
+                        props.setChanged(!props.Changed);
+                      } else {
+                        alert("실패");
+                      }
                     }
-                  }
-                );
-              }
-            }}
-          >
-            X
-          </button>
+                  );
+                }
+              }}
+            >
+              X
+            </button>
+          </div>
           {/* 경고문구 넣는자리 */}
           {log.cautionWith && <ExclamationCircleOutlined />}
         </div>
@@ -107,13 +109,12 @@ function MyLog(props) {
     <div
       style={{
         margin: "0 auto",
-        padding: "100px 0",
       }}
     >
       <div className="basicBox" id="medicineBox">
         <center>
-          <h2 style={{ marginBottom: "0" }}>나의 처방전</h2>
-          <div className="dateDiv" style={{ fontSize: "large" }}>
+          {/* <h2 style={{ marginBottom: "0" }}>나의 처방전</h2> */}
+          <div className="dateDiv" style={{ fontSize: "30px" }}>
             <CaretLeftOutlined
               onClick={() => {
                 props.setToday(
@@ -149,8 +150,15 @@ function MyLog(props) {
             setChanged={props.setChanged}
             MyLogInfo={props.MyLogInfo}
           />
+          <Divider />
+          <div className="explain">
+            본 서비스는 한국 약학정보원에서 제공하는
+            <br />
+            DUR품목정보 데이터를 기반으로 만들어졌습니다.
+          </div>
         </div>
-        한국 약학정보원
+
+        {/* </div> */}
       </div>
       {props.MyLogInfo[0] && (
         <Modal

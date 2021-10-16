@@ -11,7 +11,7 @@
 }
 .subImage {
   border-radius: 10%;
-  box-shadow: 0 0 30px #188fff94;
+  box-shadow: 0 0 22px #188fff94;
 }
 .second-section {
   background-color: #fcfcfc;
@@ -60,7 +60,7 @@
 
 .copyright {
   padding: 260px 80px 16vh 16vw;
-  font-size: 65px;
+  font-size: 62px;
   font-weight: 500;
   line-height: 1.5em;
   letter-spacing: -0.002em;

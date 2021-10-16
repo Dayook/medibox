@@ -2,6 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import MyCalendar from "./Section/MyCalendar/MyCalendar";
 import MyLog from "./Section/MyLog/MyLog";
+import Banner from "./Section/Banner";
 
 function MyMedicine() {
   const [today, setToday] = useState(new Date());
@@ -26,14 +27,15 @@ function MyMedicine() {
   }, [Changed]);
 
   return (
-    <div style={{ backgroundColor: "aliceblue" }}>
+    <div style={{ backgroundColor: "#fcfcfc" }}>
       <div
         className="container"
         style={{
-          width: "1100px",
+          width: "65vw",
           margin: "0 auto",
         }}
       >
+        <Banner />
         <MyLog
           MyLogInfo={MyLogInfo}
           setChanged={setChanged}
