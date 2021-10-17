@@ -8,6 +8,12 @@
   font-size: large;
   border-radius: 10px;
   height: 320px;
+  margin: 0 auto;
+}
+
+.icon {
+  filter: invert(68%) sepia(52%) saturate(595%) hue-rotate(179deg)
+    brightness(103%) contrast(103%);
 }
 
 #personal,
@@ -49,4 +55,22 @@ label > input:checked + div {
 .purpose {
   margin: 0 auto;
   display: table;
+  margin-top: 30px;
+}
+
+.payButton {
+  
+  background-color: #7fccff;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 40px;
+}
+
+.payInfo {
+  /* padding: 20px; */
+}
+
+.payButton:hover {
+  cursor: pointer;
 }

@@ -20,9 +20,7 @@ function Subscription(props) {
       <span
         className="title"
         style={{ fontSize: "30px", margin: "0 auto", display: "table" }}
-      >
-        구독정보
-      </span>
+      ></span>
       <div style={{ display: "flex", margin: "0 auto", width: "65vw" }}>
         <label
           className="label"
@@ -38,8 +36,22 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
-            <img src={person} width="100px" alt="personal" />
-            <span className="purpose">개인용</span>
+            <center>
+              <div>
+                <img
+                  src={person}
+                  height="70px"
+                  alt="personal"
+                  className="icon"
+                  style={{ margin: "30px auto" }}
+                />
+              </div>
+              <span className="purpose">개인용</span>
+              <div>
+                1인 사용 가능 <br />
+                무료
+              </div>
+            </center>
           </div>
         </label>
         <label
@@ -57,8 +69,20 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
-            <img src={home} width="100px" alt="family" />
-            <span className="purpose">가족용</span>
+            <center>
+              <img
+                src={home}
+                height="70px"
+                alt="family"
+                className="icon"
+                style={{ margin: "30px auto" }}
+              />
+              <div>
+                <span className="purpose">가족용</span>
+                1~6인 관리 가능<br></br>
+                100원
+              </div>
+            </center>
           </div>
         </label>
         <label
@@ -76,8 +100,21 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
-            <img src={net} width="100px" alt="institute" />
-            <span className="purpose">기관용</span>
+            <center>
+              <img
+                src={net}
+                height="70px"
+                className="icon"
+                alt="institute"
+                style={{ margin: "30px auto" }}
+              />
+              <span className="purpose">기관용</span>
+              <div>
+                ~60인 사용 가능<br></br>
+                월 3회 상담 무료 <br />
+                500원
+              </div>
+            </center>
           </div>
         </label>
       </div>
@@ -92,7 +129,6 @@ function Subscription(props) {
       </div>
       <div className="basicBox" style={{ margin: "0 auto" }}>
         {" "}
-        결제하기
         <div className="payInfo">
           <div>신용카드</div>
           <div>계좌이체</div>

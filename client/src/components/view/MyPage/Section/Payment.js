@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import "./MyPage.css";
 
 function Payment() {
   const onClickPayment = () => {
@@ -55,9 +56,11 @@ function Payment() {
   };
 
   return (
-    <div>
-      <button onClick={onClickPayment}>결제하기</button>
-    </div>
+    <>
+      <button className="payButton" onClick={onClickPayment}>
+        결제하기
+      </button>
+    </>
   );
 }
 
