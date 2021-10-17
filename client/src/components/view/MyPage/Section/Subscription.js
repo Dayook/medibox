@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Description from "./Description";
 import Payment from "./Payment";
+import person from "../../../images/person.svg";
+import net from "../../../images/net.svg";
+import home from "../../../images/home.svg";
 import Axios from "axios";
 
 function Subscription(props) {
@@ -20,7 +23,7 @@ function Subscription(props) {
       >
         구독정보
       </span>
-      <div style={{ display: "flex", margin: "0 auto", width: "900px" }}>
+      <div style={{ display: "flex", margin: "0 auto", width: "65vw" }}>
         <label
           className="label"
           for="personal"
@@ -35,6 +38,7 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
+            <img src={person} width="100px" alt="personal" />
             <span className="purpose">개인용</span>
           </div>
         </label>
@@ -53,6 +57,7 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
+            <img src={home} width="100px" alt="family" />
             <span className="purpose">가족용</span>
           </div>
         </label>
@@ -71,6 +76,7 @@ function Subscription(props) {
             }}
           />
           <div className="usePurpose">
+            <img src={net} width="100px" alt="institute" />
             <span className="purpose">기관용</span>
           </div>
         </label>
@@ -84,7 +90,7 @@ function Subscription(props) {
       >
         <Description purpose={purpose} subscription={props.Subscription} />
       </div>
-      <div className="basicBox">
+      <div className="basicBox" style={{ margin: "0 auto" }}>
         {" "}
         결제하기
         <div className="payInfo">

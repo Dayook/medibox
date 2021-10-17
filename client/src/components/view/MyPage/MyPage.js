@@ -22,7 +22,7 @@ function MyPage() {
   });
 
   return (
-    <div style={{ backgroundColor: "aliceblue", padding: "100px" }}>
+    <div style={{ backgroundColor: "#fcfcfc", padding: "100px" }}>
       <Profile UserInfo={userInfo} />
 
       <Subscription

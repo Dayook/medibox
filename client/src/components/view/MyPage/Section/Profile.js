@@ -14,6 +14,7 @@ function Profile(props) {
             margin: "0 auto",
             padding: "100px 20px",
             display: "flex",
+            alignItems: "center",
           }}
         >
           <div></div>
@@ -26,8 +27,12 @@ function Profile(props) {
               style={{ display: "flex" }}
             ></img>
           </div>
-          <div style={{ fontSize: "larger" }}>{user.nickname}</div>
-          <div>{user.email}</div>
+          <div className="profileInfo" style={{ fontSize: "30px" }}>
+            {user.nickname}
+            <br />
+            <span className="email">{user.email}</span>
+          </div>
+          <br />
         </div>
       </div>
     );

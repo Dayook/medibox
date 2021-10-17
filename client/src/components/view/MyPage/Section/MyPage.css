@@ -1,11 +1,13 @@
 .usePurpose {
   padding: 30px;
   background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
   /* boxShadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
   backdrop-filter: blur(4px);
-  border: 1px solid #d5d5d5;
+  /* border: 1px solid #d5d5d5; */
   font-size: large;
   border-radius: 10px;
+  height: 320px;
 }
 
 #personal,
@@ -16,6 +18,18 @@
 
 label > input:checked + div {
   border: 2px solid darkblue;
+}
+
+.profileInfo {
+  font-size: 20px;
+  line-height: 100%;
+  margin-left: 25px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+}
+
+.email {
+  font-size: 20px;
 }
 
 .userPurpose:hover {
