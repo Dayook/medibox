@@ -59,18 +59,27 @@ label > input:checked + div {
 }
 
 .payButton {
-  
-  background-color: #7fccff;
+  background-color: #3ea2ff;
   font-size: 20px;
   border: none;
   border-radius: 10px;
   padding: 20px 40px;
-}
-
-.payInfo {
-  /* padding: 20px; */
+  color: white;
 }
 
 .payButton:hover {
   cursor: pointer;
+}
+
+.payButtonDisable {
+  background-color: #acacac;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 40px;
+  color: white;
+}
+
+.payButtonDisable:hover {
+  cursor: not-allowed;
 }

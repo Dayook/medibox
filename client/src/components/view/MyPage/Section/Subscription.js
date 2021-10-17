@@ -33,6 +33,7 @@ function Subscription(props) {
             name="purpose"
             onClick={() => {
               setPurpose(0);
+              setPrice(0);
             }}
           />
           <div className="usePurpose">
@@ -118,7 +119,7 @@ function Subscription(props) {
           </div>
         </label>
       </div>
-      <div
+      {/* <div
         className="basicBox"
         style={{
           margin: "10px auto",
@@ -126,8 +127,8 @@ function Subscription(props) {
         }}
       >
         <Description purpose={purpose} subscription={props.Subscription} />
-      </div>
-      <div className="basicBox" style={{ margin: "0 auto" }}>
+      </div> */}
+      <div className="basicBox" style={{ margin: "30px auto" }}>
         {" "}
         <div className="payInfo">
           <div>신용카드</div>
@@ -135,7 +136,16 @@ function Subscription(props) {
           <div>카카오페이</div>
 
           <div>{price}원 결제</div>
-          <Payment price={price} purpose={purpose} />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              verticalAlign: "middle",
+              alignContent: "center",
+            }}
+          >
+            <div>{price}원</div> <Payment price={price} purpose={purpose} />
+          </div>
         </div>
       </div>
     </div>

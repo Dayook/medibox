@@ -2,7 +2,7 @@ import React from "react";
 import Axios from "axios";
 import "./MyPage.css";
 
-function Payment() {
+function Payment(props) {
   const onClickPayment = () => {
     const { IMP } = window;
     IMP.init("imp63642369");
@@ -12,8 +12,8 @@ function Payment() {
       // pg: "kakaopay",
       pay_method: "card",
       merchant_uid: "ORD" + new Date().getTime(),
-      name: "메디킷 가족용 정기결제",
-      amount: 100,
+      name: "메디킷" + props.purpose + "정기결제",
+      amount: props.price,
       // customer_uid: "sohae1234",
       // buyer_email: "nyang@naver.com",
       // buyer_tel: "01022231107",
@@ -54,14 +54,15 @@ function Payment() {
       alert(`결제 실패 : ${error_msg}`);
     }
   };
-
-  return (
-    <>
+  if (props.price === 0) {
+    return <button className="payButtonDisable">결제하기</button>;
+  } else {
+    return (
       <button className="payButton" onClick={onClickPayment}>
         결제하기
       </button>
-    </>
-  );
+    );
+  }
 }
 
 export default Payment;
