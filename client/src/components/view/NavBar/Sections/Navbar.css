@@ -20,7 +20,7 @@
 }
 
 .nav__container {
-  width: 70vw;
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -87,6 +87,12 @@
 /* align header of Drawer with header of page */
 .menu_drawer .ant-drawer-header {
   padding: 14px 24px !important;
+}
+
+@media (max-width: 1020px) {
+  .nav__container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 767px) {

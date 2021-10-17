@@ -19,50 +19,54 @@ export default function LandingPage() {
   return (
     <div>
       <div className="main">
-        <div className="copyright">
-          내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
-          <div
-            style={{
-              fontSize: "30px",
-              fontWeight: "300",
-              lineHeight: "1.5em",
-              marginTop: "10px",
-            }}
-          >
-            손쉽게 약사와 상담하고
-            <br />
-            복용중인 약을 관리해보세요
-          </div>
-          {/* <button className="main-btn" onClick={onClickHandler}>
+        <div className="container">
+          <div className="copyright">
+            내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
+            <div
+              style={{
+                fontSize: "30px",
+                fontWeight: "300",
+                lineHeight: "1.5em",
+                marginTop: "10px",
+              }}
+            >
+              손쉽게 약사와 상담하고
+              <br />
+              복용중인 약을 관리해보세요
+            </div>
+            {/* <button className="main-btn" onClick={onClickHandler}>
             메디킷 시작하기
           </button> */}
-          <img className="mockup" src={mockup} alt="mockup"></img>
+            <img className="mockup" src={mockup} alt="mockup"></img>
+          </div>
         </div>
       </div>
       <div className="second-section">
         <div className="sectionContainer">
           <div className="sectionLeft">
-            <img
-              src={main1}
-              className="subImage"
-              height="320px"
-              // position="absolute"
-              style={{ position: "absolute", left: "30vh", top: "16vh" }}
-              alt="register-pill"
-            ></img>
+            <div style={{ position: "relative" }}>
+              <img
+                src={main1}
+                className="subImage"
+                height="320px"
+                // position="absolute"
+                style={{ position: "relative", left: "0px", top: "-10px" }}
+                alt="register-pill"
+              ></img>
 
-            <img
-              src={main2}
-              className="subImage"
-              height="320px"
-              style={{
-                position: "absolute",
-                left: "50vh",
-                top: "30vh",
-                zIndex: "3",
-              }}
-              alt="alert-pill"
-            ></img>
+              <img
+                src={main2}
+                className="subImage"
+                height="320px"
+                style={{
+                  position: "absolute",
+                  left: "140px",
+                  top: "130px",
+                  zIndex: "3",
+                }}
+                alt="alert-pill"
+              ></img>
+            </div>
           </div>
           <div className="sectionRight">
             <div style={{ fontSize: "40px", margin: "0 0 0 60px" }}>
@@ -91,7 +95,7 @@ export default function LandingPage() {
               className="subImage"
               height="350px"
               // position="absolute"
-              style={{ position: "absolute", left: "35vh" }}
+              // style={{ position: "absolute", left: "260px" }}
               alt="register-pill"
             ></img>
           </div>
@@ -105,9 +109,7 @@ export default function LandingPage() {
               <br />한 눈에 알 수 있도록
               <div className="subText">
                 <br />
-                <span style={{ fontWeight: "550" }}>
-                  
-                </span>
+                <span style={{ fontWeight: "550" }}></span>
               </div>
             </div>
           </div>

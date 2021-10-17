@@ -1,6 +1,6 @@
 .medicineItem {
-  width: 18vw;
-  height: 18vw;
+  width: 280px;
+  height: 250px;
   display: flex;
   /* border: 1.6px solid whitesmoke; */
   border-radius: 10px;
@@ -33,7 +33,7 @@
 }
 
 .basicBox {
-  width: 65vw;
+  width: 1000px;
   border-radius: 20px;
   /* border: 1.8px solid #2e2e2e; */
   margin: 0px;

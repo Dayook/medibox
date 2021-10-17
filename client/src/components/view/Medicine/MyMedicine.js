@@ -31,7 +31,7 @@ function MyMedicine() {
       <div
         className="container"
         style={{
-          width: "65vw",
+          width: "1000px",
           margin: "0 auto",
         }}
       >

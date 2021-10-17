@@ -1,10 +1,14 @@
 @import "~antd/dist/antd.css";
 
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
 .main {
   background-color: #7fccff;
   /* background-image: url(../../../images/medic.jpg); */
   background-position: 0 -80px;
-  background-size: 1600px;
   position: relative;
   height: 100vh;
   background-attachment: fixed;
@@ -18,7 +22,8 @@
   background-size: 1600px;
   position: relative;
   height: 100vh;
-  padding: 20vh;
+  padding: 20vh 0;
+  margin: 0 auto;
 }
 
 .subText {
@@ -27,14 +32,15 @@
 }
 
 .sectionContainer {
-  width: 1100px;
+  width: 1000px;
   display: flex;
   margin: 0 auto;
+  margni-top: 10vh;
 }
 
 .sectionLeft {
   width: 50%;
-  padding: 0 20vw;
+  padding: 0 20px 0 0;
 }
 
 .sectionRight {
@@ -59,7 +65,8 @@
 }
 
 .copyright {
-  padding: 260px 80px 16vh 16vw;
+  padding: 260px 0;
+  /* padding: 260px 80px 16vh 16vw; */
   font-size: 62px;
   font-weight: 500;
   line-height: 1.5em;
