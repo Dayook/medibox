@@ -70,10 +70,10 @@
 .menu__mobile-button {
   float: right;
   height: 32px;
-  padding: 6px;
+  padding-top: 7px;
   margin-top: 8px;
   display: none !important; /* use of important to overwrite ant-btn */
-  background: #3e91f7;
+  /* background: #3e91f7; */
 }
 
 .menu_drawer .ant-drawer-body {
@@ -97,7 +97,6 @@
 
 @media (max-width: 767px) {
   .menu__mobile-button {
-    width: 60px;
     display: inline-block !important;
     margin-top: 0px;
   }

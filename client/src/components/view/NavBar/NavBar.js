@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Drawer } from "antd";
-import Icon from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import RightMenu from "./Sections/RightMenu";
 import LeftMenu from "./Sections/LeftMenu";
 import logo from "../../../medikit.svg";
@@ -35,15 +35,11 @@ function NavBar() {
           <div className="menu_right">
             <RightMenu mode="horizontal" />
           </div>
-          <Button
+          <MenuOutlined
             className="menu__mobile-button"
             type="primary"
             onClick={showDrawer}
-          >
-            {" "}
-            sfs f
-            <Icon type="align-right" />
-          </Button>
+          />
           <Drawer
             title="Basic Drawer"
             placement="right"
