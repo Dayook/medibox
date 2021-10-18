@@ -38,7 +38,7 @@ function RightMenu(props) {
     );
   } else {
     return (
-      <Menu style={{ float: "right" }} mode="horizontal">
+      <Menu style={{ float: "right" }} mode={props.mode}>
         <SubMenu key="sub" title={<span>마이 페이지</span>}>
           <Menu.Item key="myPage">
             <a href="/myPage">나의 프로필</a>

@@ -41,7 +41,7 @@ function NavBar() {
             onClick={showDrawer}
           />
           <Drawer
-            title="Basic Drawer"
+            title="Menu"
             placement="right"
             className="menu_drawer"
             closable={false}
@@ -49,7 +49,7 @@ function NavBar() {
             visible={visible}
           >
             <LeftMenu mode="inline" />
-            <RightMenu />
+            <RightMenu mode="inline" />
           </Drawer>
         </div>
       </div>
