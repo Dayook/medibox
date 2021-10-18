@@ -28,13 +28,7 @@ function MyMedicine() {
 
   return (
     <div style={{ backgroundColor: "#fcfcfc" }}>
-      <div
-        className="container"
-        style={{
-          width: "1000px",
-          margin: "0 auto",
-        }}
-      >
+      <div className="container">
         <Banner />
         <MyLog
           MyLogInfo={MyLogInfo}
@@ -44,11 +38,7 @@ function MyMedicine() {
           today={today}
           setToday={setToday}
         />
-        <MyCalendar
-          MyLogInfo={MyLogInfo}
-          style={{ padding: "100px 0px", height: "900px" }}
-          setToday={setToday}
-        ></MyCalendar>
+        <MyCalendar MyLogInfo={MyLogInfo} setToday={setToday}></MyCalendar>
       </div>
     </div>
   );

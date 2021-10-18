@@ -114,7 +114,7 @@ function MyLog(props) {
       <div className="basicBox" id="medicineBox">
         <center>
           {/* <h2 style={{ marginBottom: "0" }}>나의 처방전</h2> */}
-          <div className="dateDiv" style={{ fontSize: "30px" }}>
+          <div className="dateDiv">
             <CaretLeftOutlined
               onClick={() => {
                 props.setToday(

@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import "./MyCalendar.css";
+import "../MyLog/MyLog.css";
 
 function MyCalendar(props) {
   let dateMap = [];
@@ -51,22 +51,16 @@ function MyCalendar(props) {
     return (
       <div style={{ margin: "0 auto" }}>
         <div
+          className="pillEvent"
           style={{
-            width: "20px",
-            height: "20px",
             backgroundColor: info.backgroundColor,
-            borderRadius: 50,
-            boxShadow: "0 1px 2px 0 rgba(31,31,31,0.15)",
           }}
         ></div>
       </div>
     );
   }
   return (
-    <div
-      className="myCalendar"
-      style={{ width: "65vw", margin: "0px auto", padding: "100px 0" }}
-    >
+    <div className="myCalendar">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"

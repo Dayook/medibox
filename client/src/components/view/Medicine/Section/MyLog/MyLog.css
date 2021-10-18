@@ -1,6 +1,6 @@
 .medicineItem {
   width: 280px;
-  height: 250px;
+  height: 280px;
   display: flex;
   /* border: 1.6px solid whitesmoke; */
   border-radius: 10px;
@@ -42,9 +42,17 @@
   box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
   backdrop-filter: blur(4px);
 }
-
+.bannerContainer {
+  padding: 100px 0 60px 0;
+  width: 100%;
+}
 .banner {
-  background-color: #3ea2ff;
+  background: rgb(62, 162, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(62, 162, 255, 1) 0%,
+    rgba(123, 208, 255, 1) 100%
+  );
   border-radius: 20px;
   padding: 50px;
 }
@@ -65,9 +73,101 @@
 }
 
 .dateDiv {
-  font-size: large;
+  font-size: 25px;
   font-weight: 300;
   margin: 30px;
 }
-@media screen {
+
+.pillEvent {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px 0 rgba(31, 31, 31, 0.15);
+}
+
+.myCalendar {
+  width: 65vw;
+  margin: 0px auto;
+  padding: 100px 0;
+}
+
+@media (max-width: 767px) {
+  .bannerContainer {
+    padding-top: 65px;
+    width: 100%;
+  }
+  .banner {
+    width: 100vw;
+    border-radius: 0px;
+    padding: 20px;
+  }
+  .banner > .first {
+    font-size: 30px;
+    line-height: 120%;
+  }
+
+  .banner > .first > .sub {
+    font-size: 15px;
+    font-weight: 200;
+  }
+  .basicBox {
+    width: 100%;
+    border-radius: none;
+  }
+  .medicineItem {
+    width: 100px;
+    height: 100px;
+  }
+
+  .myCalendar {
+    width: 100vw;
+    height: 90vh;
+  }
+
+  .fc-media-screen {
+    height: inherit;
+  }
+
+  .container {
+    width: 100vw;
+  }
+
+  .myCalendar {
+    width: 100vw;
+    padding: 10px 0;
+  }
+
+  .pillEvent {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pillEvent:nth-child(n +) {
+    display: none;
+    border: #454545;
+  }
+  .dateDiv {
+    font-size: large;
+    margin: 5px;
+  }
+
+  .basicBox {
+    padding: 20px 0;
+  }
+
+  .medicineItem {
+    width: 45vw;
+    height: 45vw;
+  }
+
+  .medicineItem:nth-child(3n-1) {
+    margin: 0 5px;
+  }
+
+  .itemName {
+    font-size: smaller;
+  }
+  .quantity {
+    font-size: smaller;
+  }
 }

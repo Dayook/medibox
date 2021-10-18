@@ -40,6 +40,8 @@ function NavBar() {
             type="primary"
             onClick={showDrawer}
           >
+            {" "}
+            sfs f
             <Icon type="align-right" />
           </Button>
           <Drawer

@@ -2,7 +2,7 @@ import React from "react";
 
 function Banner() {
   return (
-    <div style={{ padding: " 100px 0", width: "100%" }}>
+    <div className="bannerContainer">
       <div className="banner" style={{}}>
         <div className="first">
           나의 처방전

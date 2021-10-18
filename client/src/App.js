@@ -19,18 +19,18 @@ function App() {
   return (
     <Suspense>
       <NavBar />
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Switch>
-            <Route exact path="/" component={Auth(LandingPage)} />
-            <Route exact path="/counsel" component={Auth(Counsel)} />
-            <Route exact path="/login" component={Auth(Login, false)} />
-            <Route exact path="/register" component={Auth(Join, false)} />
-            <Route exact path="/mypage" component={Auth(MyPage, true)} />
+            <Route exact={true} path="/" component={Auth(LandingPage)} />
+            <Route exact={true} path="/counsel" component={Auth(Counsel)} />
+            <Route exact={true} path="/login" component={Auth(Login, false)} />
+            <Route exact={true} path="/register" component={Auth(Join, false)} />
+            <Route exact={true} path="/mypage" component={Auth(MyPage, true)} />
             {/* <Route exact path="/medicine" component={Auth(Medicine, true)} /> */}
             <Route exact path="/colorpicker" component={Auth(ColorPicker)} />
             <Route
-              exact
+              exact={true}
               path="/my-medicine"
               component={Auth(MyMedicine, true)}
             />
