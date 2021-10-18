@@ -94,8 +94,6 @@ export default function LandingPage() {
               src={main3}
               className="subImage"
               height="350px"
-              // position="absolute"
-              // style={{ position: "absolute", left: "260px" }}
               alt="register-pill"
             ></img>
           </div>
