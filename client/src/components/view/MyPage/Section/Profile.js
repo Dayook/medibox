@@ -8,13 +8,9 @@ function Profile(props) {
   if (user) {
     return (
       <div>
-        <div
+        <div className="profile"
           style={{
-            width: "65vw",
-            margin: "0 auto",
-            padding: "100px 20px",
-            display: "flex",
-            alignItems: "center",
+           
           }}
         >
           <div></div>

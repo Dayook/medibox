@@ -1,3 +1,16 @@
+.profileContainer {
+  background-color: #fcfcfc;
+  padding: 100px;
+}
+
+.profile {
+  width: 65vw;
+  margin: 0 auto;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+}
+
 .usePurpose {
   padding: 30px;
   background: rgba(255, 255, 255, 0.85);
@@ -36,6 +49,12 @@ label > input:checked + div {
 
 .email {
   font-size: 20px;
+}
+
+.subscribe {
+  display: flex;
+  margin: 0 auto;
+  width: 65vw;
 }
 
 .userPurpose:hover {
@@ -82,4 +101,17 @@ label > input:checked + div {
 
 .payButtonDisable:hover {
   cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .profileContainer {
+    padding: 60px 0;
+  }
+
+  .profile {
+    padding: 20px 0;
+  }
+  .subscribe {
+    display: block;
+  }
 }

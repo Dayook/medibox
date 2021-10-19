@@ -22,7 +22,7 @@ function MyPage() {
   });
 
   return (
-    <div style={{ backgroundColor: "#fcfcfc", padding: "100px" }}>
+    <div className="profileContainer">
       <Profile UserInfo={userInfo} />
 
       <Subscription

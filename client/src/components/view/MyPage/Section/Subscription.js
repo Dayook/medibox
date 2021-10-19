@@ -21,7 +21,10 @@ function Subscription(props) {
         className="title"
         style={{ fontSize: "30px", margin: "0 auto", display: "table" }}
       ></span>
-      <div style={{ display: "flex", margin: "0 auto", width: "65vw" }}>
+      <div
+        className="subscribe"
+        style={{  }}
+      >
         <label
           className="label"
           for="personal"

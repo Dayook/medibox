@@ -97,6 +97,13 @@
   padding: 30px;
 }
 
+div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
+  left: 140px;
+  top: 130px;
+  z-index: 3;
+  position: absolute;
+}
+
 @media (max-width: 767px) {
   .copyright {
     padding: 80px 10px;
@@ -108,5 +115,17 @@
   div:nth-child(3) > div > div.sectionLeft > img {
     width: 100vw;
     height: 100%;
+  }
+
+  div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
+    left: 0px;
+  }
+
+  .sectionContainer {
+    flex-direction: column;
+    width: 100vw;
+  }
+  .sectionRight {
+    width: 100vw;
   }
 }

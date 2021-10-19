@@ -191,7 +191,7 @@ function Pill(props) {
         <center>
           <form onSubmit={handleSubmit}>
             <AutoComplete
-              style={{ width: "260px" }}
+              style={{ width: "265px" }}
               placeholder="이름 검색"
               options={Options}
               onSelect={(value, option) => {
@@ -219,6 +219,7 @@ function Pill(props) {
             복용 기간
             <br />
             <RangePicker
+              style={{ fontSize: "large" }}
               className="dateRange"
               placeholder={placeHolder}
               onChange={handleRange}

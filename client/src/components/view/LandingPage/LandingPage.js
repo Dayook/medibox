@@ -58,12 +58,6 @@ export default function LandingPage() {
                 src={main2}
                 className="subImage"
                 height="320px"
-                style={{
-                  position: "absolute",
-                  left: "140px",
-                  top: "130px",
-                  zIndex: "3",
-                }}
                 alt="alert-pill"
               ></img>
             </div>
