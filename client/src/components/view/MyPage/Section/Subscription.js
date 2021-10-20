@@ -135,16 +135,15 @@ function Subscription(props) {
           <div>계좌이체</div>
           <div>카카오페이</div>
 
-          <div className="priceInfo">{price}원 결제</div>
           <div
             style={{
               display: "flex",
               justifyContent: "flex-end",
-              verticalAlign: "middle",
-              alignContent: "center",
             }}
           >
-            <div>{price}원</div> <Payment price={price} purpose={purpose} />
+            {" "}
+            <div className="priceInfo">{price}원 </div>
+            <Payment price={price} purpose={purpose} />
           </div>
         </div>
       </div>
