@@ -6,6 +6,7 @@ import mockup from "../../images/phone-mockup.png";
 import main1 from "../../images/main1.png";
 import main2 from "../../images/main2.png";
 import main3 from "../../images/main3.png";
+import pills from "../../images/pills.png";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -21,15 +22,11 @@ export default function LandingPage() {
       <div className="main">
         <div className="container">
           <div className="copyright">
-            내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
-            <div
-              style={{
-                fontSize: "30px",
-                fontWeight: "300",
-                lineHeight: "1.5em",
-                marginTop: "10px",
-              }}
-            >
+            <button className="startBtn">건강관리 시작</button>
+            <div className="titleText">
+              내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
+            </div>
+            <div className="mainSubText" style={{}}>
               손쉽게 약사와 상담하고
               <br />
               복용중인 약을 관리해보세요
@@ -37,6 +34,8 @@ export default function LandingPage() {
             {/* <button className="main-btn" onClick={onClickHandler}>
             메디킷 시작하기
           </button> */}
+
+            <img className="pills" src={pills} alt="pills"></img>
             <img className="mockup" src={mockup} alt="mockup"></img>
           </div>
         </div>
@@ -44,39 +43,25 @@ export default function LandingPage() {
       <div className="second-section">
         <div className="sectionContainer">
           <div className="sectionLeft">
-            <div style={{ position: "relative" }}>
-              <img
-                src={main1}
-                className="subImage"
-                height="320px"
-                // position="absolute"
-                style={{ position: "relative", left: "0px", top: "-10px" }}
-                alt="register-pill"
-              ></img>
-
-              <img
-                src={main2}
-                className="subImage"
-                height="320px"
-                alt="alert-pill"
-              ></img>
+            <div className="imgDiv">
+              <img src={main1} className="subImage" alt="register-pill"></img>
+              <img src={main2} className="subImage" alt="alert-pill"></img>
+              <div className="helper"></div>
             </div>
           </div>
           <div className="sectionRight">
-            <div style={{ fontSize: "40px", margin: "0 0 0 60px" }}>
-              <span className="accent">01. </span>
+            <span className="accent">01. </span>
+            <br />
+            병원에서 기록하지 않는
+            <br />
+            <span style={{ fontWeight: "600" }}>비처방약까지 꼼꼼하게</span>
+            <div className="subText">
               <br />
-              병원에서 기록하지 않는
+              복용 시 주의사항을
               <br />
-              <span style={{ fontWeight: "600" }}>비처방약까지 꼼꼼하게</span>
-              <div className="subText">
-                <br />
-                복용 시 주의사항을
-                <br />
-                <span style={{ fontWeight: "550" }}>
-                  의학 전문 데이터에 기반하여 알려드려요
-                </span>
-              </div>
+              <span style={{ fontWeight: "550" }}>
+                의학 전문 데이터에 기반하여 알려드려요
+              </span>
             </div>
           </div>
         </div>
@@ -92,17 +77,15 @@ export default function LandingPage() {
             ></img>
           </div>
           <div className="sectionRight" style={{ display: "block" }}>
-            <div style={{ fontSize: "40px", margin: "0 0 0 60px" }}>
-              <span className="accent">02. </span>
+            <span className="accent">02. </span>
+            <br />
+            어떤 약을 얼만큼?
+            <br />
+            <span style={{ fontWeight: "600" }}>의약품 달력으로</span>
+            <br />한 눈에 알 수 있도록
+            <div className="subText">
               <br />
-              어떤 약을 얼만큼?
-              <br />
-              <span style={{ fontWeight: "600" }}>의약품 달력으로</span>
-              <br />한 눈에 알 수 있도록
-              <div className="subText">
-                <br />
-                <span style={{ fontWeight: "550" }}></span>
-              </div>
+              <span style={{ fontWeight: "550" }}></span>
             </div>
           </div>
         </div>

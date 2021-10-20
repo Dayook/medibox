@@ -13,9 +13,17 @@
   height: 100vh;
   background-attachment: fixed;
 }
+
+.startBtn {
+  display: none;
+  border-radius: 25%;
+  border: 1px solid white;
+  padding: 10px;
+}
 .subImage {
   border-radius: 10%;
   box-shadow: 0 0 22px #188fff94;
+  height: 320px;
 }
 .second-section {
   background-color: #fcfcfc;
@@ -31,11 +39,18 @@
   font-size: 23px;
 }
 
+.mainSubText {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.5em;
+  margin-top: 10px;
+}
+
 .sectionContainer {
   width: 1000px;
   display: flex;
   margin: 0 auto;
-  margni-top: 10vh;
+  /* margin-top: 10vh; */
 }
 
 .sectionLeft {
@@ -45,6 +60,8 @@
 
 .sectionRight {
   width: 50%;
+  font-size: 40px;
+  margin: 0 0 0 60px;
 }
 
 .accent {
@@ -54,6 +71,10 @@
 }
 .mainImg {
   height: 40vh;
+}
+
+.pills {
+  display: none;
 }
 
 .mockup {
@@ -97,6 +118,16 @@
   padding: 30px;
 }
 
+.imgDiv {
+  position: relative;
+}
+
+div.sectionLeft:nth-child(1) > div > img:nth-child(1) {
+  position: relative;
+  left: 0px;
+  top: -10px;
+}
+
 div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
   left: 140px;
   top: 130px;
@@ -105,27 +136,107 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
 }
 
 @media (max-width: 767px) {
+  .main {
+    background-image: url(../../../images/pill.png);
+    background-size: contain;
+    height: 80vh;
+  }
+
   .copyright {
     padding: 80px 10px;
     font-size: 30px;
   }
+
+  .startBtn {
+    display: block;
+    border-radius: 40px;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+    width: 60vw;
+    margin-left: 55px;
+    margin-top: 220px;
+  }
+
+  .titleText {
+    display: none;
+    margin-top: 10px;
+    align-content: center;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 25px;
+  }
   .mockup {
+    display: none;
     height: 100px;
   }
   div:nth-child(3) > div > div.sectionLeft > img {
-    width: 100vw;
+    margin: 25px;
+    width: 84vw;
     height: 100%;
   }
 
+  div.sectionLeft:nth-child(1) > div > img:nth-child(1) {
+    top: 0px;
+  }
+
   div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
-    left: 0px;
+    top: 0px;
+    left: 240px;
+    width: 224px;
+    height: 224px;
+    margin-right: 25px;
+  }
+
+  .mainSubText {
+    display: none;
   }
 
   .sectionContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100vw;
   }
+
+  .second-section {
+    padding: 0;
+  }
+
+  .subImage {
+    margin: 30px 25px;
+    width: 70vw;
+    height: 100%;
+    box-shadow: 0 0 15px #188fff94;
+  }
   .sectionRight {
+    margin: 0;
     width: 100vw;
+    font-size: 23px;
+    padding: 25px;
+  }
+
+  .imgDiv {
+    overflow: scroll;
+    width: 100vw;
+  }
+
+  .imgDiv::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+  .subText {
+    font-size: small;
+  }
+
+  .helper {
+    height: 1px;
+    width: 30px;
+    /* background-color: red; */
+    position: absolute;
+    left: 480px;
+    top: 0;
+    z-index: 100;
   }
 }
