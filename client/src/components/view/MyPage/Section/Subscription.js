@@ -21,10 +21,7 @@ function Subscription(props) {
         className="title"
         style={{ fontSize: "30px", margin: "0 auto", display: "table" }}
       ></span>
-      <div
-        className="subscribe"
-        style={{  }}
-      >
+      <div className="subscribe">
         <label
           className="label"
           for="personal"
@@ -116,7 +113,7 @@ function Subscription(props) {
               <div>
                 ~60인 사용 가능<br></br>
                 월 3회 상담 무료 <br />
-                500원
+                200원
               </div>
             </center>
           </div>
@@ -131,14 +128,14 @@ function Subscription(props) {
       >
         <Description purpose={purpose} subscription={props.Subscription} />
       </div> */}
-      <div className="basicBox" style={{ margin: "30px auto" }}>
+      <div className="payBox" style={{ margin: "30px auto" }}>
         {" "}
         <div className="payInfo">
           <div>신용카드</div>
           <div>계좌이체</div>
           <div>카카오페이</div>
 
-          <div>{price}원 결제</div>
+          <div className="priceInfo">{price}원 결제</div>
           <div
             style={{
               display: "flex",

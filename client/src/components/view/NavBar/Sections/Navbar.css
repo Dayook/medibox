@@ -8,6 +8,10 @@
   background-color: white;
 }
 
+.logo {
+  width: 110px;
+}
+
 .menu__logo {
   width: 150px;
   float: left;
@@ -121,5 +125,9 @@
 
   .menu__logo a {
     padding: 10px 20px;
+  }
+
+  .logo {
+    width: 90px;
   }
 }

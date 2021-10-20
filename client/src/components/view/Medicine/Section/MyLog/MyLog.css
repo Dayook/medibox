@@ -47,7 +47,7 @@
   width: 100%;
 }
 .banner {
-  background: rgb(62, 162, 255);
+  background: #63b9ff;
   /* background: linear-gradient(
     90deg,
     rgba(62, 162, 255, 1) 0%,
@@ -93,7 +93,7 @@
 
 @media (max-width: 767px) {
   .bannerContainer {
-    padding-top: 65px;
+    padding-top: 60px;
     width: 100%;
   }
   .banner {
@@ -102,8 +102,10 @@
     padding: 20px;
   }
   .banner > .first {
-    font-size: 30px;
+    font-size: 25px;
     line-height: 120%;
+    padding: 5px;
+    font-weight: 400;
   }
 
   .banner > .first > .sub {
@@ -169,5 +171,8 @@
   }
   .quantity {
     font-size: smaller;
+  }
+  .medicineItem:nth-child(3n-1) {
+    margin: 0;
   }
 }
