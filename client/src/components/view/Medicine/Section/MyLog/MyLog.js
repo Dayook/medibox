@@ -134,14 +134,7 @@ function MyLog(props) {
           </div>
         </center>
         <br />
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            padding: "0 10px",
-            margin: "0 5px",
-            marginLeft: "10px",
-          }}
+        <div className="logBox"
         >
           {renderPills}
           <AddPill

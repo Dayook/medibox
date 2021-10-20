@@ -78,6 +78,14 @@
   margin: 30px;
 }
 
+.logBox {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  margin: 0 5px;
+  margin-left: 10px;
+}
+
 .pillEvent {
   width: 20px;
   height: 20px;
@@ -178,5 +186,9 @@
   }
   .medicineItem:nth-child(3n-1) {
     margin: 0;
+  }
+  .logBox {
+    margin-left: 0px;
+    justify-content: space-between;
   }
 }
