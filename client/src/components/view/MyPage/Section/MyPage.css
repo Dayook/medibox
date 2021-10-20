@@ -51,6 +51,10 @@ label > input:checked + div {
   font-size: 20px;
 }
 
+.profilePic {
+  display: flex;
+  width: 200px;
+}
 .subscribe {
   display: flex;
   margin: 0 auto;
@@ -127,9 +131,19 @@ label > input:checked + div {
   }
 
   .profile {
+    width: 100vw;
     padding: 20px 0;
+    display: block;
+  }
+
+  .profilePic {
+    width: 120px;
   }
   .subscribe {
+    width: 100vw;
     display: block;
+  }
+  .payBox {
+    width: 100vw;
   }
 }

@@ -8,20 +8,11 @@ function Profile(props) {
   if (user) {
     return (
       <div>
-        <div className="profile"
-          style={{
-           
-          }}
-        >
+        <div className="profile" style={{}}>
           <div></div>
           <br></br>
           <div>
-            <img
-              src={profile}
-              width="200px"
-              alt="profile"
-              style={{ display: "flex" }}
-            ></img>
+            <img src={profile} alt="profile" className="profilePic"></img>
           </div>
           <div className="profileInfo" style={{ fontSize: "30px" }}>
             {user.nickname}

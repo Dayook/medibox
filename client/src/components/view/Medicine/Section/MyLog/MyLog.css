@@ -86,9 +86,13 @@
 }
 
 .myCalendar {
-  width: 65vw;
+  width: 1000px;
   margin: 0px auto;
   padding: 100px 0;
+}
+
+.fc-scrollgrid-sync-inner {
+  background-color: white;
 }
 
 @media (max-width: 767px) {
