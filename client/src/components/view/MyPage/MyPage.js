@@ -19,11 +19,15 @@ function MyPage() {
         alert("실패");
       }
     });
-  });
+
+    // if (subscription === 0) {
+    //   alert("dd");
+    // }
+  }, [subscription]);
 
   return (
     <div className="profileContainer">
-      <Profile UserInfo={userInfo} />
+      <Profile UserInfo={userInfo} Subscription={subscription} />
 
       <Subscription
         Subscription={subscription}
