@@ -27,7 +27,7 @@ function MyMedicine() {
   }, [Changed]);
 
   return (
-    <div style={{ backgroundColor: "#fcfcfc" }}>
+    <div className="ancient" style={{ backgroundColor: "#fcfcfc" }}>
       <div className="container">
         <Banner />
         <MyLog

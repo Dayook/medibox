@@ -216,7 +216,7 @@ function Pill(props) {
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
             )}
-            복용 기간
+            <div className="infoName">복용기간</div>
             <br />
             <RangePicker
               style={{ fontSize: "large" }}
@@ -226,7 +226,7 @@ function Pill(props) {
               // value={[moment(StartDate), moment(EndDate)]}
             />
             <br />
-            복용량
+            <div className="infoName">복용량</div>
             <br />
             <InputNumber
               type="number"
