@@ -25,11 +25,12 @@
   font-size: medium;
 }
 .delete {
-  border: none;
+  border: 1px solid #acacac;
   color: #acacac;
   float: right;
-  border-radius: 10px;
-  font-size: small;
+  border-radius: 100%;
+  font-size: 5px;
+  padding: 1px 5px;
 }
 
 .basicBox {

@@ -76,7 +76,7 @@ function MyLog(props) {
           />
           <span className="quantity">{log.QUANTITY}개</span>
           <div>
-            <button
+            {/* <button
               className="delete"
               onClick={() => {
                 if (
@@ -97,7 +97,7 @@ function MyLog(props) {
               }}
             >
               X
-            </button>
+            </button> */}
           </div>
           {/* 경고문구 넣는자리 */}
           {log.cautionWith && <ExclamationCircleOutlined />}
@@ -134,8 +134,7 @@ function MyLog(props) {
           </div>
         </center>
         <br />
-        <div className="logBox"
-        >
+        <div className="logBox">
           {renderPills}
           <AddPill
             setToday={props.setToday}

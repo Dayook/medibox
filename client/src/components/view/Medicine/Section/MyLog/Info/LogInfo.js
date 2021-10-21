@@ -14,6 +14,26 @@ function LogInfo(props) {
   const handleModify = () => {
     setisModifyVisible(true);
   };
+
+  const handleDelete = () => {
+    const pillVariable = {
+      id: props.logId,
+    };
+    if (
+      window.confirm(
+        "해당 약의 복용 정보가 모두 삭제됩니다.\n정말 삭제하시겠습니까?"
+      )
+    ) {
+      Axios.post("/api/medicines/deleteLog", pillVariable).then((response) => {
+        if (response.data.success) {
+          props.setisModalVisible(false);
+          props.setChanged(!props.Changed);
+        } else {
+          alert("실패");
+        }
+      });
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const variable = {
@@ -56,6 +76,9 @@ function LogInfo(props) {
         <Divider />
         <Button key="back" onClick={handleModify}>
           수정하기
+        </Button>
+        <Button key="delete" onClick={handleDelete}>
+          삭제하기
         </Button>
         <Button key="confirm" type="primary" onClick={handleOk}>
           닫기
