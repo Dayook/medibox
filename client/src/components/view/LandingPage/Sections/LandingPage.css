@@ -154,8 +154,8 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     border: 2px solid white;
     color: white;
     font-size: 18px;
-    font-weight: 500;
-    padding: 5px;
+
+    padding: 3px;
     width: 60vw;
     margin-left: 55px;
     margin-top: 220px;

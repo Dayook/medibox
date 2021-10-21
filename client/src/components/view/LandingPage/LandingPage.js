@@ -22,7 +22,9 @@ export default function LandingPage() {
       <div className="main">
         <div className="container">
           <div className="copyright">
-            <button className="startBtn">건강관리 시작</button>
+            <button className="startBtn">
+              <span style={{ fontWeight: 500 }}>메디킷</span> 시작
+            </button>
             <div className="titleText">
               내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
             </div>
