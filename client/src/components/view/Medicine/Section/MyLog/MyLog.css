@@ -33,6 +33,11 @@
   padding: 1px 5px;
 }
 
+.infoName {
+  float: left;
+  color: #929292;
+}
+
 .basicBox {
   width: 1000px;
   border-radius: 20px;
@@ -191,5 +196,19 @@
   .logBox {
     margin-left: 0px;
     justify-content: space-between;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.3em;
+    margin-left: 10px;
+  }
+  .fc .fc-button {
+    padding: 0.2em 0.65em;
+  }
+
+  .fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: ;
   }
 }

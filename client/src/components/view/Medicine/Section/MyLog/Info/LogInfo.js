@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Icon, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
 import { Button, InputNumber, DatePicker, Divider } from "antd";
 import Axios from "axios";
 import AlertInfo from "./AlertInfo";
+import "../MyLog.css";
 const { RangePicker } = DatePicker;
 function LogInfo(props) {
   const [isModifyVisible, setisModifyVisible] = useState(false);
@@ -63,10 +65,16 @@ function LogInfo(props) {
   if (!isModifyVisible) {
     return (
       <div>
+        <div className="infoName">
+          복용기간
+        </div>
         {moment(props.range[0]).format("YYYY-MM-DD")} ~{" "}
         {moment(props.range[1]).format("YYYY-MM-DD")}
         <br />
-        복용량(하루에 먹는 개수) {props.quantity}
+        <div className="infoName">
+          복용량
+        </div>
+        {props.quantity}
         <br />
         {props.mixtureInfo && (
           <div>
@@ -75,10 +83,11 @@ function LogInfo(props) {
         )}
         <Divider />
         <Button key="back" onClick={handleModify}>
-          수정하기
+          <EditOutlined />
+          수정
         </Button>
         <Button key="delete" onClick={handleDelete}>
-          삭제하기
+          <DeleteOutlined /> 삭제
         </Button>
         <Button key="confirm" type="primary" onClick={handleOk}>
           닫기
@@ -88,20 +97,26 @@ function LogInfo(props) {
   } else {
     return (
       <div>
-        복용 기간
+        <div className="infoName">
+          복용기간
+        </div>
         <RangePicker value={range} onChange={handleRange} />
         <br />
-        복용량(하루에 먹는 개수)
-        <InputNumber
-          value={quantity}
-          onChange={(number) => {
-            setQuantity(number);
-          }}
-          onStep={(number) => {
-            setQuantity(number);
-          }}
-          min="1"
-        />
+        <div className="quantityDiv" style={{ lineHeight: "30px" }}>
+          <div className="infoName">
+            복용량
+          </div>
+          <InputNumber
+            value={quantity}
+            onChange={(number) => {
+              setQuantity(number);
+            }}
+            onStep={(number) => {
+              setQuantity(number);
+            }}
+            min="1"
+          />
+        </div>
         <Divider />
         <Button key="modify" onClick={handleSubmit}>
           수정완료

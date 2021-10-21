@@ -19,18 +19,22 @@ function PillInfo(props) {
     );
   }
   if (props.ITEM_NAME === "") {
-    return <div>ㅎㅎ</div>;
+    return <div>Loading...</div>;
   } else {
     return (
       <div>
-        {materialName}
+        <span style={{ fontWeight: 500 }}>{materialName}</span>
         <span style={{ fontSize: "larger" }}>{props.item_name}</span>
         <img
           src={img_src}
-          style={{ width: "-webkit-fill-available" }}
+          style={{
+            width: "-webkit-fill-available",
+            marginBottom: "10px",
+          }}
           alt="medicine"
         />
-        보관방법: {props.storage_method}
+        <div className="infoName">보관방법</div>
+        {props.storage_method}
         {props.mixtureId && <AlertInfo mixtureInfo={props.mixtureId} />}
       </div>
     );
