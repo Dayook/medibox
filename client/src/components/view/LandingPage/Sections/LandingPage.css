@@ -56,12 +56,27 @@
 .sectionLeft {
   width: 50%;
   padding: 0 20px 0 0;
+  margin: 0 30px;
 }
 
 .sectionRight {
   width: 50%;
   font-size: 40px;
-  margin: 0 0 0 60px;
+  margin: 0 0 0 150px;
+}
+
+#root
+  > div:nth-child(2)
+  > div
+  > div:nth-child(3)
+  > div
+  > div.sectionLeft
+  > img {
+  width: 450px;
+}
+
+.second-section:nth-child(3) > .sectionContainer > .sectionRight {
+  margin-left: 80px;
 }
 
 .accent {
@@ -79,13 +94,14 @@
 
 .mockup {
   position: absolute;
-  height: 72vh;
+  height: 540px;
   right: 32vh;
   bottom: 0vh;
   z-index: 2;
 }
 
 .copyright {
+  margin: 0 30px;
   padding: 260px 0;
   /* padding: 260px 80px 16vh 16vw; */
   font-size: 62px;

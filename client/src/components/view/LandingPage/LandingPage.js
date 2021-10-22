@@ -71,12 +71,7 @@ export default function LandingPage() {
       <div className="second-section" style={{ backgroundColor: "aliceblue" }}>
         <div className="sectionContainer">
           <div className="sectionLeft">
-            <img
-              src={main3}
-              className="subImage"
-              height="350px"
-              alt="register-pill"
-            ></img>
+            <img src={main3} className="subImage" alt="register-pill"></img>
           </div>
           <div className="sectionRight" style={{ display: "block" }}>
             <span className="accent">02. </span>
