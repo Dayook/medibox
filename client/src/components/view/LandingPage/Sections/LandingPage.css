@@ -159,6 +159,7 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
   }
 
   .copyright {
+    margin: 0;
     padding: 80px 10px;
     font-size: 30px;
   }
@@ -208,6 +209,16 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     margin-right: 25px;
   }
 
+  #root
+    > div:nth-child(2)
+    > div
+    > div:nth-child(3)
+    > div
+    > div.sectionLeft
+    > img {
+    width: 83vw;
+  }
+
   .mainSubText {
     display: none;
   }
@@ -221,6 +232,10 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     padding: 0;
   }
 
+  .sectionLeft {
+    margin: 0;
+  }
+
   .subImage {
     margin: 30px 25px;
     width: 70vw;
@@ -232,6 +247,10 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     width: 100vw;
     font-size: 23px;
     padding: 25px;
+  }
+
+  .second-section:nth-child(3) > .sectionContainer > .sectionRight {
+    margin-left: 0px;
   }
 
   .imgDiv {
