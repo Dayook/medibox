@@ -3,7 +3,7 @@ import { React, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_actions";
 import { Form, Input, Button } from "antd";
-
+import "./Join.css";
 function Join(props) {
   // function password_validate(password) {
   //   var re = {
@@ -78,13 +78,10 @@ function Join(props) {
     <div>
       <div className="x">
         <Form
+          className="form"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "20rem",
-            margin: "0 auto",
             height: window.innerHeight * 0.9,
-            justifyContent: "center",
+            margin: "0 auto",
           }}
           onSubmit={onSubmitHandler}
         >
