@@ -8,7 +8,7 @@ import {
   Icon,
 } from "@ant-design/icons";
 import PillInfo from "./Info/PillInfo";
-import { Button, Divider, Modal } from "antd";
+import { Calendar, Divider, Modal } from "antd";
 import moment from "moment";
 import "./MyLog.css";
 import LogInfo from "./Info/LogInfo";
@@ -25,9 +25,12 @@ function MyLog(props) {
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
-  var dateString = year + "-" + month + "-" + day;
+  var dateString = year + "." + month + "." + day;
   const variable = {
     user: localStorage.getItem("userId"),
+  };
+  const onPanelChange = (value, mode) => {
+    console.log(value, mode);
   };
   const renderPills = props.MyLogInfo.map((log, index) => {
     console.log(index, "log정보");
@@ -54,6 +57,7 @@ function MyLog(props) {
     const handleModify = () => {
       setisModifyVisible(true);
     };
+
     // alert(Date.parse(log.START_DATE));
     if (
       log.user &&
@@ -106,6 +110,12 @@ function MyLog(props) {
             />
             {""}
             {dateString}
+            <div className="calendarCard">
+              <Calendar
+                fullscreen={false}
+                onPanelChange={onPanelChange()}
+              ></Calendar>
+            </div>
             <CaretRightOutlined
               onClick={() => {
                 props.setToday(
@@ -135,11 +145,7 @@ function MyLog(props) {
         {/* </div> */}
       </div>
       {props.MyLogInfo[0] && (
-        <Modal
-          title="먹는 약 정보"
-          visible={isModalVisible}
-          footer={null}
-        >
+        <Modal title="먹는 약 정보" visible={isModalVisible} footer={null}>
           <center>
             {props.MyLogInfo[modalIndex] && (
               <div>
