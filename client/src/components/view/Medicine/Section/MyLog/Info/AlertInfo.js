@@ -9,7 +9,7 @@ function AlertInfo(props) {
   if (props.alert) {
     return (
       <>
-        <div style={{ color: "#E94545", fontSize: "x-large" }}>
+        <div className="exclamation" >
           <ExclamationCircleOutlined />
         </div>
         <div style={{ fontSize: "small", lineHeight: "2em" }}>

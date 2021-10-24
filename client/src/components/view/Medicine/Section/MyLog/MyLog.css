@@ -1,7 +1,7 @@
 .medicineItem {
   width: 280px;
   height: 280px;
-  display: flex;
+  /* display: flex; */
   /* border: 1.6px solid whitesmoke; */
   border-radius: 10px;
   color: #454545;
@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .medicineItem:nth-child(3n-1) {
@@ -17,12 +18,16 @@
 }
 
 .itemName {
-  margin-top: 0.5em;
+  font-weight: 700;
   font-size: large;
 }
 
+.entpName {
+  color: #727272;
+}
+
 .quantity {
-  font-size: medium;
+  /* font-size: medium; */
 }
 .delete {
   border: 1px solid #acacac;
@@ -90,6 +95,16 @@
   padding: 0 10px;
   margin: 0 5px;
   margin-left: 10px;
+}
+
+.exclamation {
+  color: #e94545;
+  font-size: 17px;
+  display: contents;
+}
+
+.itemInfo {
+  padding: 15px;
 }
 
 .pillEvent {
@@ -178,6 +193,7 @@
   .medicineItem {
     width: 45vw;
     height: 45vw;
+    overflow: hidden;
   }
 
   .medicineItem:nth-child(3n-1) {
@@ -185,9 +201,12 @@
   }
 
   .itemName {
-    font-size: smaller;
+    font-size: revert;
   }
   .quantity {
+    font-size: smaller;
+  }
+  .entpName {
     font-size: smaller;
   }
   .medicineItem:nth-child(3n-1) {
@@ -213,5 +232,11 @@
   }
   .ancient {
     padding-bottom: 80px;
+  }
+  .itemInfo {
+    padding: 5px;
+  }
+  .exclamation {
+    font-size: small;
   }
 }

@@ -10,7 +10,7 @@
   /* background-image: url(../../../images/medic.jpg); */
   background-position: 0 -80px;
   position: relative;
-  height: 100vh;
+  height: 52em;
   background-attachment: fixed;
 }
 
@@ -29,7 +29,7 @@
   background-color: #fcfcfc;
   background-size: 1600px;
   position: relative;
-  height: 100vh;
+  height: 52em;
   padding: 20vh 0;
   margin: 0 auto;
 }
@@ -94,15 +94,16 @@
 
 .mockup {
   position: absolute;
-  height: 540px;
+  height: 8.5em;
   right: 32vh;
   bottom: 0vh;
   z-index: 2;
 }
 
 .copyright {
+ 
   margin: 0 30px;
-  padding: 260px 0;
+  padding: 4.2em 0;
   /* padding: 260px 80px 16vh 16vw; */
   font-size: 62px;
   font-weight: 500;

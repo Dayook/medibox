@@ -25,8 +25,11 @@ export default function LandingPage() {
             <button className="startBtn">
               <span style={{ fontWeight: 500 }}>메디킷</span> 시작
             </button>
-            <div className="titleText">
-              내가 먹는 약 <br /> <span>제대로 알고 먹기</span>
+            <div
+              className="titleText"
+              // style={{ fontFamily: "NanumSquareRound", fontWeight: "600" }}
+            >
+              내가 먹는 약 <br /> 제대로 알고 먹기
             </div>
             <div className="mainSubText" style={{}}>
               손쉽게 약사와 상담하고

@@ -62,8 +62,6 @@ function MyLog(props) {
     ) {
       return (
         <div className="medicineItem">
-          <span className="itemName">{log.medicineId.ITEM_NAME}</span>
-          <br></br>
           <img
             src={log.IMG_SRC}
             alt="pill"
@@ -74,33 +72,17 @@ function MyLog(props) {
             }}
             onClick={handleClick}
           />
-          <span className="quantity">{log.QUANTITY}개</span>
-          <div>
-            {/* <button
-              className="delete"
-              onClick={() => {
-                if (
-                  window.confirm(
-                    "다른 날짜의 복용 정보까지 모두 삭제됩니다.\n정말 삭제하시겠습니까?"
-                  )
-                ) {
-                  Axios.post("/api/medicines/deleteLog", pillVariable).then(
-                    (response) => {
-                      if (response.data.success) {
-                        props.setChanged(!props.Changed);
-                      } else {
-                        alert("실패");
-                      }
-                    }
-                  );
-                }
-              }}
-            >
-              X
-            </button> */}
+          <div className="itemInfo">
+            <div className="itemName">
+              {log.medicineId.ITEM_NAME}{" "}
+              <div className="exclamation">
+                {log.cautionWith && <ExclamationCircleOutlined />}
+              </div>
+            </div>
+            <span className="entpName">{log.medicineId.ENTP_NAME} | </span>{" "}
+            <span className="quantity">{log.QUANTITY}알</span>
           </div>
-          {/* 경고문구 넣는자리 */}
-          {log.cautionWith && <ExclamationCircleOutlined />}
+          <div></div>
         </div>
       );
     }
@@ -156,20 +138,7 @@ function MyLog(props) {
         <Modal
           title="먹는 약 정보"
           visible={isModalVisible}
-          // onOk={handleOk}
-          // onCancel={handleCancel}
           footer={null}
-          // footer={[
-          // <Button key="modify" onClick={modifySubmit}>
-          //   수정완료
-          // </Button>,
-          // <Button key="back" onClick={handleModify}>
-          //   수정하기
-          // </Button>,
-          // <Button key="confirm" type="primary" onClick={handleOk}>
-          //   닫기
-          // </Button>,
-          // ]}
         >
           <center>
             {props.MyLogInfo[modalIndex] && (
@@ -187,7 +156,6 @@ function MyLog(props) {
                     moment(props.MyLogInfo[modalIndex].START_DATE),
                     moment(props.MyLogInfo[modalIndex].END_DATE),
                   ]}
-                  // setRange={setRange}
                   Changed={props.Changed}
                   setChanged={props.setChanged}
                   quantity={props.MyLogInfo[modalIndex].QUANTITY}
@@ -196,7 +164,6 @@ function MyLog(props) {
                   setisModalVisible={setisModalVisible}
                   logId={props.MyLogInfo[modalIndex]._id}
                   mixtureInfo={props.MyLogInfo[modalIndex].mixtureId}
-                  // isModifyVisible={isModifyVisible}
                 />
               </div>
             )}
