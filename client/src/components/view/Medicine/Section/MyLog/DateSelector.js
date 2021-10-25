@@ -20,7 +20,9 @@ function DateSelector(props) {
   };
   return (
     <div className="dateDiv">
+      <span> </span>
       <CaretLeftOutlined
+        className="arrow"
         onClick={() => {
           props.setToday(
             new Date(props.today.setDate(props.today.getDate() - 1))
@@ -28,11 +30,14 @@ function DateSelector(props) {
         }}
       />
       {""}
-      <span onClick={onClicked}>{props.dateString}</span>
+      <span className="dateString" onClick={onClicked}>
+        {props.dateString}
+      </span>
       <div className="calendarCard" id="calendarCard">
         <Calendar fullscreen={false} onSelect={onSelect}></Calendar>
       </div>
       <CaretRightOutlined
+        className="arrow"
         onClick={() => {
           props.setToday(
             new Date(props.today.setDate(props.today.getDate() + 1))

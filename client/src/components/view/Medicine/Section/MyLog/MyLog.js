@@ -96,14 +96,15 @@ function MyLog(props) {
         margin: "0 auto",
       }}
     >
-      <div className="basicBox" id="medicineBox">
-        <center>
-          <DateSelector
-            setToday={props.setToday}
-            dateString={dateString}
-            today={today}
-          />
-          {/* <div className="dateDiv">
+      <div id="medicineBox">
+        <div className="basicBox">
+          <center>
+            <DateSelector
+              setToday={props.setToday}
+              dateString={dateString}
+              today={today}
+            />
+            {/* <div className="dateDiv">
             <CaretLeftOutlined
               onClick={() => {
                 props.setToday(
@@ -124,25 +125,26 @@ function MyLog(props) {
               }}
             />
           </div> */}
-        </center>
-        <br />
-        <div className="logBox">
-          {renderPills}
-          <AddPill
-            setToday={props.setToday}
-            Changed={props.Changed}
-            setChanged={props.setChanged}
-            MyLogInfo={props.MyLogInfo}
-          />
-          <Divider />
-          <div className="explain">
-            본 서비스는 한국 약학정보원에서 제공하는
-            <br />
-            DUR품목정보 데이터를 기반으로 만들어졌습니다.
+          </center>
+          <br />
+          <div className="logBox">
+            {renderPills}
+            <AddPill
+              setToday={props.setToday}
+              Changed={props.Changed}
+              setChanged={props.setChanged}
+              MyLogInfo={props.MyLogInfo}
+            />
+            <Divider />
+            <div className="explain">
+              본 서비스는 한국 약학정보원에서 제공하는
+              <br />
+              DUR품목정보 데이터를 기반으로 만들어졌습니다.
+            </div>
           </div>
-        </div>
 
-        {/* </div> */}
+          {/* </div> */}
+        </div>
       </div>
       {props.MyLogInfo[0] && (
         <Modal title="먹는 약 정보" visible={isModalVisible} footer={null}>
