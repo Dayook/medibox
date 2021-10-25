@@ -101,14 +101,15 @@
 }
 
 .copyright {
- 
   margin: 0 30px;
   padding: 4.2em 0;
   /* padding: 260px 80px 16vh 16vw; */
   font-size: 62px;
-  font-weight: 500;
   line-height: 1.5em;
   letter-spacing: -0.002em;
+}
+.titleText {
+  font-weight: 600;
 }
 
 .main-btn {
@@ -185,7 +186,7 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     align-content: center;
     text-align: center;
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 25px;
   }
   .mockup {

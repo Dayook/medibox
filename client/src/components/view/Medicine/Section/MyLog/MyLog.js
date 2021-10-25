@@ -13,6 +13,7 @@ import moment from "moment";
 import "./MyLog.css";
 import LogInfo from "./Info/LogInfo";
 import AlertInfo from "./Info/AlertInfo";
+import DateSelector from "./DateSelector";
 
 function MyLog(props) {
   const today = props.today;
@@ -29,9 +30,7 @@ function MyLog(props) {
   const variable = {
     user: localStorage.getItem("userId"),
   };
-  const onPanelChange = (value, mode) => {
-    console.log(value, mode);
-  };
+
   const renderPills = props.MyLogInfo.map((log, index) => {
     console.log(index, "log정보");
     console.log(log);
@@ -100,7 +99,12 @@ function MyLog(props) {
       <div className="basicBox" id="medicineBox">
         <center>
           {/* <h2 style={{ marginBottom: "0" }}>나의 처방전</h2> */}
-          <div className="dateDiv">
+          <DateSelector
+            setToday={props.setToday}
+            dateString={dateString}
+            today={today}
+          />
+          {/* <div className="dateDiv">
             <CaretLeftOutlined
               onClick={() => {
                 props.setToday(
@@ -111,10 +115,7 @@ function MyLog(props) {
             {""}
             {dateString}
             <div className="calendarCard">
-              <Calendar
-                fullscreen={false}
-                onPanelChange={onPanelChange()}
-              ></Calendar>
+              <Calendar fullscreen={false} onSelect={onSelect}></Calendar>
             </div>
             <CaretRightOutlined
               onClick={() => {
@@ -123,7 +124,7 @@ function MyLog(props) {
                 );
               }}
             />
-          </div>
+          </div> */}
         </center>
         <br />
         <div className="logBox">

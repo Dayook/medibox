@@ -82,7 +82,8 @@ export default function LandingPage() {
             어떤 약을 얼만큼?
             <br />
             <span style={{ fontWeight: "600" }}>의약품 달력으로</span>
-            <br />한 눈에 알 수 있도록
+            <br />
+            <span style={{ fontWeight: "600" }}>한 눈에 알 수 있도록</span>
             <div className="subText">
               <br />
               <span style={{ fontWeight: "550" }}></span>
