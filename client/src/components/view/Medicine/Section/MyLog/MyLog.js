@@ -98,7 +98,6 @@ function MyLog(props) {
     >
       <div className="basicBox" id="medicineBox">
         <center>
-          {/* <h2 style={{ marginBottom: "0" }}>나의 처방전</h2> */}
           <DateSelector
             setToday={props.setToday}
             dateString={dateString}

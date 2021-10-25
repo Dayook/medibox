@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CaretLeftOutlined, CaretRightOutlined } from "@ant-design/icons";
 import { Calendar } from "antd";
 function DateSelector(props) {
+  const [Visibility, setVisibility] = useState(false);
+  useEffect(() => {
+    if (Visibility === false) {
+      document.getElementById("calendarCard").style.display = "none";
+    } else {
+      document.getElementById("calendarCard").style.display = "";
+    }
+  }, [Visibility]);
   const onSelect = (value) => {
     console.log(value);
     props.setToday(new Date(value));
+    setVisibility(false);
+  };
+  const onClicked = () => {
+    setVisibility(!Visibility);
   };
   return (
     <div className="dateDiv">
@@ -16,8 +28,8 @@ function DateSelector(props) {
         }}
       />
       {""}
-      {props.dateString}
-      <div className="calendarCard">
+      <span onClick={onClicked}>{props.dateString}</span>
+      <div className="calendarCard" id="calendarCard">
         <Calendar fullscreen={false} onSelect={onSelect}></Calendar>
       </div>
       <CaretRightOutlined
