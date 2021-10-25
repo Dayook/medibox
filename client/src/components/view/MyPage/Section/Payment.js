@@ -6,11 +6,13 @@ function Payment(props) {
   useEffect(() => {
     if (props.price === 0) {
       document.getElementById("payButton").style.backgroundColor = "#acacac";
+      document.getElementById("payButton").disabled = "true";
       document.getElementById("payButton").onmouseover = () => {
         document.getElementById("payButton").style.cursor = "not-allowed";
       };
     } else {
       document.getElementById("payButton").style.backgroundColor = "";
+      document.getElementById("payButton").removeAttribute("disabled");
       document.getElementById("payButton").onmouseover = () => {
         document.getElementById("payButton").style.cursor = "pointer";
       };
