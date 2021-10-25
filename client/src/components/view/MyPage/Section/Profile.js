@@ -27,11 +27,11 @@ function Profile(props) {
           <div>
             <img src={profile} alt="profile" className="profilePic"></img>
           </div>
-          <div className="profileInfo" style={{ fontSize: "30px" }}>
+          <div className="profileInfo">
             {user.nickname}
             <br />
             <span className="email">{user.email}</span>
-            <div>{subscribe} 사용중</div>
+            <div className="subInfo">{subscribe} 사용중</div>
           </div>
           <br />
         </div>

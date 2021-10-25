@@ -11,10 +11,18 @@
   align-items: center;
 }
 
+.subInfo {
+  font-size: small;
+  border-radius: 10px;
+  background: #eef8ff;
+  padding: 2px 5px;
+  width: fit-content;
+}
+
 .usePurpose {
   padding: 30px;
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 5px 20px 0 rgba(206, 206, 206, 0.47);
+  box-shadow: 0px 5px 15px 0 rgb(206 206 206 / 47%);
   /* boxShadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
   backdrop-filter: blur(4px);
   /* border: 1px solid #d5d5d5; */
@@ -29,6 +37,14 @@
     brightness(103%) contrast(103%);
 }
 
+.price {
+  font-weight: 700;
+  padding: 8px 10px;
+  background: #eef8ff;
+  border-radius: 10px;
+  font-size: medium;
+}
+
 #personal,
 #family,
 #institute {
@@ -37,6 +53,10 @@
 
 label > input:checked + div {
   border: 2px solid darkblue;
+}
+
+.payInfoAlert {
+  margin: 0 auto;
 }
 
 .profileInfo {
@@ -93,13 +113,18 @@ label > input:checked + div {
   padding: 100px 0;
 }
 
-.purpose {
-  margin: 0 auto;
-  display: table;
+.explain {
   margin-top: 30px;
 }
 
-.payButton {
+.purpose {
+  margin: 0 auto;
+  display: table;
+  font-size: larger;
+  font-weight: 800;
+}
+
+#payButton {
   background-color: #3ea2ff;
   font-size: 20px;
   border: none;
@@ -108,7 +133,7 @@ label > input:checked + div {
   color: white;
 }
 
-.payButton:hover {
+#payButton:hover {
   cursor: pointer;
 }
 
@@ -119,10 +144,6 @@ label > input:checked + div {
   border-radius: 10px;
   padding: 20px 40px;
   color: white;
-}
-
-.payButtonDisable:hover {
-  cursor: not-allowed;
 }
 
 @media (max-width: 767px) {

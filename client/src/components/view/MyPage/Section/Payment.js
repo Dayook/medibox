@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Axios from "axios";
 import "./MyPage.css";
 
 function Payment(props) {
+  useEffect(() => {
+    if (props.price === 0) {
+      document.getElementById("payButton").style.backgroundColor = "#acacac";
+      document.getElementById("payButton").onmouseover = () => {
+        document.getElementById("payButton").style.cursor = "not-allowed";
+      };
+    } else {
+      document.getElementById("payButton").style.backgroundColor = "";
+      document.getElementById("payButton").onmouseover = () => {
+        document.getElementById("payButton").style.cursor = "pointer";
+      };
+    }
+  }, [props.price]);
   const onClickPayment = () => {
     const { IMP } = window;
     IMP.init("imp63642369");
 
     const data = {
-      pg: "html5_inisis",
-      // pg: "kakaopay",
+      // pg: "html5_inisis",
+      pg: "kakaopay",
       pay_method: "card",
       merchant_uid: "ORD" + new Date().getTime(),
       name: "메디킷" + props.purpose + "정기결제",
@@ -54,15 +67,24 @@ function Payment(props) {
       alert(`결제 실패 : ${error_msg}`);
     }
   };
-  if (props.price === 0) {
-    return <button className="payButtonDisable">결제하기</button>;
-  } else {
-    return (
-      <button className="payButton" onClick={onClickPayment}>
-        결제하기
-      </button>
-    );
-  }
+  return (
+    <div>
+      <div>신용카드</div>
+      <div>계좌이체</div>
+      <div>카카오페이</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <div className="priceInfo">{props.price}원 </div>
+        <button id="payButton" onClick={onClickPayment}>
+          결제하기
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Payment;

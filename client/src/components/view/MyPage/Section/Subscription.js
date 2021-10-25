@@ -10,11 +10,6 @@ function Subscription(props) {
   const [purpose, setPurpose] = useState(0);
   const [price, setPrice] = useState(0);
 
-  // const choosePurpose = (value) => {
-  //   alert(value);
-  //   if (value === "0") {
-  //   }
-  // };
   return (
     <div>
       <span
@@ -41,16 +36,16 @@ function Subscription(props) {
               <div>
                 <img
                   src={person}
-                  height="70px"
+                  height="60px"
                   alt="personal"
                   className="icon"
                   style={{ margin: "30px auto" }}
                 />
               </div>
               <span className="purpose">개인용</span>
-              <div>
+              <span className="price">무료</span>
+              <div className="explain">
                 1인 사용 가능 <br />
-                무료
               </div>
             </center>
           </div>
@@ -73,15 +68,15 @@ function Subscription(props) {
             <center>
               <img
                 src={home}
-                height="70px"
+                height="60px"
                 alt="family"
                 className="icon"
                 style={{ margin: "30px auto" }}
               />
               <div>
                 <span className="purpose">가족용</span>
-                1~6인 관리 가능<br></br>
-                100원
+                <span className="price">100원 / 월 </span>
+                <div className="explain">1~6인 관리 가능</div>
               </div>
             </center>
           </div>
@@ -104,16 +99,17 @@ function Subscription(props) {
             <center>
               <img
                 src={net}
-                height="70px"
+                height="60px"
                 className="icon"
                 alt="institute"
                 style={{ margin: "30px auto" }}
               />
               <span className="purpose">기관용</span>
               <div>
-                ~60인 사용 가능<br></br>
-                월 3회 상담 무료 <br />
-                200원
+                <span className="price">200원 / 월 </span>
+                <div className="explain">
+                  ~60인 사용 가능<br></br>월 3회 상담 무료{" "}
+                </div>
               </div>
             </center>
           </div>
@@ -131,20 +127,11 @@ function Subscription(props) {
       <div className="payBox" style={{ margin: "30px auto" }}>
         {" "}
         <div className="payInfo">
-          <div>신용카드</div>
-          <div>계좌이체</div>
-          <div>카카오페이</div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            {" "}
-            <div className="priceInfo">{price}원 </div>
-            <Payment price={price} purpose={purpose} />
+          <div className="payInfoAlert">
+            * 가족용, 기관용은 개발되지 않은 상태입니다. <br />* 결제금액은
+            결제일 자정에 환불처리됩니다.
           </div>
+          <Payment price={price} purpose={purpose} />
         </div>
       </div>
     </div>
