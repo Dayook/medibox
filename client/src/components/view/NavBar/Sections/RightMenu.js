@@ -41,7 +41,7 @@ function RightMenu(props) {
       <Menu style={{ float: "right" }} mode={props.mode}>
         <SubMenu key="sub" title={<span>마이 페이지</span>}>
           <Menu.Item key="myPage">
-            <a href="/myPage">나의 프로필</a>
+            <a href="/myPage">프로필/요금</a>
           </Menu.Item>
           <Menu.Item key="logout">
             <a onClick={logoutHandler}>로그아웃</a>
