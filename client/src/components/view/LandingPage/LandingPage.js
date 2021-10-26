@@ -23,7 +23,7 @@ export default function LandingPage() {
         <div className="container">
           <div className="copyright">
             <button className="startBtn">
-              <span style={{ fontWeight: 500 }}>메디킷</span> 시작
+              <span style={{ fontWeight: 700 }}>메디킷</span> 시작
             </button>
             <div
               className="titleText"
@@ -74,7 +74,9 @@ export default function LandingPage() {
       <div className="second-section" style={{ backgroundColor: "aliceblue" }}>
         <div className="sectionContainer">
           <div className="sectionLeft">
-            <img src={main3} className="subImage" alt="register-pill"></img>
+            <div className="imageContainer">
+              <img src={main3} className="subImage2" alt="register-pill"></img>
+            </div>
           </div>
           <div className="sectionRight" style={{ display: "block" }}>
             <span className="accent">02. </span>

@@ -147,6 +147,9 @@ label > input:checked + div {
 }
 
 @media (max-width: 767px) {
+  .icon {
+    margin: 0;
+  }
   .profileContainer {
     padding: 60px 0;
   }
