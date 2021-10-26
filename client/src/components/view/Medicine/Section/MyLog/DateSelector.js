@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import {
   CaretLeftOutlined,
   CaretRightOutlined,
-  LeftCircleOutlined,
-  RightCircleOutlined,
+  LeftOutlined,
+  RightOutlined,
 } from "@ant-design/icons";
 import { Calendar } from "antd";
 function DateSelector(props) {
@@ -25,8 +25,7 @@ function DateSelector(props) {
   };
   return (
     <div className="dateDiv">
-      <span> </span>
-      <LeftCircleOutlined
+      <LeftOutlined
         className="arrow"
         onClick={() => {
           props.setToday(
@@ -41,7 +40,7 @@ function DateSelector(props) {
       <div className="calendarCard" id="calendarCard">
         <Calendar fullscreen={false} onSelect={onSelect}></Calendar>
       </div>
-      <RightCircleOutlined
+      <RightOutlined
         className="arrow"
         onClick={() => {
           props.setToday(
