@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Divider } from "antd";
 import Axios from "axios";
 import "./MyPage.css";
 
@@ -71,6 +72,7 @@ function Payment(props) {
   };
   return (
     <div>
+      <Divider />
       <div>신용카드</div>
       <div>계좌이체</div>
       <div>카카오페이</div>
@@ -80,9 +82,9 @@ function Payment(props) {
           justifyContent: "flex-end",
         }}
       >
-        <div className="priceInfo">{props.price}원 </div>
+        <div className="priceInfo"></div>
         <button id="payButton" onClick={onClickPayment}>
-          결제하기
+          {props.price}원 결제
         </button>
       </div>
     </div>

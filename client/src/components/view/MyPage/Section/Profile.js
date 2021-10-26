@@ -28,7 +28,7 @@ function Profile(props) {
             <img src={profile} alt="profile" className="profilePic"></img>
           </div>
           <div className="profileInfo">
-            {user.nickname}
+            <span className="nickName">{user.nickname}</span>
             <br />
             <span className="email">{user.email}</span>
             <div className="subInfo">{subscribe} 사용중</div>
