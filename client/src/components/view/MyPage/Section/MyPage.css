@@ -29,7 +29,6 @@
   font-size: large;
   border-radius: 8%;
   height: 320px;
-  margin: 0 auto;
 }
 
 .icon {
@@ -61,6 +60,7 @@ label > input:checked + div {
 }
 
 .profileInfo {
+  display: table;
   font-size: 20px;
   margin-left: 25px;
   vertical-align: middle;
@@ -147,7 +147,21 @@ label > input:checked + div {
 }
 
 @media (max-width: 767px) {
+  .usePurpose {
+    width: 90vw;
+    height: fit-content;
+    /* margin: 1.2em auto; */
+  }
+
+  .usePurpose:nth-child(3n-1) {
+    margin: 1.2em auto;
+  }
+
+  .purpose {
+    display: inline-block;
+  }
   .icon {
+    float: left;
     margin: 0;
   }
   .profileContainer {
@@ -160,7 +174,12 @@ label > input:checked + div {
     display: block;
   }
 
+  .profileInfo {
+    margin: 0 auto;
+  }
+
   .profilePic {
+    margin: 0 auto;
     width: 120px;
   }
   .subscribe {
@@ -168,6 +187,6 @@ label > input:checked + div {
     display: block;
   }
   .payBox {
-    width: 100vw;
+    width: 95vw;
   }
 }

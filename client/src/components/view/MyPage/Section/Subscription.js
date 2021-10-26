@@ -15,7 +15,9 @@ function Subscription(props) {
       <span
         className="title"
         style={{ fontSize: "30px", margin: "0 auto", display: "table" }}
-      ></span>
+      >
+        {/* 요금제 선택 */}
+      </span>
       <div className="subscribe">
         <label
           className="label"
@@ -41,10 +43,11 @@ function Subscription(props) {
                   className="icon"
                 />
                 <span className="purpose">개인용</span>
+                <br />
                 <span className="price">무료</span>
-                <div className="explain">
-                  1인 사용 가능 <br />
-                </div>
+              </div>
+              <div className="explain">
+                1인 사용 가능 <br />
               </div>
             </center>
           </div>
@@ -67,10 +70,14 @@ function Subscription(props) {
             <center>
               <img src={home} height="60px" alt="family" className="icon" />
               <div>
-                <span className="purpose">가족용</span>
-                <span className="price">100원 / 월 </span>
-                <div className="explain"> · 1~6인 관리 가능</div>
+                <div className="purpose">
+                  가족용
+                  <br />
+                  <span className="price">100원 / 월 </span>
+                </div>
+                <br />
               </div>
+              <div className="explain"> · 1~6인 관리 가능</div>
             </center>
           </div>
         </label>
@@ -92,7 +99,9 @@ function Subscription(props) {
             <center>
               <img src={net} height="60px" className="icon" alt="institute" />
               <span className="purpose">기관용</span>
+              <br />
               <span className="price">200원 / 월 </span>
+              <br />
               <div className="explain">
                 ~60인 사용 가능<br></br>월 3회 상담 무료{" "}
               </div>

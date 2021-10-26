@@ -20,15 +20,11 @@ function MyPage() {
       }
     });
 
-    // if (subscription === 0) {
-    //   alert("dd");
-    // }
   }, [subscription]);
 
   return (
     <div className="profileContainer">
       <Profile UserInfo={userInfo} Subscription={subscription} />
-
       <Subscription
         Subscription={subscription}
         setSubscription={setSubscription}
