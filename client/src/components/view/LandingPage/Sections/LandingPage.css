@@ -157,7 +157,6 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
 
 @media (max-width: 767px) {
   .main {
-    background-image: url(../../../images/pill.png);
     background-size: contain;
     height: 80vh;
   }
@@ -175,11 +174,9 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     border: 2px solid white;
     color: white;
     font-size: 18px;
-
-    padding: 3px;
+    padding: 6px;
     width: 60vw;
-    margin-left: 55px;
-    margin-top: 220px;
+    margin: 0 auto;
   }
 
   .titleText {

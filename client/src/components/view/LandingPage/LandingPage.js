@@ -22,9 +22,6 @@ export default function LandingPage() {
       <div className="main">
         <div className="container">
           <div className="copyright">
-            <button className="startBtn">
-              <span style={{ fontWeight: 700 }}>메디킷</span> 시작
-            </button>
             <div
               className="titleText"
               // style={{ fontFamily: "NanumSquareRound", fontWeight: "600" }}
@@ -43,6 +40,9 @@ export default function LandingPage() {
             <img className="pills" src={pills} alt="pills"></img>
             <img className="mockup" src={mockup} alt="mockup"></img>
           </div>
+          <button className="startBtn">
+            <span style={{ fontWeight: 700 }}>메디킷</span> 시작
+          </button>
         </div>
       </div>
       <div className="second-section">
