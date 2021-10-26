@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Description from "./Description";
 import Payment from "./Payment";
-import person from "../../../images/person.svg";
-import net from "../../../images/net.svg";
-import home from "../../../images/home.svg";
+import person from "../../../images/person.png";
+import net from "../../../images/net.png";
+import home from "../../../images/home.png";
 import Axios from "axios";
 
 function Subscription(props) {
@@ -39,11 +39,10 @@ function Subscription(props) {
                   height="60px"
                   alt="personal"
                   className="icon"
-                  style={{ margin: "30px auto" }}
                 />
+                <span className="purpose">개인용</span>
+                <span className="price">무료</span>
               </div>
-              <span className="purpose">개인용</span>
-              <span className="price">무료</span>
               <div className="explain">
                 1인 사용 가능 <br />
               </div>
@@ -66,17 +65,11 @@ function Subscription(props) {
           />
           <div className="usePurpose">
             <center>
-              <img
-                src={home}
-                height="60px"
-                alt="family"
-                className="icon"
-                style={{ margin: "30px auto" }}
-              />
+              <img src={home} height="60px" alt="family" className="icon" />
               <div>
                 <span className="purpose">가족용</span>
                 <span className="price">100원 / 월 </span>
-                <div className="explain">1~6인 관리 가능</div>
+                <div className="explain"> · 1~6인 관리 가능</div>
               </div>
             </center>
           </div>
@@ -97,13 +90,7 @@ function Subscription(props) {
           />
           <div className="usePurpose">
             <center>
-              <img
-                src={net}
-                height="60px"
-                className="icon"
-                alt="institute"
-                style={{ margin: "30px auto" }}
-              />
+              <img src={net} height="60px" className="icon" alt="institute" />
               <span className="purpose">기관용</span>
               <div>
                 <span className="price">200원 / 월 </span>

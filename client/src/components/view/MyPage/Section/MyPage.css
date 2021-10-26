@@ -27,14 +27,15 @@
   backdrop-filter: blur(4px);
   /* border: 1px solid #d5d5d5; */
   font-size: large;
-  border-radius: 10px;
+  border-radius: 8%;
   height: 320px;
   margin: 0 auto;
 }
 
 .icon {
-  filter: invert(68%) sepia(52%) saturate(595%) hue-rotate(179deg)
-    brightness(103%) contrast(103%);
+  /* filter: invert(68%) sepia(52%) saturate(595%) hue-rotate(179deg) */
+  /* brightness(103%) contrast(103%); */
+  margin: 25px 0 10px 0;
 }
 
 .price {
