@@ -42,6 +42,7 @@
 }
 
 .mainSubText {
+  position: absolute;
   font-size: 30px;
   font-weight: 300;
   line-height: 1.5em;
@@ -95,10 +96,10 @@
 }
 
 .mockup {
-  position: absolute;
+  position: relative;
   height: 8.5em;
-  right: 32vh;
-  bottom: 0vh;
+  right: -8.5em;
+  bottom: 3.95em;
   z-index: 2;
 }
 
@@ -157,8 +158,12 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
 
 @media (max-width: 767px) {
   .main {
-    background-size: contain;
+    background-image: url(../../../images/pills2.png);
+    background-size: 560px;
+    background-position-x: center;
+    background-position-y: center;
     height: 80vh;
+    background-attachment: inherit;
   }
 
   .copyright {
@@ -175,8 +180,10 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     color: white;
     font-size: 18px;
     padding: 6px;
-    width: 60vw;
+    width: 10em;
     margin: 0 auto;
+    position: relative;
+    bottom: -200px;
   }
 
   .titleText {

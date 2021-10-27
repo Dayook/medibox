@@ -192,6 +192,6 @@ label > input:checked + div {
     display: block;
   }
   .payBox {
-    width: 95vw;
+    width: 90vw;
   }
 }
