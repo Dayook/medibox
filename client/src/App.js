@@ -8,6 +8,7 @@ import MyPage from "./components/view/MyPage/MyPage";
 import LandingPage from "./components/view/LandingPage/LandingPage.js";
 
 import NavBar from "./components/view/NavBar/NavBar";
+import Notice from "./components/view/Notice/Notice";
 import Auth from "./hoc/auth";
 import MyMedicine from "./components/view/Medicine/MyMedicine";
 import Counsel from "./components/view/Counsel/Counsel";
@@ -19,13 +20,18 @@ function App() {
   return (
     <Suspense>
       <NavBar />
+      <Notice />
       <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Switch>
             <Route exact={true} path="/" component={Auth(LandingPage)} />
             <Route exact={true} path="/counsel" component={Auth(Counsel)} />
             <Route exact={true} path="/login" component={Auth(Login, false)} />
-            <Route exact={true} path="/register" component={Auth(Join, false)} />
+            <Route
+              exact={true}
+              path="/register"
+              component={Auth(Join, false)}
+            />
             <Route exact={true} path="/mypage" component={Auth(MyPage, true)} />
             {/* <Route exact path="/medicine" component={Auth(Medicine, true)} /> */}
             <Route exact path="/colorpicker" component={Auth(ColorPicker)} />

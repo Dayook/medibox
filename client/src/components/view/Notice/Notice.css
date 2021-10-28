@@ -1,0 +1,6 @@
+.notice {
+  z-index: 10;
+  position: fixed;
+  bottom: 5em;
+  right: 5em;
+}
