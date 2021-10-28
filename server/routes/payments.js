@@ -4,6 +4,7 @@ const { Payment } = require("../model/Payment");
 const { User } = require("../model/User");
 router.post("/pay", (req, res) => {
   const payment = new Payment(req.body);
+  console.log(">>>>>>> 결제진행");
   console.log(payment);
   payment.save((err, payInfo) => {
     if (err) {
