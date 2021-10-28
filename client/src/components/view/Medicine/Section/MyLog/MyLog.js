@@ -147,7 +147,12 @@ function MyLog(props) {
         </div>
       </div>
       {props.MyLogInfo[0] && (
-        <Modal title="먹는 약 정보" visible={isModalVisible} footer={null}>
+        <Modal
+          title="먹는 약 정보"
+          visible={isModalVisible}
+          footer={null}
+          closable={false}
+        >
           <center>
             {props.MyLogInfo[modalIndex] && (
               <div>
