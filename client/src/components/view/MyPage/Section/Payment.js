@@ -30,7 +30,7 @@ function Payment(props) {
       merchant_uid: "ORD" + new Date().getTime(),
       name: "메디킷 정기결제",
       amount: props.price,
-      m_redirect_url: "../my-medicine",
+      m_redirect_url: window.location.host + "/myPage",
       // customer_uid: "sohae1234",
       // buyer_email: "nyang@naver.com",
       // buyer_tel: "01022231107",
@@ -74,9 +74,12 @@ function Payment(props) {
   return (
     <div>
       <Divider />
-      <div>신용카드</div>
+      <center>
+        {/* 결제는 카카오페이로 진행됩니다. */}
+        {/* <div>신용카드</div>
       <div>계좌이체</div>
-      <div>카카오페이</div>
+      <div>카카오페이</div> */}
+      </center>
       <div
         style={{
           display: "flex",

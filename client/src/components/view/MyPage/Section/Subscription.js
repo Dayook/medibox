@@ -123,8 +123,10 @@ function Subscription(props) {
         {" "}
         <div className="payInfo">
           <div className="payInfoAlert">
-            * 가족용, 기관용은 개발되지 않은 상태입니다. <br />* 결제금액은
-            결제일 자정에 환불처리됩니다.
+            * 가족용, 기관용은 개발되지 않은 상태입니다. <br />
+            {/* * 결제금액은
+            결제일 자정에 환불처리됩니다. */}
+            * 카카오페이 테스트 결제로 진행됩니다.
           </div>
           <Payment price={price} purpose={purpose} />
         </div>
