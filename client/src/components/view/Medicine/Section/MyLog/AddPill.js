@@ -216,32 +216,34 @@ function Pill(props) {
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
             )}
-            <div className="infoName">복용기간</div>
-            <br />
-            <RangePicker
-              style={{ fontSize: "large" }}
-              className="dateRange"
-              placeholder={placeHolder}
-              onChange={handleRange}
-              // value={[moment(StartDate), moment(EndDate)]}
-            />
-            <br />
-            <div className="infoName">복용량</div>
-            <br />
-            <InputNumber
-              type="number"
-              id="quantity"
-              value={quantity}
-              style={{ width: "262px" }}
-              min="1"
-              onChange={(number) => {
-                setQuantity(number);
-              }}
-              onStep={(number) => {
-                setQuantity(number);
-              }}
-              placeholder="하루에 먹는 개수를 입력해주세요"
-            ></InputNumber>
+            <div classNmame="forAlign">
+              <div className="infoName">복용기간</div>
+              <br />
+              <RangePicker
+                style={{ fontSize: "large" }}
+                className="dateRange"
+                placeholder={placeHolder}
+                onChange={handleRange}
+                // value={[moment(StartDate), moment(EndDate)]}
+              />
+              <br />
+              <div className="infoName">복용량</div>
+              <br />
+              <InputNumber
+                type="number"
+                id="quantity"
+                value={quantity}
+                style={{ width: "262px" }}
+                min="1"
+                onChange={(number) => {
+                  setQuantity(number);
+                }}
+                onStep={(number) => {
+                  setQuantity(number);
+                }}
+                placeholder="하루에 먹는 개수를 입력해주세요"
+              ></InputNumber>
+            </div>
           </form>
           <div id="banAlert">{AlertDiv && <AlertInfo alert={AlertDiv} />}</div>
         </center>

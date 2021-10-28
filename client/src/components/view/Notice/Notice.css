@@ -4,3 +4,23 @@
   bottom: 5em;
   right: 5em;
 }
+
+.noticeModal {
+  position: fixed;
+  z-index: 11;
+  bottom: 5em;
+  right: 4.5em;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border-radius: 10%;
+  box-shadow: 0 0 15px #83b4df94;
+  height: 320px;
+  width: 280px;
+}
+
+.title {
+  display: block;
+  font-size: x-large;
+  font-weight: 800;
+}

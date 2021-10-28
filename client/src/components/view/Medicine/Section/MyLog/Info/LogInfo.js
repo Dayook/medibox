@@ -64,16 +64,15 @@ function LogInfo(props) {
 
   if (!isModifyVisible) {
     return (
-      <div>
-        <div className="infoName">
-          복용기간
-        </div>
+      <div className="forAlign">
+        <div className="infoName">보관방법</div>
+        {props.storage_method}
+        <br />
+        <div className="infoName">복용기간</div>
         {moment(props.range[0]).format("YYYY-MM-DD")} ~{" "}
         {moment(props.range[1]).format("YYYY-MM-DD")}
         <br />
-        <div className="infoName">
-          복용량
-        </div>
+        <div className="infoName">복용량</div>
         {props.quantity}
         <br />
         {props.mixtureInfo && (
@@ -97,15 +96,11 @@ function LogInfo(props) {
   } else {
     return (
       <div>
-        <div className="infoName">
-          복용기간
-        </div>
+        <div className="infoName">복용기간</div>
         <RangePicker value={range} onChange={handleRange} />
         <br />
         <div className="quantityDiv" style={{ lineHeight: "30px" }}>
-          <div className="infoName">
-            복용량
-          </div>
+          <div className="infoName">복용량</div>
           <InputNumber
             value={quantity}
             onChange={(number) => {

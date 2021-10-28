@@ -33,8 +33,6 @@ function PillInfo(props) {
           }}
           alt="medicine"
         />
-        <div className="infoName">보관방법</div>
-        {props.storage_method}
         {props.mixtureId && <AlertInfo mixtureInfo={props.mixtureId} />}
       </div>
     );

@@ -155,9 +155,6 @@ function MyLog(props) {
                   className="selected"
                   item_name={props.MyLogInfo[modalIndex].medicineId.ITEM_NAME}
                   drug_cd={props.MyLogInfo[modalIndex].medicineId.DRUG_CD}
-                  storage_method={
-                    props.MyLogInfo[modalIndex].medicineId.STORAGE_METHOD
-                  }
                 />
                 <LogInfo
                   range={[
@@ -172,6 +169,9 @@ function MyLog(props) {
                   setisModalVisible={setisModalVisible}
                   logId={props.MyLogInfo[modalIndex]._id}
                   mixtureInfo={props.MyLogInfo[modalIndex].mixtureId}
+                  storage_method={
+                    props.MyLogInfo[modalIndex].medicineId.STORAGE_METHOD
+                  }
                 />
               </div>
             )}
