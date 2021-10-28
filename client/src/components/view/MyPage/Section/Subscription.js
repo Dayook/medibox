@@ -75,7 +75,6 @@ function Subscription(props) {
                   <br />
                   <span className="price">100원 / 월 </span>
                 </div>
-                <br />
               </div>
               <div className="explain"> · 1~6인 관리 가능</div>
             </center>
@@ -98,10 +97,11 @@ function Subscription(props) {
           <div className="usePurpose">
             <center>
               <img src={net} height="60px" className="icon" alt="institute" />
-              <div className="purpose">기관용</div>
-              <br />
-              <span className="price">200원 / 월 </span>
-              <br />
+              <div className="purpose">
+                기관용
+                <br />
+                <span className="price">200원 / 월 </span>
+              </div>
               <div className="explain">
                 ~60인 사용 가능<br></br>월 3회 상담 무료{" "}
               </div>
