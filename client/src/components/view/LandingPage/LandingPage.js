@@ -15,7 +15,7 @@ export default function LandingPage() {
   }, []);
 
   const onClickHandler = () => {
-    alert("MEDIKIT START");
+    document.location.href = "#starting";
   };
   return (
     <div>
@@ -28,7 +28,7 @@ export default function LandingPage() {
             >
               내가 먹는 약 <br /> 제대로 알고 먹기
             </div>
-            <button className="startBtn">
+            <button className="startBtn" onClick={onClickHandler}>
               <span style={{ fontWeight: 700 }}>메디킷</span> 시작
             </button>
             <div className="mainSubText" style={{}}>
@@ -45,7 +45,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="second-section">
+      <div className="second-section" id="starting">
         <div className="sectionContainer">
           <div className="sectionLeft">
             <div className="imgDiv">
