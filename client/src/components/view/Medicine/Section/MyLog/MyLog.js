@@ -61,7 +61,7 @@ function MyLog(props) {
     if (
       log.user &&
       Date.parse(log.END_DATE) >= Date.parse(today) &&
-      Date.parse(log.START_DATE) - 60 * 60 * 24 * 1000 <= Date.parse(today)
+      Date.parse(log.START_DATE) <= Date.parse(today)
     ) {
       return (
         <div className="medicineItem">

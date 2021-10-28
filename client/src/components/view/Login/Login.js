@@ -41,7 +41,7 @@ function Login(props) {
           window.localStorage.setItem("rememberMe", body.email);
         }
       } else {
-        alert("일치하는 회원 정보가 존재하지 않습니다˝");
+        alert("일치하는 회원 정보가 존재하지 않습니다");
       }
     });
   };
