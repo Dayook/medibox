@@ -12,7 +12,7 @@ function Profile(props) {
   } else if (props.Subscription === 1) {
     subscribe = "가족용";
   } else if (props.Subscription === 2) {
-    subscribe = "기업용";
+    subscribe = "기관용";
   }
   // const subscription = () => {
 

@@ -191,7 +191,7 @@ function Pill(props) {
         <center>
           <form onSubmit={handleSubmit}>
             <AutoComplete
-              style={{ width: "265px" }}
+              className="inputTitle"
               placeholder="이름 검색"
               options={Options}
               onSelect={(value, option) => {
@@ -221,7 +221,7 @@ function Pill(props) {
               <br />
               <RangePicker
                 style={{ fontSize: "large" }}
-                className="dateRange"
+                className="dateRangeInfo"
                 placeholder={placeHolder}
                 onChange={handleRange}
                 // value={[moment(StartDate), moment(EndDate)]}
@@ -232,8 +232,8 @@ function Pill(props) {
               <InputNumber
                 type="number"
                 id="quantity"
+                className="quantityInfo"
                 value={quantity}
-                style={{ width: "262px" }}
                 min="1"
                 onChange={(number) => {
                   setQuantity(number);

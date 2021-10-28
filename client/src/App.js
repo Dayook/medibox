@@ -5,6 +5,7 @@ import React, { Suspense } from "react";
 import Join from "./components/view/Join/Join";
 import Login from "./components/view/Login/Login";
 import MyPage from "./components/view/MyPage/MyPage";
+// import PaymentResult from "./components/view/MyPage/Section/PaymentResult";
 import LandingPage from "./components/view/LandingPage/LandingPage.js";
 
 import NavBar from "./components/view/NavBar/NavBar";
@@ -33,6 +34,11 @@ function App() {
               component={Auth(Join, false)}
             />
             <Route exact={true} path="/mypage" component={Auth(MyPage, true)} />
+            {/* <Route
+              exact={true}
+              path="/payment/result"
+              component={Auth(PaymentResult, true)}
+            /> */}
             {/* <Route exact path="/medicine" component={Auth(Medicine, true)} /> */}
             <Route exact path="/colorpicker" component={Auth(ColorPicker)} />
             <Route

@@ -20,6 +20,9 @@
 .medicineItem:nth-child(3n-1) {
   margin: 0 30px;
 }
+.inputTitle {
+  width: 265px;
+}
 
 .itemName {
   font-weight: 700;
@@ -58,7 +61,7 @@
 }
 
 .forAlign {
-  width: max-content;
+  width: 260px;
 }
 
 .dateString {
@@ -132,6 +135,13 @@
 }
 .itemName:hover {
   cursor: pointer;
+}
+
+.quantityInfo {
+  width: 100%;
+}
+.dateRangeInfo {
+  width: 100%;
 }
 
 .pillEvent {
@@ -267,5 +277,12 @@
   }
   .exclamation {
     font-size: small;
+  }
+}
+
+@media (max-width: 330px) {
+  .forAlign,
+  .inputTitle {
+    width: 80vw;
   }
 }
