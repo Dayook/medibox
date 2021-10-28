@@ -14,7 +14,7 @@
 }
 
 .arrow {
-  color: #63b9ff;
+  color: #73bbf4;
 }
 
 .medicineItem:nth-child(3n-1) {
@@ -78,7 +78,7 @@
   width: 100%;
 }
 .banner {
-  background: #63b9ff;
+  background: #73bbf4;
   /* background: linear-gradient(
     90deg,
     rgba(62, 162, 255, 1) 0%,
@@ -208,8 +208,8 @@
   }
 
   .medicineItem {
-    width: 44vw;
-    height: 44vw;
+    width: 43vw;
+    height: 43vw;
     overflow: hidden;
   }
 
@@ -218,13 +218,13 @@
   }
 
   .itemName {
-    font-size: revert;
+    font-size: smaller;
   }
   .quantity {
-    font-size: smaller;
+    font-size: x-small;
   }
   .entpName {
-    font-size: smaller;
+    font-size: x-small;
   }
   .medicineItem:nth-child(3n-1) {
     margin: 0;
