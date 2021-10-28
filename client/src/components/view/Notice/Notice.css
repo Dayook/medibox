@@ -5,7 +5,15 @@
   right: 5em;
 }
 
-.noticeModal {
+.btn {
+  width: 80%;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#noticeModal {
   position: fixed;
   z-index: 11;
   bottom: 5em;
@@ -14,13 +22,32 @@
   padding: 20px;
   border-radius: 20px;
   border-radius: 10%;
-  box-shadow: 0 0 15px #83b4df94;
+  /* box-shadow: 0 0 15px #83b4df94; */
+  border: 1px solid #83b4df94;
   height: 320px;
   width: 280px;
 }
 
-.title {
+.upper {
   display: block;
+}
+
+.title {
   font-size: x-large;
   font-weight: 800;
+}
+
+.blue {
+  color: #1890ff;
+}
+
+.close {
+  font-size: x-large;
+  font-weight: 700;
+  float: right;
+  padding-right: 5px;
+}
+
+.close:hover {
+  cursor: pointer;
 }

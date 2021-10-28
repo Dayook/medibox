@@ -64,22 +64,24 @@ function LogInfo(props) {
 
   if (!isModifyVisible) {
     return (
-      <div className="forAlign">
-        <div className="infoName">보관방법</div>
-        {props.storage_method}
-        <br />
-        <div className="infoName">복용기간</div>
-        {moment(props.range[0]).format("YYYY-MM-DD")} ~{" "}
-        {moment(props.range[1]).format("YYYY-MM-DD")}
-        <br />
-        <div className="infoName">복용량</div>
-        {props.quantity}
-        <br />
-        {props.mixtureInfo && (
-          <div>
-            <AlertInfo mixtureInfo={props.mixtureInfo} />
-          </div>
-        )}
+      <div>
+        <div className="forAlign">
+          <div className="infoName">보관방법</div>
+          {props.storage_method}
+          <br />
+          <div className="infoName">복용기간</div>
+          {moment(props.range[0]).format("YYYY-MM-DD")} ~{" "}
+          {moment(props.range[1]).format("YYYY-MM-DD")}
+          <br />
+          <div className="infoName">복용량</div>
+          {props.quantity}
+          <br />
+          {props.mixtureInfo && (
+            <div>
+              <AlertInfo mixtureInfo={props.mixtureInfo} />
+            </div>
+          )}
+        </div>
         <Divider />
         <Button key="back" onClick={handleModify}>
           <EditOutlined />
