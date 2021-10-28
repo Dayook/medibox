@@ -38,6 +38,11 @@ function LogInfo(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(range);
+    if (range === null || quantity === null) {
+      alert("모든 값을 입력해주세요.");
+      return false;
+    }
     const variable = {
       _id: props.logId,
       START_DATE: range[0],
