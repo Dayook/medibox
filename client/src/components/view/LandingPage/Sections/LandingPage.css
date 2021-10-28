@@ -15,7 +15,7 @@
 }
 
 .startBtn {
-  /* display: none; */
+  display: none;
   border-radius: 25%;
   border: 1px solid white;
   padding: 10px;
