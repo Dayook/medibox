@@ -46,6 +46,7 @@ function MyCalendar(props) {
   }
   function handleEventClick(info) {
     props.setToday(info.event.start);
+    window.scrollTo(0, 0);
   }
   function renderEventContent(info) {
     return (

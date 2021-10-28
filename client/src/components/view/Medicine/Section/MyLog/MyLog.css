@@ -130,6 +130,9 @@
 .itemInfo {
   padding: 15px;
 }
+.itemName:hover {
+  cursor: pointer;
+}
 
 .pillEvent {
   width: 20px;

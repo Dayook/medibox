@@ -216,7 +216,7 @@ function Pill(props) {
                 storage_method={pills[Selected].STORAGE_METHOD}
               />
             )}
-            <div classNmame="forAlign">
+            <div className="forAlign">
               <div className="infoName">복용기간</div>
               <br />
               <RangePicker

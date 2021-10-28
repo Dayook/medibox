@@ -75,7 +75,7 @@ function MyLog(props) {
             }}
             onClick={handleClick}
           />
-          <div className="itemInfo">
+          <div className="itemInfo" onClick={handleClick}>
             <div className="itemName">
               {log.medicineId.ITEM_NAME}{" "}
               <div className="exclamation">
