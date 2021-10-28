@@ -161,8 +161,8 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     background-image: url(../../../images/pills2.png);
     background-size: 560px;
     background-position-x: center;
-    background-position-y: center;
-    height: 80vh;
+    background-position-y: 55%;
+    height: 85vh;
     background-attachment: inherit;
   }
 
@@ -180,20 +180,22 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     color: white;
     font-size: 18px;
     padding: 6px;
-    width: 10em;
+    width: 13em;
     margin: 0 auto;
     position: relative;
-    bottom: -200px;
+    top: 45vh;
+    /* bottom: -200px; */
   }
 
   .titleText {
     display: none;
-    margin-top: 10px;
+    /* position: relative; */
     align-content: center;
     text-align: center;
     font-size: 17px;
     font-weight: 600;
     line-height: 25px;
+    top: 40vh;
   }
   .mockup {
     display: none;

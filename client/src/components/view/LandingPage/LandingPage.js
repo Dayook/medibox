@@ -28,6 +28,9 @@ export default function LandingPage() {
             >
               내가 먹는 약 <br /> 제대로 알고 먹기
             </div>
+            <button className="startBtn">
+              <span style={{ fontWeight: 700 }}>메디킷</span> 시작
+            </button>
             <div className="mainSubText" style={{}}>
               손쉽게 약사와 상담하고
               <br />
@@ -40,9 +43,6 @@ export default function LandingPage() {
             <img className="pills" src={pills} alt="pills"></img>
             <img className="mockup" src={mockup} alt="mockup"></img>
           </div>
-          <button className="startBtn">
-            <span style={{ fontWeight: 700 }}>메디킷</span> 시작
-          </button>
         </div>
       </div>
       <div className="second-section">
