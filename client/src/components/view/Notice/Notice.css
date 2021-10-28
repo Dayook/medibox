@@ -52,6 +52,13 @@
   cursor: pointer;
 }
 
+.noticeTitle {
+  font-weight: 520;
+}
+.noticeTitle:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
   .btn {
     width: 70%;
