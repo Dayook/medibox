@@ -42,9 +42,9 @@ function Subscription(props) {
                   alt="personal"
                   className="icon"
                 />
-                <span className="purpose">개인용</span>
-                <br />
+                <div className="purpose">개인용</div>
                 <span className="price">무료</span>
+                <br />
               </div>
               <div className="explain">
                 1인 사용 가능 <br />
@@ -98,7 +98,7 @@ function Subscription(props) {
           <div className="usePurpose">
             <center>
               <img src={net} height="60px" className="icon" alt="institute" />
-              <span className="purpose">기관용</span>
+              <div className="purpose">기관용</div>
               <br />
               <span className="price">200원 / 월 </span>
               <br />

@@ -28,8 +28,9 @@ function Payment(props) {
       pg: "kakaopay",
       pay_method: "card",
       merchant_uid: "ORD" + new Date().getTime(),
-      name: "메디킷" + props.purpose + "정기결제",
+      name: "메디킷 정기결제",
       amount: props.price,
+      m_redirect_url: "../my-medicine",
       // customer_uid: "sohae1234",
       // buyer_email: "nyang@naver.com",
       // buyer_tel: "01022231107",
@@ -52,6 +53,7 @@ function Payment(props) {
     const variables = {
       user: localStorage.getItem("userId"),
       paid_amount: paid_amount,
+      purpose: props.purpose,
       merchant_uid: merchant_uid,
       pay_method: pay_method,
     };
@@ -60,7 +62,6 @@ function Payment(props) {
       alert("결제 성공");
       Axios.post("/api/payment/pay", variables).then((response) => {
         if (response.data.success) {
-          alert("얍");
         } else {
           alert("Fail");
         }
