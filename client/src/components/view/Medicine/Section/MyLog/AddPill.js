@@ -179,6 +179,7 @@ function Pill(props) {
         visible={isModalVisible}
         // onOk={handleOk}
         // onCancel={handleCancel}
+        closable={false}
         footer={[
           <Button key="back" onClick={handleCancel}>
             취소
