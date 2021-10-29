@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import "./Sections/LandingPage.css";
-import News from "./Sections/News";
 import mockup from "../../images/phone-mockup.png";
 import main1 from "../../images/main1.png";
 import main2 from "../../images/main2.png";

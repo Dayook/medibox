@@ -13,9 +13,7 @@ import Notice from "./components/view/Notice/Notice";
 import Auth from "./hoc/auth";
 import MyMedicine from "./components/view/Medicine/MyMedicine";
 import Counsel from "./components/view/Counsel/Counsel";
-// import Medicine from "./components/view/Medicine/Medicine";
 import Footer from "./components/view/Footer/Footer";
-import ColorPicker from "./components/ColorPicker";
 
 function App() {
   return (
@@ -40,7 +38,7 @@ function App() {
               component={Auth(PaymentResult, true)}
             /> */}
             {/* <Route exact path="/medicine" component={Auth(Medicine, true)} /> */}
-            <Route exact path="/colorpicker" component={Auth(ColorPicker)} />
+            {/* <Route exact path="/colorpicker" component={Auth(ColorPicker)} /> */}
             <Route
               exact={true}
               path="/my-medicine"
