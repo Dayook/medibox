@@ -15,7 +15,7 @@ function RightMenu(props) {
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then((response) => {
       if (response.status === 200) {
-        alert("logout");
+        alert("로그아웃하였습니다");
         window.location.replace("/");
       } else {
         alert("Log Out Failed");

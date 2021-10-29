@@ -36,13 +36,10 @@ function Join(props) {
     setNickName(e.target.value);
   };
   const onPasswordHandler = (event) => {
-    console.log(event.target.value);
     setPassword(event.target.value);
-    console.log("password:", Password);
   };
   const onPasswordCheckHandler = (event) => {
     setPasswordCheck(event.currentTarget.value);
-    console.log("Chcek:", PasswordCheck);
   };
 
   // const onBirthHandler = (e) => {};
@@ -85,8 +82,8 @@ function Join(props) {
           }}
           onSubmit={onSubmitHandler}
         >
-          <label>이메일(e-mail)</label>
-          <Input type="email" value={Email} onChange={onEmailHandler} />
+          <label>아이디</label>
+          <Input value={Email} onChange={onEmailHandler} />
           <label>별명</label>
           <Input type="text" value={NickName} onChange={onNickNameHandler} />
           <label>비밀번호</label>

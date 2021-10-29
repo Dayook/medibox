@@ -63,7 +63,19 @@ function Login(props) {
         }}
         onSubmit={onSubmitHandler}
       >
-        <label>이메일</label>
+        <div
+          className="noticeDiv"
+          style={{ textAlign: "center", marginBottom: "10px" }}
+        >
+          * 테스트용 계정
+          <br />
+          <span style={{ color: "#1890ff" }}>
+            아이디 : test
+            <br />
+            비밀번호 : test
+          </span>
+        </div>
+        <label>아이디</label>
         <Input type="email" value={Email} onChange={onEmailHandler} />
         <label>비밀번호</label>
         <Input type="password" value={Password} onChange={onPasswordHandler} />

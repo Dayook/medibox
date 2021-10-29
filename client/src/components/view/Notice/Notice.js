@@ -52,9 +52,9 @@ function Notice() {
           </span>
           <br />
           <div id="hiddenText">
-            &nbsp;&nbsp;<span className="blue">email : test@test.com</span>
+            &nbsp;&nbsp;<span className="blue">ID : test</span>
             <br />
-            &nbsp;&nbsp;<span className="blue">password: 12345678</span>
+            &nbsp;&nbsp;<span className="blue">password: test</span>
             <br />
             &nbsp;&nbsp;로 테스트 가능합니다.
           </div>
