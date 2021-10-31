@@ -9,11 +9,12 @@ function AlertInfo(props) {
   if (props.alert) {
     return (
       <>
-        <div className="exclamation" >
+        <div className="exclamation">
           <ExclamationCircleOutlined />
         </div>
         <div style={{ fontSize: "small", lineHeight: "2em" }}>
-          {props.alert}과 함께 복용 시 부작용이 있을 수 있습니다.
+          {props.alert}과 함께 복용 시 <br />
+          부작용이 있을 수 있습니다.
         </div>
       </>
     );

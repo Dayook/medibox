@@ -40,10 +40,6 @@ function MyLog(props) {
       id: log._id,
     };
 
-    const modifySubmit = () => {
-      alert("얍");
-    };
-
     const handleClick = () => {
       setModalIndex(index);
       setisModalVisible(true);
@@ -56,8 +52,9 @@ function MyLog(props) {
     const handleModify = () => {
       setisModifyVisible(true);
     };
-
-    // alert(Date.parse(log.START_DATE));
+    // today => 현재시간까지 기록됨
+    // log에 기록된 date => 아침 9시
+    //
     if (
       log.user &&
       Date.parse(log.END_DATE) >= Date.parse(today) &&

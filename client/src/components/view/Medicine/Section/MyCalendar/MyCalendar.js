@@ -28,7 +28,7 @@ function MyCalendar(props) {
     let startDate = new Date(log.START_DATE);
     let endDate = new Date(log.END_DATE);
     let dDate = startDate.setDate(startDate.getDate());
-    console.log(log);
+    console.log(startDate);
     // 왜 이렇게 해줘야 하지?????
     let color;
     if (log.medicineId) {
@@ -39,10 +39,10 @@ function MyCalendar(props) {
       // endDate 될때까지 하루 더하기
       dDate = startDate.setDate(startDate.getDate() + 1);
     }
-    console.log(dateMap);
   });
   function handleDateClick(info) {
     props.setToday(info.date);
+    window.scrollTo(0, 0);
   }
   function handleEventClick(info) {
     props.setToday(info.event.start);
