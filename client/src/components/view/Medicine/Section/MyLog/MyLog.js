@@ -32,10 +32,6 @@ function MyLog(props) {
   };
 
   const renderPills = props.MyLogInfo.map((log, index) => {
-    console.log(index, "log정보");
-    console.log(log);
-    // setRange([moment(log.START_DATE), moment(log.END_DATE)])
-    // setQuantity(log.quantity)
     const pillVariable = {
       id: log._id,
     };

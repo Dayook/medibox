@@ -14,7 +14,7 @@ export default function LandingPage() {
   }, []);
 
   const onClickHandler = () => {
-    document.location.href = "#starting";
+    document.location.href = "/my-medicine";
   };
   return (
     <div>

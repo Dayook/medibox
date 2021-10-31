@@ -187,6 +187,10 @@ div.sectionLeft:nth-child(1) > div > img:nth-child(2) {
     /* bottom: -200px; */
   }
 
+  .startBtn:hover {
+    cursor: pointer;
+  }
+
   .titleText {
     display: none;
     /* position: relative; */
