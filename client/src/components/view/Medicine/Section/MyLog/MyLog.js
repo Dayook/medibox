@@ -54,11 +54,11 @@ function MyLog(props) {
     };
     // today => 현재시간까지 기록됨
     // log에 기록된 date => 아침 9시
-    //
+    // 좀더 간편한 방법이 있다면?
     if (
       log.user &&
-      Date.parse(log.END_DATE) >= Date.parse(today) &&
-      Date.parse(log.START_DATE) <= Date.parse(today)
+      Date.parse(log.END_DATE) >= today.setHours(0, 0, 0, 0) &&
+      Date.parse(log.START_DATE) <= today.setHours(9, 0, 0, 0)
     ) {
       return (
         <div className="medicineItem">
