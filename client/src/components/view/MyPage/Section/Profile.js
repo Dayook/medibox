@@ -4,7 +4,6 @@ import profile from "../../../images/profile.png";
 
 function Profile(props) {
   const user = props.UserInfo;
-  // const [subscribe, setsubscribe] = useState("");
 
   let subscribe;
   if (props.Subscription === 0) {
@@ -14,10 +13,6 @@ function Profile(props) {
   } else if (props.Subscription === 2) {
     subscribe = "기관용";
   }
-  // const subscription = () => {
-
-  // };
-  console.log(user);
   if (user) {
     return (
       <div>
