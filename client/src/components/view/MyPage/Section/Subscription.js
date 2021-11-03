@@ -110,15 +110,6 @@ function Subscription(props) {
           </div>
         </label>
       </div>
-      {/* <div
-        className="basicBox"
-        style={{
-          margin: "10px auto",
-          border: "1px solid #d2d2d2",
-        }}
-      >
-        <Description purpose={purpose} subscription={props.Subscription} />
-      </div> */}
       <div className="payBox" style={{ margin: "30px auto" }}>
         {" "}
         <div className="payInfo">

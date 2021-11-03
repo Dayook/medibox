@@ -55,6 +55,15 @@ function Join(props) {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     // email, 비밀번호 검증
+    if (
+      Password === "" ||
+      Email === "" ||
+      NickName === "" ||
+      !setpasswordChecking
+    ) {
+      alert("모든 값을 입력해주세요");
+      return false;
+    }
 
     let body = {
       email: Email,

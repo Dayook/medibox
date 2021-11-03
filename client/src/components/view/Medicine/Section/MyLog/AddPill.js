@@ -31,8 +31,8 @@ function Pill(props) {
         setpills(response.data.medicines);
       }
     });
+    // 날짜, 이름 둘 다 설정되었을 때 실행
     if (Selected && StartDate && EndDate) {
-      // 날짜, 이름 둘 다 설정되었을 때 실행되도록 위치 변경할 것
       const checkVariables = {
         START_DATE: StartDate,
         END_DATE: EndDate,
@@ -61,7 +61,6 @@ function Pill(props) {
                 log.START_DATE <= EndDate &&
                 log.END_DATE >= StartDate
               ) {
-                // if (bannedItem.includes(log.medicineId.ITEM_SEQ)) {
                 setAlertDiv(log.medicineId.ITEM_NAME);
                 console.log(added[bannedIndex]._id);
                 setCautionWith(log._id);
@@ -102,6 +101,7 @@ function Pill(props) {
     };
 
     const myLog = props.MyLogInfo;
+    // 중복된 약 있는지 검증
     if (
       !myLog.some((log, index) => {
         // 1. myInfo log와 기간이 겹치는지 확인
@@ -125,8 +125,6 @@ function Pill(props) {
           setSearchValue("");
           setQuantity("");
           setAlertDiv("");
-          // setStartDate(null);
-          // setEndDate(null);
           // 모달창 끄기
           setisModalVisible(false);
         } else {
@@ -134,8 +132,6 @@ function Pill(props) {
         }
       });
     }
-
-    // functino 종료
   };
   const showModal = () => {
     if (!IsLoaded) {
@@ -148,9 +144,6 @@ function Pill(props) {
 
     setisModalVisible(true);
     console.log(pills);
-  };
-  const handleOk = () => {
-    setisModalVisible(false);
   };
   const handleCancel = () => {
     // 입력창 초기화;
