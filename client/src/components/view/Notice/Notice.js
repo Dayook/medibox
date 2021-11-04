@@ -10,12 +10,12 @@ function Notice() {
     if (Visibility === false) {
       document.getElementById("noticeModal").style.display = "none";
     } else {
-      document.getElementById("noticeModal").style.display = "";
+      document.getElementById("noticeModal").style.display = "block";
     }
     if (NoticeVisibility === false) {
       document.getElementById("hiddenText").style.display = "none";
     } else {
-      document.getElementById("hiddenText").style.display = "";
+      document.getElementById("hiddenText").style.display = "block";
     }
 
     // if (NoticeVisibility2 === false) {
