@@ -15,7 +15,7 @@ function PaymentResult() {
   const returnHandler = () => {
     window.location.href = "/myPage";
   };
-  if (success !== "false") {
+  if (success === "true") {
     Axios.post("/api/payment/payResult", variables).then((response) => {
       if (response.data.success) {
       } else {

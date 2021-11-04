@@ -24,8 +24,8 @@ function Payment(props) {
     IMP.init("imp63642369");
 
     const data = {
-      pg: "html5_inisis",
-      // pg: "kakaopay",
+      // pg: "html5_inisis",
+      pg: "kakaopay",
       pay_method: "card",
       merchant_uid: "ORD" + new Date().getTime() + props.purpose,
       name: "메디킷 정기결제",
