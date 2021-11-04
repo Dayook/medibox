@@ -26,7 +26,7 @@ function App() {
             <Route exact={true} path="/" component={Auth(LandingPage)} />
             <Route exact={true} path="/counsel" component={Auth(Counsel)} />
             <Route exact={true} path="/login" component={Auth(Login, false)} />
-            <Route exact={true} path="/oauth" component={Auth(Login, false)} />
+            {/* <Route exact={true} path="/oauth" component={Auth(Login, false)} /> */}
             <Route
               exact={true}
               path="/register"

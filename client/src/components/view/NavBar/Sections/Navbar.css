@@ -3,9 +3,23 @@
 .menu {
   padding: 5px 20px;
   border-bottom: solid 1px #e8e8e8;
-  overflow: auto;
+  /* overflow: auto; */
   box-shadow: 0 0 30px #f3f1f1;
   background-color: white;
+}
+/* .ant-menu-horizontal > .ant-menu-item:after,
+.ant-menu-horizontal > .ant-menu-submenu:after {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  left: 20px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  content: "";
+} */
+
+.menu-item {
+  width: 300px;
 }
 
 .logo {

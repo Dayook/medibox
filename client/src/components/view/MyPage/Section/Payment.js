@@ -38,7 +38,9 @@ function Payment(props) {
 
     IMP.request_pay(data, callback);
   };
-
+  // 모바일 웹 환경에서 특정 PG사는
+  // 결제가 완료되면 callback 함수가 실행되지 않음
+  // param.m_redirect_url 파라미터로 리디렉션될 URL 설정해줘야.
   const callback = (response) => {
     const {
       success,
@@ -49,7 +51,7 @@ function Payment(props) {
       paid_amount,
       status,
     } = response;
-
+    alert("챱");
     const variables = {
       user: localStorage.getItem("userId"),
       paid_amount: paid_amount,
