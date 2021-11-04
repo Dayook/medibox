@@ -106,7 +106,14 @@ label > input:checked + div {
 .userPurpose:hover {
   cursor: pointer;
 }
-
+.payResult {
+  height: 82vh;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 40px;
+  width: 100vw;
+}
 .usePurpose:nth-child(3n-1) {
   margin: 0 10px;
 }
@@ -126,6 +133,17 @@ label > input:checked + div {
   display: table;
   font-size: larger;
   font-weight: 800;
+}
+
+#returnButton {
+  background-color: #3ea2ff;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 40px;
+  color: white;
+  margin-top: 2em;
+  width: 60vw;
 }
 
 #payButton {

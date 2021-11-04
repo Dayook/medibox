@@ -24,13 +24,13 @@ function Payment(props) {
     IMP.init("imp63642369");
 
     const data = {
-      // pg: "html5_inisis",
-      pg: "kakaopay",
+      pg: "html5_inisis",
+      // pg: "kakaopay",
       pay_method: "card",
-      merchant_uid: "ORD" + new Date().getTime(),
+      merchant_uid: "ORD" + new Date().getTime() + props.purpose,
       name: "메디킷 정기결제",
       amount: props.price,
-      m_redirect_url: window.location.host + "/myPage",
+      m_redirect_url: window.location.host + "/paymentResult",
       // customer_uid: "sohae1234",
       // buyer_email: "nyang@naver.com",
       // buyer_tel: "01022231107",
@@ -51,7 +51,6 @@ function Payment(props) {
       paid_amount,
       status,
     } = response;
-    alert("챱");
     const variables = {
       user: localStorage.getItem("userId"),
       paid_amount: paid_amount,
