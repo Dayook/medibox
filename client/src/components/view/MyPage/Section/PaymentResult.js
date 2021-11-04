@@ -22,15 +22,15 @@ function PaymentResult() {
         alert("Fail");
       }
     });
-    alert("h");
-    setTimeout((window.location.href = window.location.host + "/myPage"), 300);
 
     return (
       <div className="payResult">
         <div>
           결제에 성공하였습니다.
           <br />
-          3초 뒤 프로필 페이지로 이동합니다.{" "}
+          <button id="returnButton" onClick={returnHandler}>
+            돌아가기
+          </button>
         </div>
       </div>
     );
