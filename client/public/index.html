@@ -9,6 +9,12 @@
       name="description"
       content="Web site created for self-driven medical data management"
     />
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      // SDK 초기화
+      Kakao.init('19e2341312c2b218238cbf4bfbfd9ece');
+      console.log(Kakao.isInitialized());
+    </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
