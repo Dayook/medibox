@@ -59,7 +59,7 @@ function Join(props) {
       Password === "" ||
       Email === "" ||
       NickName === "" ||
-      !setpasswordChecking
+      passwordChecking === false
     ) {
       alert("모든 값을 입력해주세요");
       return false;
