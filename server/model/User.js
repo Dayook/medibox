@@ -54,6 +54,8 @@ userSchema.methods.comparePassword = function (plainPassword, cb) {
   });
 };
 
+
+
 userSchema.methods.generateToken = function (cb) {
   var user = this;
   //jsonwebtoken 이용하여 token 생성

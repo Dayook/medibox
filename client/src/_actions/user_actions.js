@@ -24,6 +24,17 @@ export function kakaoLoginUser(dataToSubmit) {
   };
 }
 
+export function kakaoRegisterUser(dataToSubmit) {
+  const request = axios
+    .post(`/api/users/kakaoRegister`, dataToSubmit)
+    .then((response) => response.data);
+
+  return {
+    type: REGISTER_USER,
+    payload: request,
+  };
+}
+
 export function loginUser(dataToSubmit) {
   const request = axios
     .post(`/api/users/login`, dataToSubmit)

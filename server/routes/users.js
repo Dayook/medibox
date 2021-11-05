@@ -16,6 +16,23 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.post("/kakaoRegister", (req, res) => {
+  const user = new User(req.body);
+  user.save((err, userInfo) => {
+    if (err) return res.json({ success: false, err });
+    else {
+      user.generateToken((err, user) => {
+        if (err) return res.status(400).send(err);
+      });
+      // 토큰을 저장한다.  어디에 ?  쿠키 , 로컬스토리지
+      return res
+        .cookie("x_auth", user.token)
+        .status(200)
+        .json({ loginSuccess: true, userId: user._id });
+    }
+  });
+});
+
 router.post("/subscription", (req, res) => {
   User.findOne({ _id: req.body.user }, (err, user) => {
     if (err) return res.status(400).send(err);
@@ -63,16 +80,23 @@ router.post("/kakaoLogin", (req, res) => {
     // console.log('user', user)
     console.log("kakaoLogin");
     if (!user) {
-      // 없으면 가입
-      const newUser = new User(req.body);
-      newUser.save((err, userInfo) => {
-        if (err) return res.json({ success: false, err });
-        return res.status(200).json({
-          success: true,
-        });
-      });
-    }
+      console.log("가입해");
+      return res.json({ success: false, msg: "notRegistered" });
+      // console.log("가입");
+      // // 없으면 가입
+      // const newUser = new User(req.body);
+      // newUser.save((err, userInfo) => {
+      //   if (err) return res.json({ success: false, err });
+      //   return res.status(200).json({
+      //     success: true,
+      //   });
+      // });
+      // console.log("ㄱㄱ");
 
+      // User.findOne({ email: req.body.email }, (err, nUser) => {
+      //   console.log(nUser);
+      // }
+    }
     //비밀번호 까지 맞다면 토큰 생성하기.
     user.generateToken((err, user) => {
       if (err) return res.status(400).send(err);
