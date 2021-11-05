@@ -14,7 +14,9 @@ import Auth from "./hoc/auth";
 import MyMedicine from "./components/view/Medicine/MyMedicine";
 import Counsel from "./components/view/Counsel/Counsel";
 import Footer from "./components/view/Footer/Footer";
-import Oauth from "./components/view/Login/Oauth";
+
+import PaymentResult from "./components/view/MyPage/Section/PaymentResult";
+
 
 function App() {
   return (
@@ -27,18 +29,20 @@ function App() {
             <Route exact={true} path="/" component={Auth(LandingPage)} />
             <Route exact={true} path="/counsel" component={Auth(Counsel)} />
             <Route exact={true} path="/login" component={Auth(Login, false)} />
-            <Route exact={true} path="/oauth" component={Auth(Oauth, false)} />
+
+            {/* <Route exact={true} path="/oauth" component={Auth(Login, false)} /> */}
+
             <Route
               exact={true}
               path="/register"
               component={Auth(Join, false)}
             />
             <Route exact={true} path="/mypage" component={Auth(MyPage, true)} />
-            {/* <Route
+            <Route
               exact={true}
-              path="/payment/result"
+              path="/paymentResult"
               component={Auth(PaymentResult, true)}
-            /> */}
+            />
             {/* <Route exact path="/medicine" component={Auth(Medicine, true)} /> */}
             {/* <Route exact path="/colorpicker" component={Auth(ColorPicker)} /> */}
             <Route
