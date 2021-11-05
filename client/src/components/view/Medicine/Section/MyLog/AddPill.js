@@ -25,7 +25,6 @@ function Pill(props) {
   let [AlertDiv, setAlertDiv] = useState();
 
   useEffect(() => {
-    console.log("render");
     Axios.get("/api/medicines/getMedicine").then((response) => {
       if (response.data.success) {
         setpills(response.data.medicines);
@@ -43,7 +42,6 @@ function Pill(props) {
       Axios.post("/api/medicines/checkCaution", checkVariables).then(
         (response) => {
           if (response.data.success) {
-            console.log("정보:", response.data.added);
             // 추가된 약의 병용금기약 데이터를 불러온다
             const added = response.data.added;
             var bannedItem = [];
@@ -143,7 +141,6 @@ function Pill(props) {
     }
 
     setisModalVisible(true);
-    console.log(pills);
   };
   const handleCancel = () => {
     // 입력창 초기화;
