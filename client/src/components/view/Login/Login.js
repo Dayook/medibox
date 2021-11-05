@@ -1,7 +1,12 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_actions";
+import { kakaoLoginUser } from "../../../_actions/user_actions";
 import { Form, Input, Button, Checkbox } from "antd";
+import { registerUser } from "../../../_actions/user_actions";
+import axios from "axios";
+const { Kakao } = window;
+// 브라우저의 window 객체에서 Kakao API 가져올 수 있음
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -17,6 +22,79 @@ function Login(props) {
   useEffect(() => {
     setEmail(initialEmail);
   }, []);
+
+  const kakaoLoginHandler = () => {
+    console.log("login");
+    Kakao.Auth.login({
+      // 요구정보 설정
+      scope: "account_email, profile_nickname",
+      success: function (response) {
+        console.log(response);
+        Kakao.API.request({
+          url: "/v2/user/me",
+          success: (res) => {
+            const kakao_account = res.kakao_account;
+            const body = {
+              email: kakao_account.email,
+              nickname: kakao_account.profile.nickname,
+            };
+
+            dispatch(kakaoLoginUser(body)).then((response) => {
+              if (response.payload.loginSuccess) {
+                props.history.push("/");
+                window.localStorage.setItem("userId", response.payload.userId);
+              }
+            });
+
+            // email이 아이디로 이미 존재하는 경우  =>로그인
+            // if(kakao_account.email)
+            // let body = {
+            //   email: kakao_account.email,
+            //   nickname: kakao_account.profile.nickname,
+            //   // password: Password,
+            // };
+
+            // dispatch(registerUser(body)).then((response) => {
+            //   if (response.payload.success) {
+            //     props.history.push("/login");
+            //     alert("가입 완료");
+            //   } else {
+            //     alert("Failed to sign up");
+            //   }
+            // });
+
+            // email이 기존에 등록되지 않은 경우(회원가입 진행)
+            console.log(kakao_account.email);
+            console.log(kakao_account.profile.nickname);
+          },
+        });
+      },
+    });
+    // Kakao.Auth.authorize({
+    //   redirectUri: "http://localhost:3000/oauth",
+    //   scope: "account_email, profile_nickname",
+    // });
+  };
+  // Kakao.Auth.setAccessToken(ACCESS_TOKEN);
+  const kakaoLogoutHandler = () => {
+    console.log("logout");
+    if (!Kakao.Auth.getAccessToken()) {
+      console.log("Not logged in.");
+      return;
+    }
+    Kakao.Auth.logout(function () {
+      console.log(Kakao.Auth.getAccessToken());
+      Kakao.API.request({
+        url: "/v1/user/unlink",
+        success: function (response) {
+          console.log(response);
+        },
+        fail: function (error) {
+          console.log(error);
+        },
+      });
+    });
+  };
   const handleRememberMe = () => {
     setRememberMe(!RememberMe);
   };
@@ -92,6 +170,8 @@ function Login(props) {
         <Button type="primary" onClick={onSubmitHandler}>
           로그인
         </Button>
+        <Button onClick={kakaoLoginHandler}>캐캐오</Button>
+        <Button onClick={kakaoLogoutHandler}>로그아웃</Button>
       </form>
     </div>
   );
