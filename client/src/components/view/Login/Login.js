@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_actions";
+import { kakaoLoginUser } from "../../../_actions/user_actions";
 import { Form, Input, Button, Checkbox } from "antd";
 import { registerUser } from "../../../_actions/user_actions";
 import axios from "axios";
@@ -33,7 +34,18 @@ function Login(props) {
           url: "/v2/user/me",
           success: (res) => {
             const kakao_account = res.kakao_account;
-            
+            const body = {
+              email: kakao_account.email,
+              nickname: kakao_account.profile.nickname,
+            };
+
+            dispatch(kakaoLoginUser(body)).then((response) => {
+              if (response.payload.loginSuccess) {
+                props.history.push("/");
+                window.localStorage.setItem("userId", response.payload.userId);
+              }
+            });
+
             // email이 아이디로 이미 존재하는 경우  =>로그인
             // if(kakao_account.email)
             // let body = {
@@ -52,7 +64,8 @@ function Login(props) {
             // });
 
             // email이 기존에 등록되지 않은 경우(회원가입 진행)
-            console.log(kakao_account);
+            console.log(kakao_account.email);
+            console.log(kakao_account.profile.nickname);
           },
         });
       },

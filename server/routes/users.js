@@ -49,7 +49,7 @@ router.post("/login", (req, res) => {
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
       });
-      // 토큰을 저장한다.  어디에 ?  쿠키 , 로컳스토리지
+      // 토큰을 저장한다.  어디에 ?  쿠키 , 로컬스토리지
       res
         .cookie("x_auth", user.token)
         .status(200)
@@ -58,6 +58,32 @@ router.post("/login", (req, res) => {
   });
 });
 // });
+router.post("/kakaoLogin", (req, res) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
+    // console.log('user', user)
+    console.log("kakaoLogin");
+    if (!user) {
+      // 없으면 가입
+      const newUser = new User(req.body);
+      newUser.save((err, userInfo) => {
+        if (err) return res.json({ success: false, err });
+        return res.status(200).json({
+          success: true,
+        });
+      });
+    }
+
+    //비밀번호 까지 맞다면 토큰 생성하기.
+    user.generateToken((err, user) => {
+      if (err) return res.status(400).send(err);
+    });
+    // 토큰을 저장한다.  어디에 ?  쿠키 , 로컬스토리지
+    res
+      .cookie("x_auth", user.token)
+      .status(200)
+      .json({ loginSuccess: true, userId: user._id });
+  });
+});
 
 // role 1 어드민    role 2 특정 부서 어드민
 // role 0 -> 일반유저   role 0이 아니면  관리자
