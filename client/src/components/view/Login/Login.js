@@ -1,12 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  loginUser,
-  registerUser,
-  kakaoRegisterUser,
-} from "../../../_actions/user_actions";
+import { loginUser, kakaoRegisterUser } from "../../../_actions/user_actions";
 import { kakaoLoginUser } from "../../../_actions/user_actions";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Divider, Input, Button, Checkbox } from "antd";
 import kakaoButton from "../../images/kakaoLogin.png";
 import "./Login.css";
 const { Kakao } = window;
@@ -166,6 +162,7 @@ function Login(props) {
         <Button type="primary" onClick={onSubmitHandler}>
           로그인
         </Button>
+        <Divider />
         <img
           id="kakaoLogin"
           src={kakaoButton}

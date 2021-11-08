@@ -17,7 +17,6 @@ import Footer from "./components/view/Footer/Footer";
 
 import PaymentResult from "./components/view/MyPage/Section/PaymentResult";
 
-
 function App() {
   return (
     <Suspense>

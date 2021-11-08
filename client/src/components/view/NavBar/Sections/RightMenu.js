@@ -5,6 +5,7 @@ import axios from "axios";
 import { USER_SERVER } from "../../../../Config";
 import { withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
+const { Kakao } = window;
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -13,6 +14,21 @@ function RightMenu(props) {
   const user = useSelector((state) => state.user);
 
   const logoutHandler = () => {
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.Auth.logout(function () {
+        console.log(Kakao.Auth.getAccessToken());
+        Kakao.API.request({
+          url: "/v1/user/unlink",
+          success: function (response) {
+            console.log(response);
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        });
+      });
+    }
+
     axios.get(`${USER_SERVER}/logout`).then((response) => {
       if (response.status === 200) {
         alert("로그아웃하였습니다");
