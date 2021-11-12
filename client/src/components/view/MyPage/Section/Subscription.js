@@ -10,6 +10,77 @@ function Subscription(props) {
   const [purpose, setPurpose] = useState(0);
   const [price, setPrice] = useState(0);
 
+  const subscribeInfo = [
+    {
+      title: "personal",
+      purpose: "개인용",
+      index: 0,
+      priceInfo: " 무료",
+
+      price: 0,
+      desc: "1인 사용 가능",
+      image: { person },
+    },
+    {
+      title: "family",
+      purpose: "가족용",
+      priceInfo: " 100 / 월",
+      index: 1,
+      price: 100,
+      desc: " 1~6인 관리 가능",
+      image: { home },
+    },
+    {
+      title: "institute",
+      purpose: "기관용",
+      index: 2,
+      priceInfo: " 200 / 월",
+      price: 200,
+      desc: "~60인 관리 가능 ",
+      image: { net },
+    },
+  ];
+
+  const subsInfoDiv = subscribeInfo.map((subs, index) => {
+    return (
+      <label
+        className="label"
+        for={subs.title}
+        style={{ width: "-webkit-fill-available" }}
+      >
+        <input
+          type="radio"
+          id={subs.title}
+          name="purpose"
+          onClick={() => {
+            setPurpose(subs.index);
+            setPrice(subs.price);
+          }}
+        />
+        <div className="usePurpose">
+          <center>
+            <div>
+              {/* {subs.image} */}
+              <img
+                src={Object.values(subs.image)}
+                // src={require(`../../../images/net.png`)}
+                height="60px"
+                alt={subs.title}
+                className="icon"
+              />
+              <div className="purpose">{subs.purpose}</div>
+              <span className="price">{subs.priceInfo}</span>
+              <br />
+            </div>
+            <div className="explain">
+              {subs.desc} <br />
+            </div>
+          </center>
+        </div>
+      </label>
+    );
+  });
+
   return (
     <div>
       <span
@@ -19,7 +90,8 @@ function Subscription(props) {
         {/* 요금제 선택 */}
       </span>
       <div className="subscribe">
-        <label
+        {subsInfoDiv}
+        {/* <label
           className="label"
           for="personal"
           style={{ width: "-webkit-fill-available" }}
@@ -108,7 +180,7 @@ function Subscription(props) {
               <div></div>
             </center>
           </div>
-        </label>
+        </label> */}
       </div>
       <div className="payBox" style={{ margin: "30px auto" }}>
         {" "}
