@@ -5,12 +5,12 @@ const MenuItemGroup = Menu.ItemGroup;
 
 function LeftMenu(props) {
   return (
-    <Menu mode={props.mode}>
-      {/* <Menu.Item key="setting:1">칼럼</Menu.Item> */}
+    <Menu mode={props.mode} style={{ width: "400px" }}>
+      {/* <Menu.Item key="counsel">칼럼</Menu.Item> */}
       <Menu.Item key="my-medicine">
         <a href="/my-medicine">나의 처방전</a>
       </Menu.Item>
-      {/* <Menu.Item key="setting:2">
+      {/* <Menu.Item key="counsel">
         <a href="/counsel">상담</a>
       </Menu.Item> */}
       {/* <SubMenu key="sub" title={<span>Articles</span>}>

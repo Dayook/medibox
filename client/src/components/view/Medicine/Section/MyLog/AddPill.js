@@ -41,9 +41,13 @@ function Pill(props) {
 
       Axios.post("/api/medicines/checkCaution", checkVariables).then(
         (response) => {
-          if (response.data.success) {
+          if (response.data.added.length !== 0) {
+            console.log(response.data.added);
+            alert(response.data.added);
             // 추가된 약의 병용금기약 데이터를 불러온다
+            console.log(response.data.added);
             const added = response.data.added;
+
             var bannedItem = [];
             added.map((add, index) => {
               console.log(add.MIXTURE_ITEM_SEQ);
@@ -72,7 +76,6 @@ function Pill(props) {
               }
             });
           } else {
-            alert("failed");
           }
         }
       );
@@ -100,11 +103,15 @@ function Pill(props) {
 
     const myLog = props.MyLogInfo;
     // 중복된 약 있는지 검증
+    console.log("myLog!!!!");
+    console.log(myLog);
     if (
       !myLog.some((log, index) => {
         // 1. myInfo log와 기간이 겹치는지 확인
+        console.log("log" + log.medicineId);
+        const medicineId = log.medicineId._id;
         if (
-          log.medicineId._id === logVariables.medicineId &&
+          medicineId === logVariables.medicineId &&
           log.START_DATE <= EndDate &&
           log.END_DATE >= StartDate
         ) {

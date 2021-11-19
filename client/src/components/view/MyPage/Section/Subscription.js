@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Description from "./Description";
+import React, { useState } from "react";
 import Payment from "./Payment";
 import person from "../../../images/person.png";
 import net from "../../../images/net.png";
