@@ -59,6 +59,9 @@ function RightMenu(props) {
           <Menu.Item key="myPage">
             <a href="/myPage">프로필/요금</a>
           </Menu.Item>
+          <Menu.Item key="dashboard">
+            <a href="/dashboard">대시보드</a>
+          </Menu.Item>
           <Menu.Item key="logout">
             <a onClick={logoutHandler}>로그아웃</a>
           </Menu.Item>

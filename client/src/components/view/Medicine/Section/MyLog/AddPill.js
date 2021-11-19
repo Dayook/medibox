@@ -103,8 +103,6 @@ function Pill(props) {
 
     const myLog = props.MyLogInfo;
     // 중복된 약 있는지 검증
-    console.log("myLog!!!!");
-    console.log(myLog);
     if (
       !myLog.some((log, index) => {
         // 1. myInfo log와 기간이 겹치는지 확인
