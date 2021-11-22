@@ -44,7 +44,7 @@ router.post("/myLog", (req, res) => {
     });
 });
 
-router.get("/deleteAlllll", (req, res) => {
+router.get("/deleteNoColor", (req, res) => {
   Medicine.deleteMany({ COLOR: "notExtracted" }).exec((err, removed) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, msg: removed });
