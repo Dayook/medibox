@@ -35,6 +35,9 @@ function MyLog(props) {
     const pillVariable = {
       id: log._id,
     };
+    if (log.CLASS_NO) {
+      var classNo = log.CLASS_NO.substr(5);
+    }
 
     const handleClick = () => {
       setModalIndex(index);
@@ -75,8 +78,9 @@ function MyLog(props) {
                 {log.cautionWith && <ExclamationCircleOutlined />}
               </div>
             </div>
-            <span className="entpName">{log.medicineId.ENTP_NAME} | </span>{" "}
+            <span className="entpName">{classNo} | </span>{" "}
             <span className="quantity">{log.QUANTITY}알</span>
+            <span className="classify"></span>
           </div>
           <div></div>
         </div>
@@ -97,27 +101,6 @@ function MyLog(props) {
               dateString={dateString}
               today={today}
             />
-            {/* <div className="dateDiv">
-            <CaretLeftOutlined
-              onClick={() => {
-                props.setToday(
-                  new Date(today.setDate(props.today.getDate() - 1))
-                );
-              }}
-            />
-            {""}
-            {dateString}
-            <div className="calendarCard">
-              <Calendar fullscreen={false} onSelect={onSelect}></Calendar>
-            </div>
-            <CaretRightOutlined
-              onClick={() => {
-                props.setToday(
-                  new Date(today.setDate(props.today.getDate() + 1))
-                );
-              }}
-            />
-          </div> */}
           </center>
           <br />
           <div className="logBox">

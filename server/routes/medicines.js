@@ -44,6 +44,13 @@ router.post("/myLog", (req, res) => {
     });
 });
 
+router.get("/deleteAlllll", (req, res) => {
+  Medicine.deleteMany({ COLOR: null }).exec((err, removed) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, msg: removed });
+  });
+});
+
 router.post("/logUpdate", (req, res) => {
   Log.findOneAndUpdate(
     { _id: req.body._id },

@@ -24,6 +24,8 @@ const logSchema = mongoose.Schema({
     type: Date,
   },
 
+  CLASS_NO: { type: String },
+
   cautionWith: {
     // type: String,
     type: mongoose.Schema.Types.ObjectId,
