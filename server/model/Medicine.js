@@ -23,6 +23,7 @@ const medicineSchema = mongoose.Schema({
   CANCEL_DATE: { type: Date },
   CANCEL_NAME: { type: String },
   CHANGE_DATE: { type: Date },
+  COLOR: { type: String },
 });
 
 const Medicine = mongoose.model("Medicine", medicineSchema);

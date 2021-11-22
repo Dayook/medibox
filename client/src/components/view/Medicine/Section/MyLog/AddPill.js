@@ -43,7 +43,6 @@ function Pill(props) {
         (response) => {
           if (response.data.added.length !== 0) {
             console.log(response.data.added);
-            alert(response.data.added);
             // 추가된 약의 병용금기약 데이터를 불러온다
             console.log(response.data.added);
             const added = response.data.added;
@@ -95,6 +94,7 @@ function Pill(props) {
         "https://www.pharm.or.kr:442/images/sb_photo/big3/" +
         pills[Selected].DRUG_CD +
         ".jpg",
+      CLASS_NO: pills[Selected].CLASS_NO,
       START_DATE: StartDate,
       END_DATE: EndDate,
       cautionWith: cautionWith,
@@ -103,8 +103,6 @@ function Pill(props) {
 
     const myLog = props.MyLogInfo;
     // 중복된 약 있는지 검증
-    console.log("myLog!!!!");
-    console.log(myLog);
     if (
       !myLog.some((log, index) => {
         // 1. myInfo log와 기간이 겹치는지 확인

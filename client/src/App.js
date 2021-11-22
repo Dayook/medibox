@@ -16,6 +16,7 @@ import Counsel from "./components/view/Counsel/Counsel";
 import Footer from "./components/view/Footer/Footer";
 
 import PaymentResult from "./components/view/MyPage/Section/PaymentResult";
+import DashBoard from "./components/view/DashBoard/DashBoard";
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
               exact={true}
               path="/register"
               component={Auth(Join, false)}
+            />
+            <Route
+              exact={true}
+              path="/dashboard"
+              component={Auth(DashBoard, true)}
             />
             <Route exact={true} path="/mypage" component={Auth(MyPage, true)} />
             <Route

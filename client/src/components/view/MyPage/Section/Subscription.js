@@ -23,7 +23,7 @@ function Subscription(props) {
     {
       title: "family",
       purpose: "가족용",
-      priceInfo: " 100 / 월",
+      priceInfo: " 100원 / 월",
       index: 1,
       price: 100,
       desc: " 1~6인 관리 가능",
@@ -33,7 +33,7 @@ function Subscription(props) {
       title: "institute",
       purpose: "기관용",
       index: 2,
-      priceInfo: " 200 / 월",
+      priceInfo: " 200원 / 월",
       price: 200,
       desc: "~60인 관리 가능 ",
       image: { net },
@@ -90,96 +90,7 @@ function Subscription(props) {
       </span>
       <div className="subscribe">
         {subsInfoDiv}
-        {/* <label
-          className="label"
-          for="personal"
-          style={{ width: "-webkit-fill-available" }}
-        >
-          <input
-            type="radio"
-            id="personal"
-            name="purpose"
-            onClick={() => {
-              setPurpose(0);
-              setPrice(0);
-            }}
-          />
-          <div className="usePurpose">
-            <center>
-              <div>
-                <img
-                  src={person}
-                  height="60px"
-                  alt="personal"
-                  className="icon"
-                />
-                <div className="purpose">개인용</div>
-                <span className="price">무료</span>
-                <br />
-              </div>
-              <div className="explain">
-                1인 사용 가능 <br />
-              </div>
-            </center>
-          </div>
-        </label>
-        <label
-          className="label"
-          for="family"
-          style={{ width: "-webkit-fill-available" }}
-        >
-          <input
-            type="radio"
-            id="family"
-            name="purpose"
-            onClick={() => {
-              setPurpose(1);
-              setPrice(100);
-            }}
-          />
-          <div className="usePurpose">
-            <center>
-              <img src={home} height="60px" alt="family" className="icon" />
-              <div>
-                <div className="purpose">
-                  가족용
-                  <br />
-                  <span className="price">100원 / 월 </span>
-                </div>
-              </div>
-              <div className="explain"> · 1~6인 관리 가능</div>
-            </center>
-          </div>
-        </label>
-        <label
-          className="label"
-          for="institute"
-          style={{ width: "-webkit-fill-available" }}
-        >
-          <input
-            type="radio"
-            name="purpose"
-            id="institute"
-            onClick={() => {
-              setPurpose(2);
-              setPrice(200);
-            }}
-          />
-          <div className="usePurpose">
-            <center>
-              <img src={net} height="60px" className="icon" alt="institute" />
-              <div className="purpose">
-                기관용
-                <br />
-                <span className="price">200원 / 월 </span>
-              </div>
-              <div className="explain">
-                ~60인 사용 가능<br></br>월 3회 상담 무료{" "}
-              </div>
-              <div></div>
-            </center>
-          </div>
-        </label> */}
+
       </div>
       <div className="payBox" style={{ margin: "30px auto" }}>
         {" "}
