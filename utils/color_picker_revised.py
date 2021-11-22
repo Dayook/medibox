@@ -14,7 +14,7 @@ for i in range(len(json_data) - 1) :
         print(json_data[i]['INSERT_FILE'])
         url = "https://www.pharm.or.kr:442/images/sb_photo/big3/" + json_data[i]['INSERT_FILE'][-20:-7] + "01.jpg"
         json_data[i]['DRUG_CD'] = json_data[i]['INSERT_FILE'][-20:-7] + "01"
-        json_data[i]['COLOR'] = "A"
+        json_data[i]['COLOR'] = "notExtracted"
         response = requests.get(url)
         if response.status_code == 200:
             im = Image.open(BytesIO(response.content))
