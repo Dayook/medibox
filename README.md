@@ -18,6 +18,10 @@
 - 멤버쉽에 따른 결제기능(카카오페이)
 
 
+## Test
+- git test 진행중
+
+
 
 🔗[바로가기](http://medikit.site/)
 🔗[소개 페이지](https://dayook.github.io/projects/medikit)
